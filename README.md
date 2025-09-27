@@ -39,9 +39,9 @@
 
 ---
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://via.placeholder.com/800x400/007ACC/FFFFFF?text=Professional+README+Templates" alt="Awesome README Templates Showcase"/>
-</p>
+</p> -->
 
 **Awesome README Templates** is a comprehensive collection of professional, ready-to-use README templates that help developers create stunning documentation for their GitHub projects in minutes.
 
@@ -200,4 +200,5 @@ awesome-readme
 
 <p align="center">
   Made with ❤️ by <a href="https://github.com/GabrielBaiano" target="_blank">GabrielBaiano</a>
+
 </p>
