@@ -8,10 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- NPM package configuration with package.json
+- CLI tool (awesome-readme) for easy template installation
+- Interactive template selection system with 8 different options
+- Professional templates in templates/ directory
+- CONTRIBUTING template with placeholders for any project
+- CHANGELOG template with semantic versioning support
+- MIT License template with customizable placeholders
+- Apache 2.0 License template with customizable placeholders
+- Complete package option (all templates at once)
+- Comprehensive test suite for package validation
+- NPM-README.md with package-specific documentation
+- PUBLISH-GUIDE.md with publishing instructions
 - CONTRIBUTING.md with comprehensive contribution guidelines (English)
 - LICENSE-GUIDE.md with detailed explanation of different license types
 - Complete template manual and guide in README files
-- Installation instructions with NPM/Yarn commands (placeholders)
+- Installation instructions with NPM/Yarn commands
 - Detailed explanations for each template section
 - Pro tips and customization ideas
 - Real-world example section featuring Shii! project

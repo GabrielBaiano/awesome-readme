@@ -1,0 +1,57 @@
+# Development files
+.git/
+.gitignore
+.gitattributes
+.vscode/
+.idea/
+*.log
+*.tmp
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Documentation (keep main ones)
+# README.md - keep this
+# LICENSE - keep this
+# CHANGELOG.md - keep this
+# CONTRIBUTING.md - keep this
+# LICENSE-GUIDE.md - keep this
+
+# Build files
+dist/
+build/
+coverage/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Package manager files
+package-lock.json
+yarn.lock
