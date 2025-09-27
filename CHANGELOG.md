@@ -21,7 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - NPM-README.md with package-specific documentation
 - PUBLISH-GUIDE.md with publishing instructions
 - CONTRIBUTING.md with comprehensive contribution guidelines (English)
-- LICENSE-GUIDE.md with detailed explanation of different license types
 - Complete template manual and guide in README files
 - Installation instructions with NPM/Yarn commands
 - Detailed explanations for each template section
@@ -36,6 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Repository now serves as both template and instruction manual
 - Simplified repository structure - removed unnecessary files
 - Enhanced README-pt.md with missing badges and navigation elements
+- Removed "Privacy and Security" section from all README templates
+- Renamed "Privacy and Security" to "Quality Assurance" in main READMEs
+- Updated main README.md with NPM package information and structure
+- Removed LICENSE-GUIDE.md to simplify project structure
+- Updated README-pt.md to remove references to LICENSE-GUIDE
 
 ### Deprecated
 - Nothing yet

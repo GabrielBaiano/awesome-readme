@@ -120,14 +120,6 @@ npm start
 npm run package
 ```
 
-## 🔒 Privacidade e Segurança
-
-O [PROJECT_NAME] é construído pensando na privacidade dos [TARGET_AUDIENCE_PT]:
-- [PRIVACY_FEATURE_1_PT]
-- [PRIVACY_FEATURE_2_PT]
-- [PRIVACY_FEATURE_3_PT]
-- [PRIVACY_FEATURE_4_PT]
-
 ## 📚 Perfeito para [TARGET_AUDIENCE_PT]
 
 - **[USE_CASE_1_PT]**: [USE_CASE_1_DESCRIPTION_PT]

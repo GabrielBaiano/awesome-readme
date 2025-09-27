@@ -135,7 +135,7 @@ git checkout -b feature/novo-template
 git push origin feature/novo-template
 ```
 
-## 🔒 Privacidade e Segurança
+## 🔒 Garantia de Qualidade
 
 Estes templates são construídos pensando nas melhores práticas de documentação:
 - **Acessibilidade**: Estrutura clara e formatação legível
@@ -162,8 +162,6 @@ Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request
 ## 📄 Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-**Precisa de ajuda para escolher uma licença para seu projeto?** Confira nosso guia completo [LICENSE-GUIDE.md](LICENSE-GUIDE.md) que explica diferentes tipos de licenças e como escolher a certa para suas necessidades.
 
 ## 🎨 Exemplo Real
 

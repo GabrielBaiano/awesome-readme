@@ -1,150 +1,159 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/GabrielBaiano/awesome-readme/main/assets/readme-template-logo.png" alt="Awesome README Templates Logo" width="200"/>
-</p>
+# 📦 Awesome README Templates
 
-<h1 align="center">Awesome README Templates</h1>
+[![npm version](https://img.shields.io/npm/v/awesome-readme-templates.svg)](https://www.npmjs.com/package/awesome-readme-templates)
+[![npm downloads](https://img.shields.io/npm/dm/awesome-readme-templates.svg)](https://www.npmjs.com/package/awesome-readme-templates)
+[![GitHub stars](https://img.shields.io/github/stars/GabrielBaiano/awesome-readme.svg)](https://github.com/GabrielBaiano/awesome-readme/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/GabrielBaiano/awesome-readme.svg)](https://github.com/GabrielBaiano/awesome-readme/issues)
+[![GitHub license](https://img.shields.io/github/license/GabrielBaiano/awesome-readme.svg)](https://github.com/GabrielBaiano/awesome-readme/blob/main/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/GabrielBaiano/awesome-readme.svg)](https://github.com/GabrielBaiano/awesome-readme/releases)
 
-<p align="center">
-  <strong>A professional template that I use and adapts to any project</strong><br>
-  <em>Download it or install it via NPM or Yarn commands</em>
-</p>
+**Professional and reusable README templates for GitHub projects. Create stunning documentation in minutes with our bilingual templates (EN/PT) and complete documentation ecosystem.**
 
-<p align="center">
-  <a href="https://github.com/GabrielBaiano/awesome-readme/blob/main/README-pt.md" target="_blank">🇧🇷 Português</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano/awesome-readme/releases" target="_blank">📦 Templates</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano/awesome-readme/issues/new" target="_blank">🐛 Report Bug</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://linkedin.com/in/gabrielbaiano" target="_blank">💼 LinkedIn</a>
-</p>
+<div align="center">
+  <img src="https://via.placeholder.com/800x400/007ACC/FFFFFF?text=Awesome+README+Templates" alt="Awesome README Templates" />
+</div>
 
-<p align="center">
-  <a href="https://github.com/GabrielBaiano/awesome-readme/stargazers">
-    <img src="https://img.shields.io/github/stars/GabrielBaiano/awesome-readme?style=social" alt="GitHub stars">
-  </a>
-  <a href="https://github.com/GabrielBaiano/awesome-readme/issues">
-    <img src="https://img.shields.io/github/issues/GabrielBaiano/awesome-readme" alt="GitHub issues">
-  </a>
-  <a href="https://github.com/GabrielBaiano/awesome-readme/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme" alt="License">
-  </a>
-  <a href="https://github.com/GabrielBaiano/awesome-readme/releases">
-    <img src="https://img.shields.io/github/v/release/GabrielBaiano/awesome-readme" alt="Latest Release">
-  </a>
-</p>
-
----
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/GabrielBaiano/awesome-readme/main/assets/template-showcase.png" alt="README Template Showcase"/>
-</p>
-
-**Awesome README Templates** is a professional template that I personally use for all my projects. It's designed to be adaptable to any type of project - whether it's a web app, desktop application, API, library, or mobile app.
-
-> 📚 **Project Evolution**: This template evolved from real-world usage and has been refined through multiple iterations to provide the perfect balance of aesthetics and functionality.
-
-## 🎓 Main Features
-
-* **Professional Structure**: Clean, organized layout that impresses visitors
-* **Bilingual Support**: Complete templates in both English and Portuguese
-* **GitHub Integration**: Ready-to-use badges, links, and GitHub-specific formatting
-* **Customizable Placeholders**: Easy-to-replace tags for quick personalization
-* **Complete Sections**: Installation, usage, contributing, licensing, and more
-* **Visual Appeal**: Strategic use of emojis and formatting for maximum impact
-
-## 🛠️ Technologies Used
-
-* **Framework**: Markdown with GitHub Flavored Markdown
-* **Language**: English and Portuguese
-* **Template Types**: Web apps, desktop apps, APIs, libraries, and more
-* **Badges**: Stars, issues, license, releases, and custom badges
-* **Sections**: Features, installation, usage, contributing, and licensing
-* **Libraries**: Built-in support for common project types
-
-## 🚀 Quick Start
-
-### 📥 Installation
-
-Choose your preferred installation method:
-
-**Option 1: NPM**
-```bash
-# Add your NPM command here
-npm install awesome-readme-template
-```
-
-**Option 2: Yarn**
-```bash
-# Add your Yarn command here
-yarn add awesome-readme-template
-```
-
-**Option 3: Manual Download**
-```bash
-# Clone the repository
-git clone https://github.com/GabrielBaiano/awesome-readme.git
-```
-
-### ⚡ First Steps
-
-- **Copy Template**: Copy the README content to your project
-- **Replace Placeholders**: Find and replace all `[PLACEHOLDER]` text
-- **Customize Content**: Adapt sections to your specific project
-- **Test Links**: Verify all URLs and badges work correctly
-
-## 🌐 Template Customization
-
-Awesome README Templates allow you to customize every aspect of your documentation:
-
-### Method 1: Quick Customization
-
-1. Replace `[PROJECT_NAME]` with your project's name
-2. Update `[PROJECT_DESCRIPTION]` with a brief description
-3. Set `[GITHUB_REPO_URL]` to your repository URL
-4. Replace `[USERNAME]` and `[REPO_NAME]` with your GitHub details
-5. Customize features, technologies, and installation steps
-6. Add your own images and screenshots
-
-### Method 2: Advanced Customization
-
-1. Remove unused sections that don't apply to your project
-2. Add project-specific sections (API documentation, architecture diagrams, etc.)
-3. Customize badges to match your project's needs
-4. Create custom emoji combinations for your brand
-
-### Supported Project Types:
-- Web applications (React, Vue, Angular, etc.)
-- Desktop applications (Electron, native apps)
-- Mobile applications (React Native, Flutter)
-- APIs and backend services
-- Libraries and frameworks
-
-## 💻 For Developers
-
-If you want to contribute to these templates or create your own variations:
+## 🚀 Quick Installation
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/GabrielBaiano/awesome-readme.git
+# Install globally to use anywhere
+npm install -g awesome-readme-templates
 
-# 2. Navigate to the project folder
-cd awesome-readme
-
-# 3. Create a new branch for your changes
-git checkout -b feature/new-template
-
-# 4. Make your modifications
-# Edit the template files as needed
-
-# 5. Test with a sample project
-# Create a test repository and use your modified template
-
-# 6. Submit a pull request
-git push origin feature/new-template
+# Or install locally in your project
+npm install awesome-readme-templates
 ```
 
-## 🔒 Privacy and Security
+## ⚡ Quick Start
+
+After installation, run the CLI tool:
+
+```bash
+# Interactive mode - choose your template
+awesome-readme
+
+# Or specify template directly
+awesome-readme --template readme-english
+awesome-readme --template readme-portuguese
+awesome-readme --template readme-both
+```
+
+## 📋 Available Commands
+
+```bash
+# Show help
+awesome-readme --help
+
+# Show version
+awesome-readme --version
+
+# List available templates
+awesome-readme --list
+
+# Install specific templates
+awesome-readme --template readme-english
+awesome-readme --template readme-portuguese
+awesome-readme --template readme-both
+awesome-readme --template contributing
+awesome-readme --template changelog
+awesome-readme --template license-mit
+awesome-readme --template license-apache
+awesome-readme --template all
+```
+
+## 🎯 What You Get
+
+### 📄 README Templates
+- **English Template** - Complete professional README in English
+- **Portuguese Template** - Template profissional completo em português
+- **Both Templates** - Install both versions for bilingual projects
+
+### 📋 Documentation Templates
+- **CONTRIBUTING Template** - Complete contribution guidelines with placeholders
+- **CHANGELOG Template** - Standardized changelog format with semantic versioning
+
+### 📜 License Templates
+- **MIT License** - Most permissive open source license
+- **Apache 2.0 License** - Enterprise-friendly license with patent protection
+
+### 🎯 Complete Package
+- **All Templates** - Complete project documentation setup
+- Professional repository structure
+- Ready for open source publishing
+
+## 🎨 Features Included
+
+- ✅ Professional header with logo and navigation
+- ✅ GitHub badges (stars, issues, license, releases)
+- ✅ Feature showcase with detailed descriptions
+- ✅ Technology stack documentation
+- ✅ Installation and usage instructions
+- ✅ Customization examples
+- ✅ Developer setup guide
+- ✅ Target audience identification
+- ✅ Contributing guidelines
+- ✅ License information
+- ✅ Changelog with semantic versioning
+- ✅ Complete documentation ecosystem
+
+## 🛠️ Template Structure
+
+Each template includes these sections:
+
+1. **Header** - Logo, title, description, navigation
+2. **Badges** - GitHub statistics and project info
+3. **Showcase** - Main project image/demo
+4. **Features** - Key functionality highlights
+5. **Technologies** - Stack and tools used
+6. **Installation** - Setup and usage instructions
+7. **Customization** - How to adapt the project
+8. **For Developers** - Contribution guidelines
+9. **Use Cases** - Target audience and scenarios
+10. **Contributing** - How others can help
+11. **License** - Usage rights and permissions
+
+## 📝 How to Use
+
+### Step 1: Install the Package
+```bash
+npm install -g awesome-readme-templates
+```
+
+### Step 2: Run the CLI
+```bash
+awesome-readme
+```
+
+### Step 3: Choose Your Template
+- Select from English, Portuguese, or Both
+- Templates will be copied to your current directory
+
+### Step 4: Customize Your README
+- Replace all `[PLACEHOLDER]` text with your project information
+- Add your own images and screenshots
+- Customize sections for your specific project
+- Test all links and badges
+
+## 🎨 Example Usage
+
+```bash
+# Navigate to your project
+cd my-awesome-project
+
+# Install the package
+npm install -g awesome-readme-templates
+
+# Run the CLI
+awesome-readme
+
+# Choose your template (e.g., "1" for English)
+# Template will be installed as README-template.md
+
+# Rename and customize
+mv README-template.md README.md
+# Edit README.md with your project details
+```
+
+## 🔒 Quality Assurance
 
 These templates are built with documentation best practices in mind:
 - **Accessibility**: Clear structure and readable formatting
@@ -154,55 +163,56 @@ These templates are built with documentation best practices in mind:
 
 ## 📚 Perfect for
 
-- **Open Source Projects**: Make your project stand out to contributors
-- **Portfolio Projects**: Showcase your work professionally
-- **Team Projects**: Maintain consistent documentation standards
-- **Client Work**: Impress clients with polished project documentation
+- **Open Source Projects**: Complete documentation ecosystem with README, CONTRIBUTING, CHANGELOG, and LICENSE
+- **Portfolio Projects**: Showcase your work professionally with comprehensive documentation
+- **Enterprise Projects**: Professional templates that meet corporate documentation standards
+- **Educational Projects**: Clear structure perfect for learning and teaching
+- **Startup Projects**: Quick setup with professional appearance
+- **Personal Projects**: Make your projects stand out with polished documentation
+
+## 🎯 Real-World Example
+
+See how this template was used in practice:
+- **[Shii! Study Assistant](https://github.com/GabrielBaiano/shii-study-assistant)** - A complete study assistant application with professional documentation
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request. We're always looking to improve these templates with:
+Contributions are welcome! Here's how you can help:
 
-- New template variations for specific project types
-- Additional language support
-- Improved accessibility features
-- Better customization options
+1. **Report bugs** - Open an issue with detailed information
+2. **Suggest features** - Share your ideas for improvements
+3. **Submit templates** - Create new template variations
+4. **Improve documentation** - Help others understand how to use it
+5. **Translate** - Add support for more languages
+
+See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-**Need help choosing a license for your project?** Check out our comprehensive [LICENSE-GUIDE.md](LICENSE-GUIDE.md) that explains different license types and how to choose the right one for your needs.
+## 🌟 Show Your Support
 
-## 🎨 Real-World Example
+If you find this package useful, please:
 
-Want to see this template in action? Check out how it was used in a real project:
+- ⭐ **Star the repository** on GitHub
+- 🐛 **Report bugs** and suggest features
+- 📢 **Share with others** who might benefit
+- 💬 **Leave feedback** on what works well
 
-### [Shii! - Study Assistant](https://github.com/GabrielBaiano/shii-study-assistant)
+## 🔗 Links
 
-**Shii!** is a perfect example of how this template can be adapted for different types of projects. It's a desktop application built with Electron that uses the exact same structure and approach:
-
-- ✅ **Professional Header** with logo and navigation
-- ✅ **GitHub Badges** for stars, issues, license, and releases
-- ✅ **Feature Showcase** with detailed descriptions
-- ✅ **Technology Stack** documentation
-- ✅ **Installation Instructions** with clear steps
-- ✅ **Usage Examples** and customization options
-- ✅ **Developer Setup** for contributors
-- ✅ **Privacy & Security** considerations
-- ✅ **Target Audience** identification
-
-**What makes Shii! a great example:**
-- Shows how to adapt the template for desktop applications
-- Demonstrates custom sections (screen protection, stealth mode)
-- Includes real installation instructions and usage examples
-- Maintains professional structure while being project-specific
-- Bilingual support (English and Portuguese)
-
-> 💡 **Pro Tip**: Visit the [Shii! repository](https://github.com/GabrielBaiano/shii-study-assistant) to see exactly how each placeholder was replaced with real project information!
+- **Repository**: https://github.com/GabrielBaiano/awesome-readme
+- **NPM Package**: https://www.npmjs.com/package/awesome-readme-templates
+- **Issues**: https://github.com/GabrielBaiano/awesome-readme/issues
+- **Discussions**: https://github.com/GabrielBaiano/awesome-readme/discussions
 
 ---
 
 <p align="center">
   Made with ❤️ by <a href="https://github.com/GabrielBaiano" target="_blank">GabrielBaiano</a>
+</p>
+
+<p align="center">
+  <strong>Transform your GitHub projects with professional documentation!</strong>
 </p>

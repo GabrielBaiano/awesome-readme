@@ -16,8 +16,7 @@ const requiredFiles = [
   'README.md',
   'LICENSE',
   'CHANGELOG.md',
-  'CONTRIBUTING.md',
-  'LICENSE-GUIDE.md'
+  'CONTRIBUTING.md'
 ];
 
 console.log('🧪 Testing Awesome README Templates package...\n');
