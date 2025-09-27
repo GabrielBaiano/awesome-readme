@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed "Privacy and Security" section from all README templates
 - Renamed "Privacy and Security" to "Quality Assurance" in main READMEs
 - Updated main README.md with NPM package information and structure
+- Transformed README.md to use the template structure created for the project
 - Removed LICENSE-GUIDE.md to simplify project structure
 - Updated README-pt.md to remove references to LICENSE-GUIDE
 
