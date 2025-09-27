@@ -50,8 +50,7 @@
     "README.md",
     "LICENSE",
     "CHANGELOG.md",
-    "CONTRIBUTING.md",
-    "LICENSE-GUIDE.md"
+    "CONTRIBUTING.md"
   ],
   "preferGlobal": true,
   "os": [

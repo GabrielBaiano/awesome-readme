@@ -27,7 +27,7 @@
     <img src="https://img.shields.io/github/issues/GabrielBaiano/awesome-readme" alt="GitHub issues">
   </a>
   <a href="https://github.com/GabrielBaiano/awesome-readme/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme" alt="License">
+    <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme?style=flat-square&label=License" alt="License: MIT">
   </a>
   <a href="https://www.npmjs.com/package/awesome-readme-templates">
     <img src="https://img.shields.io/npm/v/awesome-readme-templates.svg" alt="NPM Version">
