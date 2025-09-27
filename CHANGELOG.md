@@ -43,6 +43,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Project Evolution section from README
 - Removed GitHub releases badges and downloads link
 - Enhanced License section with MIT License emphasis and NPM package index
+- Updated README-pt.md with same template structure and NPM package information
+- Synchronized Portuguese README with English version changes
 - Removed LICENSE-GUIDE.md to simplify project structure
 - Updated README-pt.md to remove references to LICENSE-GUIDE
 

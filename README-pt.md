@@ -1,22 +1,22 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/GabrielBaiano/awesome-readme/main/assets/readme-template-logo.png" alt="Logo dos Templates Awesome README" width="200"/>
+  <img src="https://via.placeholder.com/200/007ACC/FFFFFF?text=Awesome+README" alt="Logo dos Templates Awesome README" width="200"/>
 </p>
 
 <h1 align="center">Awesome README Templates</h1>
 
 <p align="center">
-  <strong>Um template profissional que eu uso e se adapta a qualquer projeto</strong><br>
-  <em>Baixe ele ou instale via comandos NPM ou Yarn</em>
+  <strong>Templates profissionais e reutilizáveis de README para projetos GitHub</strong><br>
+  <em>Crie documentação impressionante em minutos com nossos templates bilíngues (EN/PT)</em>
 </p>
 
 <p align="center">
   <a href="/README.md" target="_blank">🇺🇸 English</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano/awesome-readme/releases" target="_blank">📦 Templates</a>
+  <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">📚 Pacote NPM</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano/awesome-readme/issues/new" target="_blank">🐛 Reportar Bug</a>
+  <a href="https://github.com/GabrielBaiano/awesome-readme/issues" target="_blank">🐛 Reportar Bug</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://linkedin.com/in/gabrielbaiano" target="_blank">💼 LinkedIn</a>
+  <a href="https://github.com/GabrielBaiano" target="_blank">💼 Perfil GitHub</a>
 </p>
 
 <p align="center">
@@ -27,93 +27,120 @@
     <img src="https://img.shields.io/github/issues/GabrielBaiano/awesome-readme" alt="GitHub issues">
   </a>
   <a href="https://github.com/GabrielBaiano/awesome-readme/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme" alt="License">
+    <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme?style=flat-square&label=Licença" alt="Licença: MIT">
   </a>
-  <a href="https://github.com/GabrielBaiano/awesome-readme/releases">
-    <img src="https://img.shields.io/github/v/release/GabrielBaiano/awesome-readme" alt="Latest Release">
+  <a href="https://www.npmjs.com/package/awesome-readme-templates">
+    <img src="https://img.shields.io/npm/v/awesome-readme-templates.svg" alt="Versão NPM">
+  </a>
+  <a href="https://www.npmjs.com/package/awesome-readme-templates">
+    <img src="https://img.shields.io/npm/dm/awesome-readme-templates.svg" alt="Downloads NPM">
   </a>
 </p>
 
 ---
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/GabrielBaiano/awesome-readme/main/assets/template-showcase.png" alt="Demonstração dos Templates README"/>
+  <img src="https://via.placeholder.com/800x400/007ACC/FFFFFF?text=Templates+Profissionais+de+README" alt="Demonstração dos Templates Awesome README"/>
 </p>
 
-**Awesome README Templates** é um template profissional que eu pessoalmente uso em todos os meus projetos. Ele foi projetado para ser adaptável a qualquer tipo de projeto - seja um aplicativo web, aplicação desktop, API, biblioteca ou app mobile.
-
-> 📚 **Evolução do Projeto**: Este template evoluiu do uso real e foi refinado através de múltiplas iterações para fornecer o equilíbrio perfeito entre estética e funcionalidade.
+**Awesome README Templates** é uma coleção abrangente de templates profissionais e prontos para uso que ajudam desenvolvedores a criar documentação impressionante para seus projetos GitHub em minutos.
 
 ## 🎓 Funcionalidades Principais
 
-* **Estrutura Profissional**: Layout limpo e organizado que impressiona visitantes
-* **Suporte Bilíngue**: Templates completos em inglês e português
-* **Integração GitHub**: Badges, links e formatação específica do GitHub prontos para uso
-* **Placeholders Customizáveis**: Tags fáceis de substituir para personalização rápida
-* **Seções Completas**: Instalação, uso, contribuição, licenciamento e muito mais
-* **Apelo Visual**: Uso estratégico de emojis e formatação para máximo impacto
+* **Templates Profissionais**: Templates README completos em inglês e português com design moderno
+* **Ferramenta CLI**: Interface de linha de comando fácil de usar para instalação de templates
+* **Ecossistema Completo**: Templates README, CONTRIBUTING, CHANGELOG e LICENSE
+* **Pacote NPM**: Instalável via npm com opções de instalação global ou local
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Framework**: Markdown com GitHub Flavored Markdown
-* **Linguagem**: Inglês e Português
-* **Tipos de Template**: Aplicações web, desktop, APIs, bibliotecas e muito mais
-* **Badges**: Estrelas, issues, licença, releases e badges customizados
-* **Seções**: Funcionalidades, instalação, uso, contribuição e licenciamento
-* **Bibliotecas**: Suporte integrado para tipos comuns de projetos
+* **Gerenciador de Pacotes**: NPM
+* **Linguagem**: JavaScript
 
-## 📖 Como Usar e Instalar
+## 🚀 Início Rápido
 
-A instalação é simples e direta.
+### 📥 Instalação
 
-**Opção 1: NPM**
+Escolha seu método de instalação preferido:
+
+**Opção 1: NPM (Recomendado)**
 ```bash
-# Adicione seu comando NPM aqui
-npm install awesome-readme-template
+# Instalar globalmente para usar em qualquer lugar
+npm install -g awesome-readme-templates
+
+# Ou instalar localmente no seu projeto
+npm install awesome-readme-templates
 ```
 
 **Opção 2: Yarn**
 ```bash
-# Adicione seu comando Yarn aqui
-yarn add awesome-readme-template
+# Instalar globalmente
+yarn global add awesome-readme-templates
+
+# Ou instalar localmente
+yarn add awesome-readme-templates
 ```
 
 **Opção 3: Download Manual**
 ```bash
-# Clone o repositório
+# Clonar o repositório
 git clone https://github.com/GabrielBaiano/awesome-readme.git
 ```
 
+### ⚡ Primeiros Passos
+
+Após a instalação, execute a ferramenta CLI:
+
+```bash
+# Modo interativo - escolha seu template
+awesome-readme
+
+# Ou especifique o template diretamente
+awesome-readme --template readme-english
+awesome-readme --template readme-portuguese
+awesome-readme --template readme-both
+```
+
+**Templates Disponíveis:**
+- `readme-english` - Template README em inglês
+- `readme-portuguese` - Template README em português  
+- `readme-both` - Ambos os templates README
+- `contributing` - Template CONTRIBUTING.md
+- `changelog` - Template CHANGELOG.md
+- `license-mit` - Template de Licença MIT
+- `license-apache` - Template de Licença Apache 2.0
+- `all` - Configuração completa de documentação do projeto
+
 ## 🌐 Customização de Templates
 
-Os Awesome README Templates permitem que você customize todos os aspectos da sua documentação:
+Os Awesome README Templates permitem que você customize sua documentação para qualquer projeto:
 
-### Método 1: Customização Rápida
+### Método 1: Usando Ferramenta CLI
 
-1. Substitua `[PROJECT_NAME]` pelo nome do seu projeto
-2. Atualize `[PROJECT_DESCRIPTION]` com uma breve descrição
-3. Configure `[GITHUB_REPO_URL]` com a URL do seu repositório
-4. Substitua `[USERNAME]` e `[REPO_NAME]` pelos seus detalhes do GitHub
-5. Personalize funcionalidades, tecnologias e passos de instalação
-6. Adicione suas próprias imagens e screenshots
+1. Instale o pacote globalmente: `npm install -g awesome-readme-templates`
+2. Navegue até o diretório do seu projeto
+3. Execute o CLI: `awesome-readme`
+4. Escolha seu template desejado no menu interativo
+5. Templates serão copiados para seu diretório atual
+6. Customize os placeholders com as informações do seu projeto
 
-### Método 2: Customização Avançada
+### Método 2: Instalação Manual
 
-1. Remova seções não utilizadas que não se aplicam ao seu projeto
-2. Adicione seções específicas do projeto (documentação de API, diagramas de arquitetura, etc.)
-3. Customize badges para corresponder às necessidades do seu projeto
-4. Crie combinações customizadas de emojis para sua marca
+1. Clone o repositório ou baixe os templates
+2. Copie os arquivos de template desejados para seu projeto
+3. Renomeie os arquivos conforme necessário (ex: README-template.md → README.md)
+4. Substitua todo texto `[PLACEHOLDER]` com os detalhes do seu projeto
 
-### Tipos de Projetos Suportados:
-- Aplicações web (React, Vue, Angular, etc.)
-- Aplicações desktop (Electron, apps nativos)
-- Aplicações mobile (React Native, Flutter)
-- APIs e serviços backend
-- Bibliotecas e frameworks
+### Tipos de Templates Suportados:
+- **Templates README** - Documentação profissional de projeto
+- **Templates CONTRIBUTING** - Diretrizes de contribuição
+- **Templates CHANGELOG** - Documentação de histórico de versões
+- **Templates de Licença** - Licenças MIT e Apache 2.0
+- **Pacote Completo** - Todos os templates de uma vez
 
 ## 💻 Para Desenvolvedores
 
-Se você deseja contribuir para estes templates ou criar suas próprias variações:
+Se você deseja clonar o repositório e executar o projeto localmente:
 
 ```bash
 # 1. Clone o repositório
@@ -122,46 +149,52 @@ git clone https://github.com/GabrielBaiano/awesome-readme.git
 # 2. Navegue até a pasta do projeto
 cd awesome-readme
 
-# 3. Crie uma nova branch para suas mudanças
-git checkout -b feature/novo-template
+# 3. Instale as dependências
+npm install
 
-# 4. Faça suas modificações
-# Edite os arquivos de template conforme necessário
+# 4. Execute os testes
+npm test
 
-# 5. Teste com um projeto de exemplo
-# Crie um repositório de teste e use seu template modificado
-
-# 6. Envie um pull request
-git push origin feature/novo-template
+# 5. Teste o CLI localmente
+node bin/awesome-readme.js
 ```
 
-## 🔒 Garantia de Qualidade
+## 📚 Perfeito para Desenvolvedores Open Source
 
-Estes templates são construídos pensando nas melhores práticas de documentação:
-- **Acessibilidade**: Estrutura clara e formatação legível
-- **Otimização SEO**: Hierarquia adequada de cabeçalhos e posicionamento de palavras-chave
-- **Responsivo**: Templates funcionam bem em todos os tamanhos de dispositivo
-- **Compatibilidade GitHub**: Suporte completo para GitHub Flavored Markdown
-
-## 📚 Perfeito para
-
-- **Projetos Open Source**: Faça seu projeto se destacar para contribuidores
-- **Projetos de Portfólio**: Mostre seu trabalho profissionalmente
-- **Projetos em Equipe**: Mantenha padrões consistentes de documentação
-- **Trabalhos para Clientes**: Impressione clientes com documentação polida de projetos
+- **Projetos Open Source**: Ecossistema completo de documentação com README, CONTRIBUTING, CHANGELOG e LICENSE
+- **Projetos de Portfólio**: Mostre seu trabalho profissionalmente com documentação abrangente
+- **Projetos Empresariais**: Templates profissionais que atendem aos padrões de documentação corporativa
+- **Projetos Educacionais**: Estrutura clara perfeita para aprendizado e ensino
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request. Estamos sempre procurando melhorar estes templates com:
+Contribuições são bem-vindas! Aqui está como você pode ajudar:
 
-- Novas variações de templates para tipos específicos de projetos
-- Suporte adicional de idiomas
-- Melhores recursos de acessibilidade
-- Opções de customização aprimoradas
+1. **Reportar bugs** - Abra uma issue com informações detalhadas
+2. **Sugerir funcionalidades** - Compartilhe suas ideias para melhorias
+3. **Enviar templates** - Crie novas variações de templates
+4. **Melhorar documentação** - Ajude outros a entender como usar
+5. **Traduzir** - Adicione suporte para mais idiomas
+
+Veja nosso [Guia de Contribuição](CONTRIBUTING.md) para instruções detalhadas.
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+Este projeto está licenciado sob a **Licença MIT** - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+### 📦 Pacote NPM
+
+Instale e use nossos templates facilmente:
+
+```bash
+# Instalar globalmente
+npm install -g awesome-readme-templates
+
+# Usar o CLI
+awesome-readme
+```
+
+**Índice do Pacote**: [https://www.npmjs.com/package/awesome-readme-templates](https://www.npmjs.com/package/awesome-readme-templates)
 
 ## 🎨 Exemplo Real
 
@@ -178,7 +211,6 @@ Quer ver este template em ação? Confira como ele foi usado em um projeto real:
 - ✅ **Instruções de Instalação** com passos claros
 - ✅ **Exemplos de Uso** e opções de customização
 - ✅ **Setup para Desenvolvedores** para contribuidores
-- ✅ **Considerações de Privacidade e Segurança**
 - ✅ **Identificação do Público-Alvo**
 
 **O que torna o Shii! um ótimo exemplo:**
