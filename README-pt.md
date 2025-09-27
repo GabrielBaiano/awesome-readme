@@ -5,11 +5,33 @@
 <h1 align="center">Awesome README Templates</h1>
 
 <p align="center">
-  <a href="/README.md" target="_blank">English</a>
+  <strong>Templates profissionais e reutilizáveis de README para projetos GitHub</strong><br>
+  <em>Crie documentações impressionantes em minutos, não horas</em>
+</p>
+
+<p align="center">
+  <a href="/README.md" target="_blank">🇺🇸 English</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano/awesome-readme/issues/new" target="_blank">Reportar Bug / Sugestão</a>
+  <a href="https://github.com/GabrielBaiano/awesome-readme/releases" target="_blank">📦 Templates</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://linkedin.com/in/gabrielbaiano" target="_blank">LinkedIn</a>
+  <a href="https://github.com/GabrielBaiano/awesome-readme/issues/new" target="_blank">🐛 Reportar Bug</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://linkedin.com/in/gabrielbaiano" target="_blank">💼 LinkedIn</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/GabrielBaiano/awesome-readme/stargazers">
+    <img src="https://img.shields.io/github/stars/GabrielBaiano/awesome-readme?style=social" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/GabrielBaiano/awesome-readme/issues">
+    <img src="https://img.shields.io/github/issues/GabrielBaiano/awesome-readme" alt="GitHub issues">
+  </a>
+  <a href="https://github.com/GabrielBaiano/awesome-readme/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme" alt="License">
+  </a>
+  <a href="https://github.com/GabrielBaiano/awesome-readme/releases">
+    <img src="https://img.shields.io/github/v/release/GabrielBaiano/awesome-readme" alt="Latest Release">
+  </a>
 </p>
 
 ---

@@ -8,19 +8,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Nothing yet
+- CONTRIBUTING.md with comprehensive contribution guidelines
 
 ### Changed
-- Nothing yet
+- Simplified repository structure - removed unnecessary files
+- Updated README.md to use the template structure itself
+- Enhanced README-pt.md with missing badges and navigation elements
 
 ### Deprecated
 - Nothing yet
 
 ### Removed
-- Nothing yet
+- README-template.md (integrated into main README)
+- README-pt-template.md (integrated into main README)
+- COMO-USAR-TEMPLATE.md (replaced by CONTRIBUTING.md)
+- exemplo-preenchido.md (simplified structure)
+- .github/ folder (simplified structure)
+- assets/ folder (simplified structure)
 
 ### Fixed
-- Nothing yet
+- Missing badges and navigation elements in Portuguese version
 
 ### Security
 - Nothing yet

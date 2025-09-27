@@ -53,7 +53,7 @@
 * **Complete Sections**: Installation, usage, contributing, licensing, and more
 * **Visual Appeal**: Strategic use of emojis and formatting for maximum impact
 
-## 🛠️ Templates Included
+## 🛠️ Technologies Used
 
 * **Framework**: Markdown with GitHub Flavored Markdown
 * **Language**: English and Portuguese
@@ -73,9 +73,9 @@
 
 ### ⚡ First Steps
 
-- **Read Instructions**: Check `COMO-USAR-TEMPLATE.md` for detailed guidance
+- **Read Instructions**: Check `CONTRIBUTING.md` for detailed guidance
 - **Use Checklist**: Follow the provided checklist to ensure nothing is missed
-- **Check Example**: Review `exemplo-preenchido.md` for a real-world example
+- **Check Example**: Review the templates for real-world examples
 - **Test Links**: Verify all URLs and badges work correctly
 
 ## 🌐 Template Customization
@@ -129,7 +129,7 @@ git checkout -b feature/new-template
 git push origin feature/new-template
 ```
 
-## 🔒 Quality Assurance
+## 🔒 Privacy and Security
 
 These templates are built with documentation best practices in mind:
 - **Accessibility**: Clear structure and readable formatting
@@ -152,6 +152,8 @@ Contributions are welcome! Please feel free to submit a Pull Request. We're alwa
 - Additional language support
 - Improved accessibility features
 - Better customization options
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## 📄 License
 
