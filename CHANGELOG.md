@@ -9,10 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - CONTRIBUTING.md with comprehensive contribution guidelines
+- Complete template manual and guide in README files
+- Installation instructions with NPM/Yarn commands (placeholders)
+- Detailed explanations for each template section
+- Pro tips and customization ideas
 
 ### Changed
+- Completely rewrote README.md as a template manual/draft
+- Completely rewrote README-pt.md as a template manual/draft
+- Repository now serves as both template and instruction manual
 - Simplified repository structure - removed unnecessary files
-- Updated README.md to use the template structure itself
 - Enhanced README-pt.md with missing badges and navigation elements
 
 ### Deprecated
