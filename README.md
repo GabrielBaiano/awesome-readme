@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://via.placeholder.com/200/007ACC/FFFFFF?text=Awesome+README" alt="Awesome README Templates Logo" width="200"/>
+  <img src="https://github.com/GabrielBaiano/awesome-readme/blob/main/Awesome.png?raw=true" alt="Awesome README Templates Logo" width="200"/>
 </p>
 
 <h1 align="center">Awesome README Templates</h1>
@@ -202,3 +202,4 @@ awesome-readme
   Made with ❤️ by <a href="https://github.com/GabrielBaiano" target="_blank">GabrielBaiano</a>
 
 </p>
+
