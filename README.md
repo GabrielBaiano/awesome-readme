@@ -12,8 +12,6 @@
 <p align="center">
   <a href="/README-pt.md" target="_blank">🇧🇷 Português</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano/awesome-readme/releases" target="_blank">📦 Downloads</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">📚 NPM Package</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/GabrielBaiano/awesome-readme/issues" target="_blank">🐛 Report Bug</a>
@@ -31,9 +29,6 @@
   <a href="https://github.com/GabrielBaiano/awesome-readme/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme" alt="License">
   </a>
-  <a href="https://github.com/GabrielBaiano/awesome-readme/releases">
-    <img src="https://img.shields.io/github/v/release/GabrielBaiano/awesome-readme" alt="Latest Release">
-  </a>
   <a href="https://www.npmjs.com/package/awesome-readme-templates">
     <img src="https://img.shields.io/npm/v/awesome-readme-templates.svg" alt="NPM Version">
   </a>
@@ -50,8 +45,6 @@
 
 **Awesome README Templates** is a comprehensive collection of professional, ready-to-use README templates that help developers create stunning documentation for their GitHub projects in minutes.
 
-> 📚 **Project Evolution**: Started as a simple template collection and evolved into a complete NPM package with CLI tools, bilingual support, and a full documentation ecosystem including CONTRIBUTING, CHANGELOG, and LICENSE templates.
-
 ## 🎓 Main Features
 
 * **Professional Templates**: Complete README templates in English and Portuguese with modern design
@@ -61,12 +54,8 @@
 
 ## 🛠️ Technologies Used
 
-* **Framework**: Node.js
-* **Language**: JavaScript
 * **Package Manager**: NPM
-* **CLI Framework**: Native Node.js with inquirer-style prompts
-* **Documentation**: Markdown with GitHub Flavored Markdown support
-* **Libraries**: fs, path, readline-sync
+* **Language**: JavaScript
 
 ## 🚀 Quick Start
 
@@ -191,7 +180,21 @@ See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+### 📦 NPM Package
+
+Install and use our templates easily:
+
+```bash
+# Install globally
+npm install -g awesome-readme-templates
+
+# Use the CLI
+awesome-readme
+```
+
+**Package Index**: [https://www.npmjs.com/package/awesome-readme-templates](https://www.npmjs.com/package/awesome-readme-templates)
 
 ---
 
