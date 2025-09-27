@@ -163,6 +163,35 @@ Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
+**Precisa de ajuda para escolher uma licença para seu projeto?** Confira nosso guia completo [LICENSE-GUIDE.md](LICENSE-GUIDE.md) que explica diferentes tipos de licenças e como escolher a certa para suas necessidades.
+
+## 🎨 Exemplo Real
+
+Quer ver este template em ação? Confira como ele foi usado em um projeto real:
+
+### [Shii! - Study Assistant](https://github.com/GabrielBaiano/shii-study-assistant)
+
+**Shii!** é um exemplo perfeito de como este template pode ser adaptado para diferentes tipos de projetos. É uma aplicação desktop construída com Electron que usa exatamente a mesma estrutura e abordagem:
+
+- ✅ **Cabeçalho Profissional** com logo e navegação
+- ✅ **Badges do GitHub** para estrelas, issues, licença e releases
+- ✅ **Showcase de Funcionalidades** com descrições detalhadas
+- ✅ **Stack Tecnológico** documentado
+- ✅ **Instruções de Instalação** com passos claros
+- ✅ **Exemplos de Uso** e opções de customização
+- ✅ **Setup para Desenvolvedores** para contribuidores
+- ✅ **Considerações de Privacidade e Segurança**
+- ✅ **Identificação do Público-Alvo**
+
+**O que torna o Shii! um ótimo exemplo:**
+- Mostra como adaptar o template para aplicações desktop
+- Demonstra seções customizadas (proteção de tela, modo stealth)
+- Inclui instruções reais de instalação e exemplos de uso
+- Mantém estrutura profissional sendo específico do projeto
+- Suporte bilíngue (inglês e português)
+
+> 💡 **Dica Profissional**: Visite o [repositório do Shii!](https://github.com/GabrielBaiano/shii-study-assistant) para ver exatamente como cada placeholder foi substituído pelas informações reais do projeto!
+
 ---
 
 <p align="center">

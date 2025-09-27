@@ -1,189 +1,227 @@
-# 🤝 Contribuindo para Awesome README Templates
+# 🤝 Contributing to Awesome README Templates
 
-Obrigado por considerar contribuir para este projeto! Este guia irá ajudá-lo a entender como contribuir de forma eficaz.
+Thank you for considering contributing to this project! This guide will help you understand how to contribute effectively and make the most impact.
 
-## 🎯 Como Contribuir
+## 🎯 How to Contribute
 
-### 🐛 Reportando Bugs
+### 🐛 Reporting Bugs
 
-Se você encontrou um bug nos templates:
+If you found a bug in the templates:
 
-1. **Verifique se já existe uma issue** sobre o problema
-2. **Crie uma nova issue** com:
-   - Descrição clara do bug
-   - Passos para reproduzir
-   - Comportamento esperado vs atual
-   - Screenshots (se aplicável)
+1. **Check if an issue already exists** about the problem
+2. **Create a new issue** with:
+   - Clear description of the bug
+   - Steps to reproduce
+   - Expected vs actual behavior
+   - Screenshots (if applicable)
 
-### ✨ Sugerindo Melhorias
+### ✨ Suggesting Improvements
 
-Para sugerir novas funcionalidades ou melhorias:
+To suggest new features or improvements:
 
-1. **Descreva claramente** a funcionalidade desejada
-2. **Explique o problema** que ela resolve
-3. **Forneça exemplos** de como deveria funcionar
-4. **Considere implementar** você mesmo se possível
+1. **Clearly describe** the desired functionality
+2. **Explain the problem** it solves
+3. **Provide examples** of how it should work
+4. **Consider implementing** it yourself if possible
 
-### 📝 Melhorando a Documentação
+### 📝 Improving Documentation
 
-A documentação é sempre bem-vinda! Você pode ajudar com:
+Documentation is always welcome! You can help with:
 
-- Correção de erros de digitação
-- Melhoria de explicações
-- Adição de exemplos
-- Tradução para outros idiomas
+- Fixing typos and grammar errors
+- Improving explanations and clarity
+- Adding examples and use cases
+- Translating to other languages
 
-## 🛠️ Processo de Contribuição
+## 🛠️ Contribution Process
 
-### 1. Fork do Repositório
+### 1. Fork the Repository
 
 ```bash
-# Clone seu fork
-git clone https://github.com/SEU_USERNAME/awesome-readme.git
+# Clone your fork
+git clone https://github.com/YOUR_USERNAME/awesome-readme.git
 cd awesome-readme
 
-# Adicione o repositório original como upstream
+# Add the original repository as upstream
 git remote add upstream https://github.com/GabrielBaiano/awesome-readme.git
 ```
 
-### 2. Criar uma Branch
+### 2. Create a Branch
 
 ```bash
-# Crie uma branch para sua contribuição
-git checkout -b feature/nome-da-sua-contribuicao
+# Create a branch for your contribution
+git checkout -b feature/your-contribution-name
 ```
 
-### 3. Faça suas Modificações
+### 3. Make Your Changes
 
-- **Mantenha a consistência** com o estilo existente
-- **Teste suas mudanças** antes de submeter
-- **Documente** novas funcionalidades
-- **Atualize o CHANGELOG.md** se necessário
+- **Keep consistency** with existing style
+- **Test your changes** before submitting
+- **Document** new features
+- **Update CHANGELOG.md** if necessary
 
-### 4. Commit e Push
+### 4. Commit and Push
 
 ```bash
-# Adicione suas mudanças
+# Add your changes
 git add .
 
-# Faça commit com mensagem descritiva
-git commit -m "feat: adiciona novo template para aplicações mobile"
+# Commit with descriptive message
+git commit -m "feat: add new template for mobile applications"
 
-# Push para sua branch
-git push origin feature/nome-da-sua-contribuicao
+# Push to your branch
+git push origin feature/your-contribution-name
 ```
 
-### 5. Abrir Pull Request
+### 5. Open Pull Request
 
-1. **Acesse seu fork** no GitHub
-2. **Clique em "New Pull Request"**
-3. **Preencha o template** do PR
-4. **Aguarde a revisão**
+1. **Go to your fork** on GitHub
+2. **Click "New Pull Request"**
+3. **Fill out the template** provided
+4. **Wait for review**
 
-## 📋 Padrões de Código
+## 📋 Code Standards
 
-### Estrutura dos Templates
+### Template Structure
 
-- **Use placeholders** claros e descritivos: `[PROJECT_NAME]`
-- **Mantenha consistência** entre versões EN/PT
-- **Use emojis** de forma estratégica
-- **Organize seções** de forma lógica
+- **Use clear placeholders**: `[PROJECT_NAME]`, `[DESCRIPTION]`
+- **Maintain consistency** between EN/PT versions
+- **Use emojis strategically** for visual appeal
+- **Organize sections** logically
 
-### Mensagens de Commit
+### Commit Messages
 
-Use o padrão [Conventional Commits](https://conventionalcommits.org/):
+Use the [Conventional Commits](https://conventionalcommits.org/) standard:
 
 ```
-feat: adiciona novo template para APIs
-fix: corrige placeholder em português
-docs: atualiza instruções de instalação
-style: melhora formatação dos badges
+feat: add new template for APIs
+fix: correct placeholder in Portuguese version
+docs: update installation instructions
+style: improve badge formatting
 ```
 
-### Nomenclatura
+### Naming Conventions
 
-- **Arquivos**: `README-template.md`, `README-pt-template.md`
-- **Branches**: `feature/descricao`, `fix/descricao`, `docs/descricao`
-- **Placeholders**: `[NOME_DESCRITIVO]`
+- **Files**: `README-template.md`, `README-pt-template.md`
+- **Branches**: `feature/description`, `fix/description`, `docs/description`
+- **Placeholders**: `[DESCRIPTIVE_NAME]`
 
-## 🧪 Testando suas Mudanças
+## 🧪 Testing Your Changes
 
-Antes de submeter, teste seus templates:
+Before submitting, test your templates:
 
-1. **Copie o template** para um projeto de teste
-2. **Substitua os placeholders** com dados reais
-3. **Verifique a renderização** no GitHub
-4. **Teste todos os links** e badges
-5. **Valide a formatação** markdown
+1. **Copy the template** to a test project
+2. **Replace placeholders** with real data
+3. **Check rendering** on GitHub
+4. **Test all links** and badges
+5. **Validate markdown** syntax
 
-## 📝 Tipos de Contribuições
+## 📝 Types of Contributions
 
-### 🆕 Novos Templates
+### 🆕 New Templates
 
-- Templates para tipos específicos de projetos
-- Versões em outros idiomas
-- Variações com diferentes estilos
+- Templates for specific project types
+- Versions in other languages
+- Variations with different styles
 
-### 🔧 Melhorias nos Existentes
+### 🔧 Improvements to Existing
 
-- Correção de bugs
-- Melhoria na estrutura
-- Adição de novas seções
-- Otimização de placeholders
+- Bug fixes
+- Structure improvements
+- New sections
+- Placeholder optimizations
 
-### 📚 Documentação
+### 📚 Documentation
 
-- Guias de uso
-- Exemplos práticos
-- Melhoria nas instruções
-- Traduções
+- Usage guides
+- Practical examples
+- Instruction improvements
+- Translations
 
 ### 🎨 Design
 
-- Melhorias visuais
-- Novos layouts
-- Otimização de emojis
-- Responsividade
+- Visual improvements
+- New layouts
+- Emoji optimization
+- Responsiveness
 
 ## 🎯 Roadmap
 
-### Próximas Funcionalidades
+### Upcoming Features
 
-- [ ] Templates para projetos mobile
-- [ ] Versão em espanhol
-- [ ] Templates para bibliotecas
-- [ ] Gerador automático de README
-- [ ] Integração com GitHub Actions
+- [ ] Templates for mobile projects
+- [ ] Spanish version
+- [ ] Templates for libraries
+- [ ] Automatic README generator
+- [ ] GitHub Actions integration
 
-### Contribuições Prioritárias
+### Priority Contributions
 
-1. **Templates em outros idiomas**
-2. **Versões específicas por tipo de projeto**
-3. **Melhorias na acessibilidade**
-4. **Ferramentas de automação**
+1. **Templates in other languages**
+2. **Project-specific template variations**
+3. **Accessibility improvements**
+4. **Automation tools**
 
-## ❓ Dúvidas?
+## ❓ Questions?
 
-Se você tem dúvidas sobre como contribuir:
+If you have questions about contributing:
 
-1. **Abra uma issue** com a tag `question`
-2. **Entre em contato** via LinkedIn
-3. **Consulte** a documentação existente
+1. **Open an issue** with the `question` tag
+2. **Contact via LinkedIn**
+3. **Check** existing documentation
 
-## 🏆 Reconhecimento
+## 🏆 Recognition
 
-Contribuidores serão reconhecidos:
+Contributors will be recognized:
 
-- Na seção de contribuidores do README
-- No arquivo CHANGELOG.md
-- Nas releases do projeto
+- In the contributors section of README
+- In the CHANGELOG.md file
+- In project releases
 
-## 📄 Licença
+## 📄 License
 
-Ao contribuir, você concorda que suas contribuições serão licenciadas sob a [Licença MIT](LICENSE).
+By contributing, you agree that your contributions will be licensed under the [MIT License](LICENSE).
 
 ---
 
-**Obrigado por contribuir! 🎉**
+**Thank you for contributing! 🎉**
 
-Cada contribuição, por menor que seja, faz a diferença para a comunidade.
+Every contribution, no matter how small, makes a difference for the community.
+
+## 💡 Pro Tips for Contributors
+
+### 🎨 Template Design Tips
+
+1. **Keep it simple** - Templates should be easy to understand and customize
+2. **Use consistent formatting** - Maintain the same structure across all templates
+3. **Include all essential sections** - Don't skip important parts like installation or contributing
+4. **Test with real projects** - Always test your templates with actual project data
+5. **Consider different project types** - Think about how the template works for web apps, APIs, libraries, etc.
+
+### 🔧 Technical Tips
+
+1. **Validate markdown** - Use tools like markdownlint to catch syntax errors
+2. **Test on GitHub** - Always preview how the README looks on GitHub
+3. **Check all links** - Ensure every URL works and points to the right place
+4. **Optimize for mobile** - Make sure templates look good on all devices
+5. **Keep placeholders descriptive** - Use clear, self-explanatory placeholder names
+
+### 📚 Documentation Tips
+
+1. **Write clear instructions** - Assume users are new to the template
+2. **Provide examples** - Show before/after comparisons
+3. **Include screenshots** - Visual examples help users understand better
+4. **Update regularly** - Keep documentation current with template changes
+5. **Be comprehensive** - Cover all aspects of using the template
+
+### 🌐 Translation Tips
+
+1. **Maintain structure** - Keep the same layout in all languages
+2. **Use native speakers** - Get translations reviewed by native speakers
+3. **Consider cultural differences** - Adapt examples to different regions
+4. **Test thoroughly** - Make sure translations work correctly
+5. **Keep updated** - Sync translations when templates change
+
+---
+
+**Ready to contribute?** Start by forking the repository and creating your first branch! 🚀

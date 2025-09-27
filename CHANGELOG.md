@@ -8,11 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- CONTRIBUTING.md with comprehensive contribution guidelines
+- CONTRIBUTING.md with comprehensive contribution guidelines (English)
+- LICENSE-GUIDE.md with detailed explanation of different license types
 - Complete template manual and guide in README files
 - Installation instructions with NPM/Yarn commands (placeholders)
 - Detailed explanations for each template section
 - Pro tips and customization ideas
+- Real-world example section featuring Shii! project
+- Links to demonstrate template usage in practice
+- License selection guide and best practices
 
 ### Changed
 - Completely rewrote README.md as a template manual/draft
