@@ -82,7 +82,7 @@ console.log('\n⚡ Testing CLI script...');
 const cliPath = path.join(__dirname, 'awesome-readme.js');
 if (fs.existsSync(cliPath)) {
   const cliContent = fs.readFileSync(cliPath, 'utf8');
-  if (cliContent.includes('Awesome README Templates') && cliContent.includes('install')) {
+  if (cliContent.includes('Interactive Wizard') && cliContent.includes('Automated Setup')) {
     console.log('✅ CLI script has required functions');
   } else {
     console.log('❌ CLI script missing required functions');

@@ -12,7 +12,8 @@ const colors = {
   green: '\x1b[32m',
   yellow: '\x1b[33m',
   blue: '\x1b[34m',
-  cyan: '\x1b[36m'
+  cyan: '\x1b[36m',
+  magenta: '\x1b[35m'
 };
 
 function colorize(text, color) {
@@ -21,68 +22,75 @@ function colorize(text, color) {
 
 const templateDir = path.join(__dirname, '..', 'templates');
 
-// Available extras
-const extras = [
-  { id: 'contributing', name: 'CONTRIBUTING.md', file: 'CONTRIBUTING-template.md' },
-  { id: 'changelog', name: 'CHANGELOG.md', file: 'CHANGELOG-template.md' },
-  { id: 'code_of_conduct', name: 'CODE_OF_CONDUCT.md', file: 'CODE_OF_CONDUCT-template.md' },
-  { id: 'security', name: 'SECURITY.md', file: 'SECURITY-template.md' },
-  { id: 'support', name: 'SUPPORT.md', file: 'SUPPORT-template.md' },
-  { id: 'roadmap', name: 'ROADMAP.md', file: 'ROADMAP-template.md' },
-  { id: 'authors', name: 'AUTHORS.md', file: 'AUTHORS-template.md' },
-  { id: 'governance', name: 'GOVERNANCE.md', file: 'docs-templates/GOVERNANCE-template.md' },
-  { id: 'adr', name: 'ADR Template', file: 'docs-templates/adr-template.md' },
-  { id: 'citation', name: 'CITATION.cff', file: 'docs-templates/CITATION-template.cff' },
-  { id: 'license', name: 'LICENSE', type: 'license' }, // Special handling
-  { id: 'github', name: 'GitHub Templates (.github)', type: 'folder', src: 'github-templates' }
+// --- Configuration ---
+
+const licenses = [
+  { name: 'MIT License', file: 'MIT-LICENSE.txt' },
+  { name: 'Apache 2.0', file: 'Apache-2.0-LICENSE.txt' },
+  { name: 'GPL 3.0', file: 'GPL-3.0-LICENSE.txt' },
+  { name: 'AGPL 3.0', file: 'AGPL-3.0-LICENSE.txt' },
+  { name: 'BSD 2-Clause', file: 'BSD-2-Clause-LICENSE.txt' },
+  { name: 'BSD 3-Clause', file: 'BSD-3-Clause-LICENSE.txt' },
+  { name: 'ISC License', file: 'ISC-LICENSE.txt' },
+  { name: 'MPL 2.0', file: 'MPL-2.0-LICENSE.txt' },
+  { name: 'The Unlicense', file: 'Unlicense-LICENSE.txt' },
+  { name: 'None', file: null }
 ];
 
-async function main() {
-  console.log(colorize('\n🎉 Welcome to Awesome README Templates!', 'cyan'));
-  console.log(colorize('=====================================\n', 'cyan'));
+const extras = [
+  { id: 'contributing', name: 'Contributing Guide', file: 'CONTRIBUTING-template.md', dest: 'CONTRIBUTING.md' },
+  { id: 'changelog', name: 'Changelog', file: 'CHANGELOG-template.md', dest: 'CHANGELOG.md' },
+  { id: 'code_of_conduct', name: 'Code of Conduct', file: 'CODE_OF_CONDUCT-template.md', dest: 'CODE_OF_CONDUCT.md' },
+  { id: 'security', name: 'Security Policy', file: 'SECURITY-template.md', dest: 'SECURITY.md' },
+  { id: 'support', name: 'Support Guide', file: 'SUPPORT-template.md', dest: 'SUPPORT.md' },
+  { id: 'roadmap', name: 'Roadmap', file: 'ROADMAP-template.md', dest: 'ROADMAP.md' },
+  { id: 'authors', name: 'Authors', file: 'AUTHORS-template.md', dest: 'AUTHORS.md' },
+  { id: 'governance', name: 'Governance Model', file: 'docs-templates/GOVERNANCE-template.md', dest: 'GOVERNANCE.md' },
+  { id: 'adr', name: 'ADR Template', file: 'docs-templates/adr-template.md', dest: 'ADR-template.md' },
+  { id: 'citation', name: 'CITATION.cff', file: 'docs-templates/CITATION-template.cff', dest: 'CITATION.cff' },
+  { id: 'github', name: 'GitHub Templates (.github)', type: 'folder', src: 'github-templates', dest: '.github' }
+];
 
+// --- Main Execution ---
+
+async function main() {
+  const args = process.argv.slice(2);
+
+  // Option 3: Automated Setup (Flags)
+  if (args.length > 0) {
+    await runAutomatedMode(args);
+    return;
+  }
+
+  // Interactive Modes
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
 
   try {
-    // 1. Select Language
-    console.log(colorize('🌐 Select Language Strategy:', 'yellow'));
-    console.log('1. English Only (Single README.md)');
-    console.log('2. Portuguese Only (Single README.md)');
-    console.log('3. Bilingual (README.md + README.pt.md)');
+    console.log(colorize('\n🎉 Welcome to Awesome README Templates!', 'cyan'));
+    console.log(colorize('=====================================\n', 'cyan'));
+    console.log('Please select a mode:');
+    console.log('1. 🧙 Interactive Wizard (Step-by-step setup)');
+    console.log('2. ➕ Add Specific Templates (Pick & choose)');
+    console.log('3. 🤖 Automated Setup (Help with CLI flags)');
     
-    const langChoice = await askQuestion(rl, '\nEnter choice (1-3): ');
-    let langStrategy = 'en';
-    if (langChoice.trim() === '2') langStrategy = 'pt';
-    if (langChoice.trim() === '3') langStrategy = 'both';
+    const mode = await askQuestion(rl, '\nEnter choice (1-3): ');
 
-    // 2. Select Extras
-    console.log(colorize('\n📦 Select Optional Files (comma separated, e.g., 1,3,5):', 'yellow'));
-    extras.forEach((extra, index) => {
-      console.log(`${index + 1}. ${extra.name}`);
-    });
-    console.log('0. All of the above');
-    console.log('Enter nothing to skip extras.');
-
-    const extrasInput = await askQuestion(rl, '\nEnter choices: ');
-    const selectedIndices = extrasInput.split(',')
-      .map(s => s.trim())
-      .filter(s => s !== '')
-      .map(s => parseInt(s));
-
-    let selectedExtras = [];
-    if (selectedIndices.includes(0)) {
-        selectedExtras = extras;
-    } else {
-        selectedExtras = selectedIndices
-        .map(i => extras[i - 1])
-        .filter(e => e !== undefined);
+    switch (mode.trim()) {
+      case '1':
+        await runWizardMode(rl);
+        break;
+      case '2':
+        await runAddSpecificMode(rl);
+        break;
+      case '3':
+        showFlagsHelp();
+        break;
+      default:
+        console.log(colorize('❌ Invalid choice.', 'red'));
     }
-
-    // 3. Install
-    await install(langStrategy, selectedExtras, rl);
 
   } catch (error) {
     console.error(colorize(`\n❌ Error: ${error.message}`, 'red'));
@@ -91,108 +99,293 @@ async function main() {
   }
 }
 
+// --- Mode 1: Interactive Wizard ---
+
+async function runWizardMode(rl) {
+  console.log(colorize('\n🧙 Starting Interactive Wizard...', 'blue'));
+
+  // 1. Language
+  console.log(colorize('\n🌐 Select Language Strategy:', 'yellow'));
+  console.log('1. English Only');
+  console.log('2. Portuguese Only');
+  console.log('3. Bilingual (English + Portuguese)');
+  const langChoice = await askQuestion(rl, 'Choice (1-3): ');
+  const langStrategy = langChoice === '2' ? 'pt' : (langChoice === '3' ? 'both' : 'en');
+
+  // 2. License
+  console.log(colorize('\n📜 Select a License:', 'yellow'));
+  licenses.forEach((l, i) => console.log(`${i + 1}. ${l.name}`));
+  const licChoice = await askQuestion(rl, `Choice (1-${licenses.length}): `);
+  const selectedLicense = licenses[parseInt(licChoice) - 1] || licenses[licenses.length - 1];
+
+  // 3. Extras
+  console.log(colorize('\n📦 Select Extras:', 'yellow'));
+  const selectedExtras = [];
+  
+  // Ask for each extra individually? Or list selection? 
+  // User asked for "sim ou não" style for some, but list is faster. 
+  // Let's do list selection as it's cleaner for many items, but user mentioned "sim ou não".
+  // Let's stick to the list selection for efficiency as there are many items.
+  extras.forEach((e, i) => console.log(`${i + 1}. ${e.name}`));
+  console.log('0. All of the above');
+  console.log('Enter comma-separated numbers (e.g., 1,3,5) or press Enter to skip.');
+  
+  const extrasInput = await askQuestion(rl, 'Choices: ');
+  if (extrasInput.trim() === '0') {
+    selectedExtras.push(...extras);
+  } else {
+    const indices = extrasInput.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+    indices.forEach(i => {
+      if (extras[i - 1]) selectedExtras.push(extras[i - 1]);
+    });
+  }
+
+  await performInstallation(langStrategy, selectedLicense, selectedExtras);
+}
+
+// --- Mode 2: Add Specific Templates ---
+
+async function runAddSpecificMode(rl) {
+  console.log(colorize('\n➕ Add Specific Templates', 'blue'));
+  
+  // In this mode, we assume the user might already have a project.
+  // We should ask for language preference for these specific files.
+  console.log(colorize('\n🌐 Which language version do you want to add?', 'yellow'));
+  console.log('1. English');
+  console.log('2. Portuguese');
+  console.log('3. Both');
+  const langChoice = await askQuestion(rl, 'Choice (1-3): ');
+  const langStrategy = langChoice === '2' ? 'pt' : (langChoice === '3' ? 'both' : 'en');
+
+  console.log(colorize('\n📦 Available Templates:', 'yellow'));
+  extras.forEach((e, i) => console.log(`${i + 1}. ${e.name}`));
+  
+  const choice = await askQuestion(rl, 'Enter number to add: ');
+  const selectedExtra = extras[parseInt(choice) - 1];
+
+  if (selectedExtra) {
+    await performInstallation(langStrategy, null, [selectedExtra], true); // true = skip README generation
+  } else {
+    console.log(colorize('❌ Invalid selection.', 'red'));
+  }
+}
+
+// --- Mode 3: Automated Setup (Flags) ---
+
+async function runAutomatedMode(args) {
+  const flags = parseArgs(args);
+  
+  if (flags.help) {
+    showFlagsHelp();
+    return;
+  }
+
+  const langStrategy = flags.lang || 'en';
+  
+  // License
+  let selectedLicense = null;
+  if (flags.license) {
+    selectedLicense = licenses.find(l => l.name.toLowerCase().includes(flags.license.toLowerCase())) || licenses[0];
+  }
+
+  // Extras
+  const selectedExtras = [];
+  if (flags.all) {
+    selectedExtras.push(...extras);
+  } else {
+    extras.forEach(e => {
+      if (flags[e.id] || flags['with-' + e.id]) {
+        selectedExtras.push(e);
+      }
+    });
+  }
+
+  await performInstallation(langStrategy, selectedLicense, selectedExtras);
+}
+
+function showFlagsHelp() {
+  console.log(colorize('\n🤖 Automated Setup Flags:', 'cyan'));
+  console.log('  --lang <en|pt|both>      Set language strategy (default: en)');
+  console.log('  --license <name>         Select license (e.g., mit, apache)');
+  console.log('  --all                    Install all templates');
+  console.log('  --with-<template>        Install specific template (e.g., --with-roadmap)');
+  console.log('\nAvailable templates: ' + extras.map(e => e.id).join(', '));
+  console.log('\nExample:');
+  console.log('  npx awesome-readme --lang=both --license=mit --with-roadmap --with-contributing');
+}
+
+// --- Core Installation Logic ---
+
+async function performInstallation(langStrategy, selectedLicense, selectedExtras, skipReadme = false) {
+  console.log(colorize('\n🚀 Starting installation...', 'blue'));
+
+  // 1. Install README (if not skipped)
+  if (!skipReadme) {
+    await installReadme(langStrategy, selectedExtras);
+  }
+
+  // 2. Install License
+  if (selectedLicense && selectedLicense.file) {
+    const src = path.join(templateDir, 'license-templates', selectedLicense.file);
+    const dest = path.join(process.cwd(), 'LICENSE');
+    copyFile(src, dest);
+  }
+
+  // 3. Install Extras
+  const languages = langStrategy === 'both' ? ['en', 'pt'] : [langStrategy];
+
+  for (const extra of selectedExtras) {
+    if (extra.type === 'folder') {
+      // For folders (like .github), we usually just copy the structure.
+      // If bilingual, we might need to be careful.
+      // Currently .github templates are separated in en/pt folders in the repo.
+      
+      for (const lang of languages) {
+        const src = path.join(templateDir, lang, extra.src);
+        // If bilingual, we can't easily merge .github folders without conflicts usually.
+        // But for .github, usually you pick one primary language for the templates.
+        // OR we overwrite. Let's assume we copy the requested language(s).
+        // If 'both', maybe we prioritize English or copy both if filenames differ?
+        // For simplicity: If 'both', we copy English then Portuguese (PT overwrites if same name, but usually filenames are standard).
+        // Wait, issue templates can be bilingual? Usually not in same file.
+        // Let's copy from the primary language if single, or both if 'both'.
+        
+        // If 'both', let's copy 'en' first, then 'pt'. 
+        // Note: This might overwrite standard files like PULL_REQUEST_TEMPLATE.md.
+        // A bilingual repo usually has one PR template (often in English or bilingual text).
+        // For now, let's copy the specified language(s).
+        if (fs.existsSync(src)) {
+            copyDir(src, path.join(process.cwd(), extra.dest));
+        }
+      }
+      continue;
+    }
+
+    // File Extras
+    for (const lang of languages) {
+      const src = path.join(templateDir, lang, extra.file);
+      
+      // Determine destination filename
+      let destName = extra.dest;
+      
+      // If bilingual mode, append language code to non-English files (or follow user pref)
+      // Standard: README.md (En), README.pt.md (Pt)
+      // Others: CONTRIBUTING.md (En), CONTRIBUTING.pt.md (Pt)
+      if (langStrategy === 'both') {
+        if (lang === 'pt') {
+            // Insert .pt before extension
+            const ext = path.extname(destName);
+            const base = path.basename(destName, ext);
+            destName = `${base}.pt${ext}`;
+        }
+      } else if (langStrategy === 'pt') {
+         // If Portuguese only, do we want CONTRIBUTING.pt.md or CONTRIBUTING.md?
+         // User said "renomear para o destino final". Usually CONTRIBUTING.md is expected by GitHub.
+         // So if PT only, keep standard name.
+         destName = extra.dest;
+      }
+
+      const dest = path.join(process.cwd(), destName);
+      copyFile(src, dest);
+    }
+  }
+
+  console.log(colorize('\n✅ Done! Happy coding!', 'magenta'));
+}
+
+async function installReadme(langStrategy, selectedExtras) {
+  const languages = langStrategy === 'both' ? ['en', 'pt'] : [langStrategy];
+
+  for (const lang of languages) {
+    const src = path.join(templateDir, lang, 'README-template.md');
+    if (!fs.existsSync(src)) continue;
+
+    let content = fs.readFileSync(src, 'utf8');
+
+    // Remove buttons if single language
+    if (langStrategy === 'en') {
+        content = content.replace(/<a href="\/README\.pt\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
+        content = content.replace(/<a href="\.\/README\.pt\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
+    } else if (langStrategy === 'pt') {
+        content = content.replace(/<a href="\/README\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
+        content = content.replace(/<a href="\.\/README\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
+    }
+
+    // Inject Documentation
+    if (selectedExtras.length > 0) {
+        const isEn = lang === 'en';
+        const header = isEn ? '## 📂 Documentation' : '## 📂 Documentação';
+        let links = `${header}\n\n`;
+        
+        selectedExtras.forEach(e => {
+            if (e.type === 'folder') return; // Skip folders
+            
+            let name = e.name;
+            // Translate name if needed (simple heuristic or map)
+            if (!isEn) {
+                if (name === 'Contributing Guide') name = 'Guia de Contribuição';
+                if (name === 'Changelog') name = 'Changelog'; // Same
+                if (name === 'Code of Conduct') name = 'Código de Conduta';
+                if (name === 'Security Policy') name = 'Política de Segurança';
+                if (name === 'Support Guide') name = 'Suporte';
+                if (name === 'Roadmap') name = 'Roadmap'; // Same
+                if (name === 'Authors') name = 'Autores';
+                if (name === 'Governance Model') name = 'Governança';
+            }
+
+            // Link path
+            let linkPath = `./${e.dest}`;
+            if (langStrategy === 'both' && !isEn) {
+                 const ext = path.extname(e.dest);
+                 const base = path.basename(e.dest, ext);
+                 linkPath = `./${base}.pt${ext}`;
+            }
+
+            links += `- [${name}](${linkPath})\n`;
+        });
+        
+        content = content.replace('<!-- DOCUMENTATION_SECTION -->', links);
+    } else {
+        content = content.replace('<!-- DOCUMENTATION_SECTION -->', '');
+    }
+
+    // Dest filename
+    let destName = 'README.md';
+    if (langStrategy === 'both' && lang === 'pt') destName = 'README.pt.md';
+    
+    fs.writeFileSync(path.join(process.cwd(), destName), content);
+    console.log(colorize(`✅ Created ${destName}`, 'green'));
+  }
+}
+
+// --- Helpers ---
+
 function askQuestion(rl, question) {
   return new Promise(resolve => rl.question(question, resolve));
 }
 
-async function install(langStrategy, selectedExtras, rl) {
-  console.log(colorize('\n🚀 Starting installation...', 'blue'));
-
-  const languages = langStrategy === 'both' ? ['en', 'pt'] : [langStrategy];
-
-  for (const lang of languages) {
-    const isEnglish = lang === 'en';
-    const srcDir = path.join(templateDir, lang);
-    
-    // 1. Handle README
-    const readmeSrc = path.join(srcDir, 'README-template.md');
-    let readmeContent = fs.readFileSync(readmeSrc, 'utf8');
-    
-    // Remove language buttons if single language
-    if (langStrategy !== 'both') {
-      // Regex to remove the specific language link and separator
-      // This is a simple heuristic.
-      if (langStrategy === 'en') {
-         // Remove Portuguese link
-         readmeContent = readmeContent.replace(/<a href="\/README\.pt\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
-         readmeContent = readmeContent.replace(/<a href="\.\/README\.pt\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
-      } else if (langStrategy === 'pt') {
-         // Remove English link
-         readmeContent = readmeContent.replace(/<a href="\/README\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
-         readmeContent = readmeContent.replace(/<a href="\.\/README\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
-      }
+function parseArgs(args) {
+  const flags = {};
+  args.forEach(arg => {
+    if (arg.startsWith('--')) {
+      const parts = arg.substring(2).split('=');
+      flags[parts[0]] = parts[1] || true;
     }
+  });
+  return flags;
+}
 
-    // Inject Documentation Section
-    if (selectedExtras.length > 0) {
-      const docTitle = isEnglish ? '## 📂 Documentation' : '## 📂 Documentação';
-      let docList = `${docTitle}\n\n`;
-      
-      selectedExtras.forEach(extra => {
-        if (extra.id === 'license' || extra.id === 'github') return; // Skip these in doc list usually, or handle differently
-        
-        let linkName = extra.name;
-        let linkPath = `./${extra.name}`;
-        
-        // Customize link names/paths if needed
-        if (extra.id === 'roadmap') linkName = isEnglish ? 'Roadmap' : 'Roadmap';
-        if (extra.id === 'authors') linkName = isEnglish ? 'Authors' : 'Autores';
-        if (extra.id === 'contributing') linkName = isEnglish ? 'Contributing' : 'Contribuindo';
-        if (extra.id === 'code_of_conduct') linkName = isEnglish ? 'Code of Conduct' : 'Código de Conduta';
-        
-        docList += `- [${linkName}](${linkPath})\n`;
-      });
-
-      // Replace placeholder
-      readmeContent = readmeContent.replace('<!-- DOCUMENTATION_SECTION -->', docList);
+function copyFile(src, dest) {
+  if (fs.existsSync(src)) {
+    if (fs.existsSync(dest)) {
+      console.log(colorize(`⚠️  ${path.basename(dest)} already exists. Skipping.`, 'yellow'));
     } else {
-        readmeContent = readmeContent.replace('<!-- DOCUMENTATION_SECTION -->', '');
+      fs.copyFileSync(src, dest);
+      console.log(colorize(`✅ Created ${path.basename(dest)}`, 'green'));
     }
-
-    // Determine output filename
-    let targetReadme = 'README.md';
-    if (langStrategy === 'both' && !isEnglish) {
-      targetReadme = 'README.pt.md';
-    }
-    
-    fs.writeFileSync(path.join(process.cwd(), targetReadme), readmeContent);
-    console.log(colorize(`✅ Created ${targetReadme}`, 'green'));
-
-    // 2. Handle Extras
-    for (const extra of selectedExtras) {
-      if (extra.id === 'license') {
-        // License handling (ask user which license)
-        // For simplicity in this refactor, we might just copy MIT or ask.
-        // Let's copy MIT by default or ask if we want to be fancy.
-        // To keep it simple and robust:
-        const licenseSrc = path.join(templateDir, 'license-templates', 'MIT-LICENSE.txt');
-        if (fs.existsSync(licenseSrc)) {
-             fs.copyFileSync(licenseSrc, path.join(process.cwd(), 'LICENSE'));
-             console.log(colorize(`✅ Created LICENSE (MIT default)`, 'green'));
-        }
-        continue;
-      }
-
-      if (extra.id === 'github') {
-        const githubSrc = path.join(srcDir, 'github-templates');
-        const githubDest = path.join(process.cwd(), '.github');
-        copyDir(githubSrc, githubDest);
-        console.log(colorize(`✅ Created .github/ templates`, 'green'));
-        continue;
-      }
-
-      if (extra.file) {
-        const extraSrc = path.join(srcDir, extra.file);
-        const extraDest = path.join(process.cwd(), extra.name);
-        if (fs.existsSync(extraSrc)) {
-            fs.copyFileSync(extraSrc, extraDest);
-            console.log(colorize(`✅ Created ${extra.name}`, 'green'));
-        }
-      }
-    }
+  } else {
+    console.log(colorize(`⚠️  Source ${path.basename(src)} not found.`, 'red'));
   }
-  
-  console.log(colorize('\n🎉 Done! Happy coding!', 'magenta'));
 }
 
 function copyDir(src, dest) {
@@ -206,7 +399,10 @@ function copyDir(src, dest) {
         if (entry.isDirectory()) {
             copyDir(srcPath, destPath);
         } else {
-            fs.copyFileSync(srcPath, destPath);
+            if (!fs.existsSync(destPath)) {
+                fs.copyFileSync(srcPath, destPath);
+                console.log(colorize(`✅ Created ${path.basename(destPath)}`, 'green'));
+            }
         }
     }
 }
