@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussões do GitHub
+    url: [GITHUB_REPO_URL]/discussions
+    about: Por favor, pergunte e responda perguntas aqui.
+  - name: Vulnerabilidades de Segurança
+    url: [GITHUB_REPO_URL]/security/policy
+    about: Por favor, reporte vulnerabilidades de segurança aqui.

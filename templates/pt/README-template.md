@@ -46,6 +46,9 @@
 
 > 📚 **Evolução do Projeto**: [PROJECT_EVOLUTION_DESCRIPTION_PT]
 
+<!-- DOCUMENTATION_SECTION -->
+
+
 ## 🎓 Funcionalidades Principais
 
 * **[FEATURE_1]**: [FEATURE_1_DESCRIPTION_PT]
