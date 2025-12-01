@@ -1,6 +1,6 @@
 {
   "name": "awesome-readme-templates",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Professional and reusable README templates for GitHub projects. Create stunning documentation in minutes with our bilingual templates (EN/PT).",
   "main": "index.js",
   "bin": {
