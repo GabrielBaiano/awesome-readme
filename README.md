@@ -39,7 +39,9 @@
 
 *   **🧙 Interactive CLI**: A wizard-style interface to guide you through the setup.
 *   **🇧🇷 Bilingual Support**: Full support for English and Portuguese (Brazil).
-*   **📦 Comprehensive Collection**: Includes README, CONTRIBUTING, CHANGELOG, SECURITY, and more.
+*   **� Smart Organization**: In bilingual mode, Portuguese files are automatically placed in a `pt/` folder.
+*   **🛡️ Safety First**: The CLI checks for existing files to prevent accidental overwrites.
+*   **�📦 Comprehensive Collection**: Includes README, CONTRIBUTING, CHANGELOG, SECURITY, and more.
 *   **📜 License Manager**: Choose from a wide range of open-source licenses (MIT, Apache, GPL, etc.).
 *   **🤖 Automated Setup**: Support for CLI flags for CI/CD or quick setups.
 

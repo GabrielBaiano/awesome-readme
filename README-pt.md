@@ -41,21 +41,6 @@
 
 <p align="center">
   <img src="https://via.placeholder.com/800x400/007ACC/FFFFFF?text=Templates+Profissionais+de+README" alt="Demonstração dos Templates Awesome README"/>
-</p>
-
-**Awesome README Templates** é uma coleção abrangente de templates profissionais e prontos para uso que ajudam desenvolvedores a criar documentação impressionante para seus projetos GitHub em minutos.
-
-## 🎓 Funcionalidades Principais
-
-* **Templates Profissionais**: Templates README completos em inglês e português com design moderno
-* **Ferramenta CLI**: Interface de linha de comando fácil de usar para instalação de templates
-* **Ecossistema Completo**: Templates README, CONTRIBUTING, CHANGELOG e LICENSE
-* **Pacote NPM**: Instalável via npm com opções de instalação global ou local
-
-## 🛠️ Tecnologias Utilizadas
-
-* **Gerenciador de Pacotes**: NPM
-* **Linguagem**: JavaScript
 
 ## 🚀 Início Rápido
 
@@ -81,41 +66,6 @@ yarn global add awesome-readme-templates
 yarn add awesome-readme-templates
 ```
 
-**Opção 3: Download Manual**
-```bash
-# Clonar o repositório
-git clone https://github.com/GabrielBaiano/awesome-readme.git
-```
-
-### ⚡ Primeiros Passos
-
-Após a instalação, execute a ferramenta CLI:
-
-```bash
-# Modo interativo - escolha seu template
-awesome-readme
-
-# Ou especifique o template diretamente
-awesome-readme --template readme-english
-awesome-readme --template readme-portuguese
-awesome-readme --template readme-both
-```
-
-**Templates Disponíveis:**
-- `readme-english` - Template README em inglês
-- `readme-portuguese` - Template README em português  
-- `readme-both` - Ambos os templates README
-- `contributing` - Template CONTRIBUTING.md
-- `changelog` - Template CHANGELOG.md
-- `license-mit` - Template de Licença MIT
-- `license-apache` - Template de Licença Apache 2.0
-- `all` - Configuração completa de documentação do projeto
-
-## 🌐 Customização de Templates
-
-Os Awesome README Templates permitem que você customize sua documentação para qualquer projeto:
-
-### Método 1: Usando Ferramenta CLI
 
 1. Instale o pacote globalmente: `npm install -g awesome-readme-templates`
 2. Navegue até o diretório do seu projeto
