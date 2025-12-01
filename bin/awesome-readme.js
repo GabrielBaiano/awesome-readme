@@ -349,7 +349,14 @@ async function installReadme(langStrategy, selectedExtras) {
     let destName = 'README.md';
     if (langStrategy === 'both' && lang === 'pt') destName = 'README.pt.md';
     
-    fs.writeFileSync(path.join(process.cwd(), destName), content);
+    const destPath = path.join(process.cwd(), destName);
+    
+    if (fs.existsSync(destPath)) {
+      console.log(colorize(`⚠️  ${destName} already exists. Skipping.`, 'yellow'));
+      continue;
+    }
+
+    fs.writeFileSync(destPath, content);
     console.log(colorize(`✅ Created ${destName}`, 'green'));
   }
 }

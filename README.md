@@ -1,154 +1,107 @@
 <p align="center">
-  <img src="[LOGO_PATH]" alt="[PROJECT_NAME] Logo" width="200"/>
+  <img src="./Awesome.png" alt="Awesome README Templates Logo" width="200"/>
 </p>
 
-<h1 align="center">[PROJECT_NAME]</h1>
+<h1 align="center">Awesome README Templates</h1>
 
 <p align="center">
-  <strong>[PROJECT_DESCRIPTION]</strong><br>
-  <em>[PROJECT_TAGLINE]</em>
-</p>
-
-<p align="center">
-  <a href="/README.pt.md" target="_blank">🇧🇷 Português</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="[RELEASES_URL]" target="_blank">📦 Downloads</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="[ORIGINAL_VERSION_URL]" target="_blank">📚 Original Version</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="[ISSUE_TEMPLATE_URL]" target="_blank">🐛 Report Bug</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="[LINKEDIN_URL]" target="_blank">💼 LinkedIn</a>
+  <strong>Professional and reusable README templates for GitHub projects.</strong><br>
+  <em>Create stunning documentation in minutes with our bilingual templates (EN/PT).</em>
 </p>
 
 <p align="center">
-  <a href="[GITHUB_REPO_URL]/stargazers">
-    <img src="https://img.shields.io/github/stars/[USERNAME]/[REPO_NAME]?style=social" alt="GitHub stars">
+  <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">
+    <img src="https://img.shields.io/npm/v/awesome-readme-templates?style=flat-square" alt="NPM Version">
   </a>
-  <a href="[GITHUB_REPO_URL]/issues">
-    <img src="https://img.shields.io/github/issues/[USERNAME]/[REPO_NAME]" alt="GitHub issues">
+  <a href="https://github.com/GabrielBaiano/awesome-readme/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme?style=flat-square" alt="License">
   </a>
-  <a href="[GITHUB_REPO_URL]/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/[USERNAME]/[REPO_NAME]" alt="License">
-  </a>
-  <a href="[GITHUB_REPO_URL]/releases">
-    <img src="https://img.shields.io/github/v/release/[USERNAME]/[REPO_NAME]" alt="Latest Release">
+  <a href="https://github.com/GabrielBaiano/awesome-readme/stargazers">
+    <img src="https://img.shields.io/github/stars/GabrielBaiano/awesome-readme?style=social" alt="GitHub stars">
   </a>
 </p>
 
 ---
 
-<p align="center">
-  <img src="[SHOWCASE_IMAGE_URL]" alt="[PROJECT_NAME] Showcase"/>
-</p>
+**Awesome README Templates** is a collection of high-quality, bilingual (English/Portuguese) documentation templates designed to help developers create professional project documentation effortlessly. It includes a powerful CLI tool to generate and configure your files automatically.
 
-**[PROJECT_NAME]** [DETAILED_DESCRIPTION]
+## 🚀 Features
 
-> 📚 **Project Evolution**: [PROJECT_EVOLUTION_DESCRIPTION]
+*   **🧙 Interactive CLI**: A wizard-style interface to guide you through the setup.
+*   **🇧🇷 Bilingual Support**: Full support for English and Portuguese (Brazil).
+*   **📦 Comprehensive Collection**: Includes README, CONTRIBUTING, CHANGELOG, SECURITY, and more.
+*   **📜 License Manager**: Choose from a wide range of open-source licenses (MIT, Apache, GPL, etc.).
+*   **🤖 Automated Setup**: Support for CLI flags for CI/CD or quick setups.
 
-## 📂 Documentation
+## 📥 Installation
 
-- [Contributing Guide](./CONTRIBUTING.md)
-
-
-
-## 🎓 Main Features
-
-* **[FEATURE_1]**: [FEATURE_1_DESCRIPTION]
-* **[FEATURE_2]**: [FEATURE_2_DESCRIPTION]
-* **[FEATURE_3]**: [FEATURE_3_DESCRIPTION]
-* **[FEATURE_4]**: [FEATURE_4_DESCRIPTION]
-
-## 🛠️ Technologies Used
-
-* **Framework**: [FRAMEWORK]
-* **Language**: [LANGUAGE]
-* **[ADDITIONAL_TECH_1]**: [ADDITIONAL_TECH_1_DESCRIPTION]
-* **[ADDITIONAL_TECH_2]**: [ADDITIONAL_TECH_2_DESCRIPTION]
-* **[ADDITIONAL_TECH_3]**: [ADDITIONAL_TECH_3_DESCRIPTION]
-* **Libraries**: [LIBRARIES_LIST]
-
-## 🚀 Quick Start
-
-### 📥 Installation
-
-1. **Download**: Go to the **[Releases page]([RELEASES_URL])** and download the latest version for your OS
-2. **Install**: [INSTALLATION_INSTRUCTIONS]
-3. **[SETUP_STEP_1]**: [SETUP_STEP_1_DESCRIPTION]
-4. **[SETUP_STEP_2]**: [SETUP_STEP_2_DESCRIPTION]
-
-### ⚡ First Steps
-
-- **[FIRST_STEP_1]**: [FIRST_STEP_1_DESCRIPTION]
-- **[FIRST_STEP_2]**: [FIRST_STEP_2_DESCRIPTION]
-- **[FIRST_STEP_3]**: [FIRST_STEP_3_DESCRIPTION]
-- **[FIRST_STEP_4]**: [FIRST_STEP_4_DESCRIPTION]
-
-## 🌐 [CUSTOMIZATION_SECTION_TITLE]
-
-[PROJECT_NAME] allows you to [CUSTOMIZATION_DESCRIPTION]:
-
-### Method 1: [METHOD_1_TITLE]
-
-1. [METHOD_1_STEP_1]
-2. [METHOD_1_STEP_2]
-3. [METHOD_1_STEP_3]
-4. [METHOD_1_STEP_4]
-5. [METHOD_1_STEP_5]
-6. [METHOD_1_STEP_6]
-
-### Method 2: [METHOD_2_TITLE]
-
-1. [METHOD_2_STEP_1]
-2. [METHOD_2_STEP_2]
-3. [METHOD_2_STEP_3]
-4. [METHOD_2_STEP_4]
-
-### Supported [CUSTOMIZATION_TYPE]:
-- [SUPPORTED_TYPE_1]
-- [SUPPORTED_TYPE_2]
-- [SUPPORTED_TYPE_3]
-- [SUPPORTED_TYPE_4]
-- [SUPPORTED_TYPE_5]
-
-## 💻 For Developers
-
-If you want to clone the repository and run the project locally:
+You can use the tool directly via `npx` without installation:
 
 ```bash
-# 1. Clone the repository
-git clone [GITHUB_REPO_URL].git
-
-# 2. Navigate to the project folder
-cd [REPO_NAME]
-
-# 3. Install dependencies
-npm install
-
-# 4. Run in development mode
-npm start
-
-# 5. To create installers
-npm run package
+npx awesome-readme-templates
 ```
 
-## 📚 Perfect for [TARGET_AUDIENCE]
+Or install it globally:
 
-- **[USE_CASE_1]**: [USE_CASE_1_DESCRIPTION]
-- **[USE_CASE_2]**: [USE_CASE_2_DESCRIPTION]
-- **[USE_CASE_3]**: [USE_CASE_3_DESCRIPTION]
-- **[USE_CASE_4]**: [USE_CASE_4_DESCRIPTION]
+```bash
+npm install -g awesome-readme-templates
+```
+
+## 📖 Usage
+
+### Interactive Mode (Wizard)
+Run the command and follow the prompts:
+
+```bash
+awesome-readme
+```
+
+You will be asked to:
+1.  **Select Language**: English, Portuguese, or Both.
+2.  **Select License**: Choose from a curated list.
+3.  **Select Extras**: Add Contributing Guide, Changelog, Roadmap, etc.
+
+### Add Specific Templates
+Need just one file? Use the "Add Specific Templates" mode in the menu to pick exactly what you need.
+
+### Automated Mode (CLI Flags)
+Perfect for scripts or power users.
+
+```bash
+# Example: Create a bilingual project with MIT license and Roadmap
+npx awesome-readme-templates --lang=both --license=mit --with-roadmap
+```
+
+**Available Flags:**
+*   `--lang <en|pt|both>`: Set language strategy.
+*   `--license <name>`: Select license (e.g., mit, apache).
+*   `--all`: Install all available templates.
+*   `--with-<template>`: Install specific template (e.g., `--with-contributing`, `--with-security`).
+
+## 📂 Included Templates
+
+*   **README.md**: The face of your project.
+*   **CONTRIBUTING.md**: Guidelines for contributors.
+*   **CHANGELOG.md**: Track project history.
+*   **CODE_OF_CONDUCT.md**: Community standards.
+*   **SECURITY.md**: Security policy.
+*   **SUPPORT.md**: Support channels.
+*   **ROADMAP.md**: Project future plans.
+*   **AUTHORS.md**: Project credits.
+*   **GOVERNANCE.md**: Governance model.
+*   **CITATION.cff**: Citation file.
+*   **.github/**: Issue and PR templates.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please check our [Contributing Guide](./CONTRIBUTING.md) for details.
 
 ## 📄 License
 
-This project is licensed under the [LICENSE_TYPE] License.
+This project is licensed under the [MIT License](./LICENSE).
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="[GITHUB_PROFILE_URL]" target="_blank">[AUTHOR_NAME]</a>
+  Made with ❤️ by <a href="https://github.com/GabrielBaiano" target="_blank">GabrielBaiano</a>
 </p>

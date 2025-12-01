@@ -65,6 +65,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - Nothing yet
 
+## [1.3.0] - 2025-12-01
+
+### Changed
+- 🌐 **Bilingual Organization**: Portuguese files are now placed in a `pt/` directory (e.g., `pt/CONTRIBUTING.pt.md`) when using bilingual mode, keeping the root clean.
+- 🔄 **Naming Convention**: Preserved `.pt` suffix for Portuguese files inside the `pt/` directory.
+
+## [1.2.0] - 2025-12-01
+
+### Added
+- 🧙 **Interactive Wizard**: New CLI mode with step-by-step setup for Language, License, and Extras.
+- ➕ **Add Specific Templates**: New CLI mode to add individual templates to an existing project.
+- 🤖 **Automated Setup**: Full support for CLI flags (e.g., `--lang=both --license=mit --with-roadmap`).
+- 📜 **Extended Licenses**: Added support for all licenses in the repository (AGPL, BSD, ISC, MPL, Unlicense).
+
+### Changed
+- 🔄 **Refactored CLI**: Complete rewrite of `bin/awesome-readme.js` to support multiple modes.
+- 📂 **Dynamic Links**: README links now correctly point to the generated files (renaming `-template` to standard names).
+
+## [1.1.0] - 2025-12-01
+
+### Added
+- 🌐 **Bilingual Support**: Templates are now organized in `en` and `pt` directories.
+- 🚀 **Dynamic README**: CLI automatically removes unused language buttons and adds a "Documentation" section linking to installed files.
+- 📦 **Optional Files**: CLI now asks which additional files (Roadmap, Authors, etc.) to install.
+
+### Changed
+- 📂 **Directory Structure**: Moved templates into `templates/en` and `templates/pt`.
+
 ## [1.0.0] - 2024-09-27
 
 ### Added
