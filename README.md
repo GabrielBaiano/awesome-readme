@@ -10,6 +10,16 @@
 </p>
 
 <p align="center">
+  <a href="/README-pt.md" target="_blank">🇧🇷 Português</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">📚 NPM Package</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/GabrielBaiano/awesome-readme/issues" target="_blank">🐛 Report Bug</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/GabrielBaiano" target="_blank">💼 GitHub Profile</a>
+</p>
+
+<p align="center">
   <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">
     <img src="https://img.shields.io/npm/v/awesome-readme-templates?style=flat-square" alt="NPM Version">
   </a>
