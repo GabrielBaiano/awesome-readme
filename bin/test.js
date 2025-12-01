@@ -6,10 +6,12 @@ const path = require('path');
 // Test if all required files exist
 const requiredFiles = [
   'package.json',
-  'templates/README-template.md',
-  'templates/README-pt-template.md',
-  'templates/CONTRIBUTING-template.md',
-  'templates/CHANGELOG-template.md',
+  'templates/en/README-template.md',
+  'templates/pt/README-template.md',
+  'templates/en/CONTRIBUTING-template.md',
+  'templates/pt/CONTRIBUTING-template.md',
+  'templates/en/CHANGELOG-template.md',
+  'templates/pt/CHANGELOG-template.md',
   'templates/license-templates/MIT-LICENSE.txt',
   'templates/license-templates/Apache-2.0-LICENSE.txt',
   'bin/awesome-readme.js',
@@ -60,7 +62,7 @@ try {
 
 // Test 3: Check templates have placeholders
 console.log('\n📝 Testing templates...');
-const templateFiles = ['templates/README-template.md', 'templates/README-pt-template.md'];
+const templateFiles = ['templates/en/README-template.md', 'templates/pt/README-template.md'];
 
 templateFiles.forEach(template => {
   const templatePath = path.join(__dirname, '..', template);
@@ -80,7 +82,7 @@ console.log('\n⚡ Testing CLI script...');
 const cliPath = path.join(__dirname, 'awesome-readme.js');
 if (fs.existsSync(cliPath)) {
   const cliContent = fs.readFileSync(cliPath, 'utf8');
-  if (cliContent.includes('awesome-readme') && cliContent.includes('installTemplate')) {
+  if (cliContent.includes('Awesome README Templates') && cliContent.includes('install')) {
     console.log('✅ CLI script has required functions');
   } else {
     console.log('❌ CLI script missing required functions');
