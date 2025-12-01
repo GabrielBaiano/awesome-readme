@@ -265,27 +265,22 @@ async function performInstallation(langStrategy, selectedLicense, selectedExtras
     for (const lang of languages) {
       const src = path.join(templateDir, lang, extra.file);
       
-      // Determine destination filename
+      let destDir = process.cwd();
       let destName = extra.dest;
-      
-      // If bilingual mode, append language code to non-English files (or follow user pref)
-      // Standard: README.md (En), README.pt.md (Pt)
-      // Others: CONTRIBUTING.md (En), CONTRIBUTING.pt.md (Pt)
-      if (langStrategy === 'both') {
-        if (lang === 'pt') {
-            // Insert .pt before extension
-            const ext = path.extname(destName);
-            const base = path.basename(destName, ext);
-            destName = `${base}.pt${ext}`;
-        }
-      } else if (langStrategy === 'pt') {
-         // If Portuguese only, do we want CONTRIBUTING.pt.md or CONTRIBUTING.md?
-         // User said "renomear para o destino final". Usually CONTRIBUTING.md is expected by GitHub.
-         // So if PT only, keep standard name.
-         destName = extra.dest;
+
+      // Bilingual Mode Logic
+      if (langStrategy === 'both' && lang === 'pt') {
+        // Create pt/ directory
+        destDir = path.join(process.cwd(), 'pt');
+        if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+
+        // Ensure .pt suffix (User request: keep .pt suffix inside pt folder)
+        const ext = path.extname(destName);
+        const base = path.basename(destName, ext);
+        destName = `${base}.pt${ext}`;
       }
 
-      const dest = path.join(process.cwd(), destName);
+      const dest = path.join(destDir, destName);
       copyFile(src, dest);
     }
   }
@@ -338,7 +333,8 @@ async function installReadme(langStrategy, selectedExtras) {
             if (langStrategy === 'both' && !isEn) {
                  const ext = path.extname(e.dest);
                  const base = path.basename(e.dest, ext);
-                 linkPath = `./${base}.pt${ext}`;
+                 // Point to pt/ folder with .pt suffix
+                 linkPath = `./pt/${base}.pt${ext}`;
             }
 
             links += `- [${name}](${linkPath})\n`;
