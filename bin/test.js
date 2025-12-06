@@ -6,12 +6,12 @@ const path = require('path');
 // Test if all required files exist
 const requiredFiles = [
   'package.json',
-  'templates/en/README-template.md',
-  'templates/pt/README-template.md',
-  'templates/en/CONTRIBUTING-template.md',
-  'templates/pt/CONTRIBUTING-template.md',
-  'templates/en/CHANGELOG-template.md',
-  'templates/pt/CHANGELOG-template.md',
+  'templates/en-template/README-template.md',
+  'templates/pt-template/README-template.md',
+  'templates/en-template/CONTRIBUTING-template.md',
+  'templates/pt-template/CONTRIBUTING-template.md',
+  'templates/en-template/CHANGELOG-template.md',
+  'templates/pt-template/CHANGELOG-template.md',
   'templates/license-templates/MIT-LICENSE.txt',
   'templates/license-templates/Apache-2.0-LICENSE.txt',
   'bin/awesome-readme.js',
@@ -62,7 +62,7 @@ try {
 
 // Test 3: Check templates have placeholders
 console.log('\n📝 Testing templates...');
-const templateFiles = ['templates/en/README-template.md', 'templates/pt/README-template.md'];
+const templateFiles = ['templates/en-template/README-template.md', 'templates/pt-template/README-template.md'];
 
 templateFiles.forEach(template => {
   const templatePath = path.join(__dirname, '..', template);
