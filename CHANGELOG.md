@@ -71,6 +71,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - 🐛 **Menu Cleanup**: Temporarily hid unsupported languages (Spanish, French, etc.) from the interactive wizard to avoid confusion. The multi-language logic remains active for future use.
 
+## [1.4.2] - 2025-12-06
+
+### Documentation
+- 📝 **Updated README**: Added detailed explanation of multi-language features and CLI flags.
+- 🤝 **Call for Contributors**: Added a dedicated section inviting the community to help translate templates.
+
 ## [1.4.0] - 2025-12-06
 
 ### Added
