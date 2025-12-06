@@ -4,6 +4,27 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
+// --- Configuration ---
+
+const config = {
+  // Supported languages and their badge configurations
+  languages: {
+    en: { name: 'English', badge: 'En', color: 'blue', alt: 'English' },
+    pt: { name: 'Portuguese', badge: 'Pt--Br', color: 'green', alt: 'Portuguese' },
+    es: { name: 'Spanish', badge: 'Es', color: 'yellow', alt: 'Spanish' },
+    fr: { name: 'French', badge: 'Fr', color: 'red', alt: 'French' },
+    de: { name: 'German', badge: 'De', color: 'orange', alt: 'German' },
+    it: { name: 'Italian', badge: 'It', color: 'lightgrey', alt: 'Italian' },
+    ja: { name: 'Japanese', badge: 'Ja', color: 'pink', alt: 'Japanese' },
+    zh: { name: 'Chinese', badge: 'Zh', color: 'red', alt: 'Chinese' },
+    ru: { name: 'Russian', badge: 'Ru', color: 'blue', alt: 'Russian' }
+  },
+  paths: {
+    templates: path.join(__dirname, '..', 'templates'),
+    otherLanguages: 'other-languages'
+  }
+};
+
 // Colors for console output
 const colors = {
   reset: '\x1b[0m',
@@ -19,10 +40,6 @@ const colors = {
 function colorize(text, color) {
   return `${colors[color]}${text}${colors.reset}`;
 }
-
-const templateDir = path.join(__dirname, '..', 'templates');
-
-// --- Configuration ---
 
 const licenses = [
   { name: 'MIT License', file: 'MIT-LICENSE.txt' },
@@ -57,7 +74,7 @@ const extras = [
 async function main() {
   const args = process.argv.slice(2);
 
-  // Option 3: Automated Setup (Flags)
+  // Automated Setup (Flags)
   if (args.length > 0) {
     await runAutomatedMode(args);
     return;
@@ -105,33 +122,45 @@ async function main() {
 async function runWizardMode(rl) {
   console.log(colorize('\n🧙 Starting Interactive Wizard...', 'blue'));
 
-  // 1. Language
-  console.log(colorize('\n🌐 Select Language Strategy:', 'yellow'));
-  console.log('1. English Only');
-  console.log('2. Portuguese Only');
-  console.log('3. Bilingual (English + Portuguese)');
-  const langChoice = await askQuestion(rl, 'Choice (1-3): ');
-  const langStrategy = langChoice === '2' ? 'pt' : (langChoice === '3' ? 'both' : 'en');
+  // 1. Main Language
+  console.log(colorize('\n🌐 Select Main Language (Root):', 'yellow'));
+  const availableLangs = Object.keys(config.languages);
+  availableLangs.forEach((l, i) => console.log(`${i + 1}. ${config.languages[l].name} (${l})`));
+  
+  const mainLangChoice = await askQuestion(rl, `Choice (1-${availableLangs.length}): `);
+  const mainLang = availableLangs[parseInt(mainLangChoice) - 1] || 'en';
 
-  // 2. License
+  // 2. Additional Languages
+  console.log(colorize('\n🌍 Select Additional Languages (Optional):', 'yellow'));
+  const otherLangs = availableLangs.filter(l => l !== mainLang);
+  otherLangs.forEach((l, i) => console.log(`${i + 1}. ${config.languages[l].name} (${l})`));
+  console.log('0. None');
+  console.log('Enter comma-separated numbers (e.g., 1,3) or press Enter to skip.');
+
+  const additionalLangsInput = await askQuestion(rl, 'Choices: ');
+  const additionalLangs = [];
+  
+  if (additionalLangsInput.trim() !== '0' && additionalLangsInput.trim() !== '') {
+    const indices = additionalLangsInput.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+    indices.forEach(i => {
+      if (otherLangs[i - 1]) additionalLangs.push(otherLangs[i - 1]);
+    });
+  }
+
+  // 3. License
   console.log(colorize('\n📜 Select a License:', 'yellow'));
   licenses.forEach((l, i) => console.log(`${i + 1}. ${l.name}`));
   const licChoice = await askQuestion(rl, `Choice (1-${licenses.length}): `);
   const selectedLicense = licenses[parseInt(licChoice) - 1] || licenses[licenses.length - 1];
 
-  // 3. Extras
+  // 4. Extras
   console.log(colorize('\n📦 Select Extras:', 'yellow'));
-  const selectedExtras = [];
-  
-  // Ask for each extra individually? Or list selection? 
-  // User asked for "sim ou não" style for some, but list is faster. 
-  // Let's do list selection as it's cleaner for many items, but user mentioned "sim ou não".
-  // Let's stick to the list selection for efficiency as there are many items.
   extras.forEach((e, i) => console.log(`${i + 1}. ${e.name}`));
   console.log('0. All of the above');
   console.log('Enter comma-separated numbers (e.g., 1,3,5) or press Enter to skip.');
   
   const extrasInput = await askQuestion(rl, 'Choices: ');
+  const selectedExtras = [];
   if (extrasInput.trim() === '0') {
     selectedExtras.push(...extras);
   } else {
@@ -141,7 +170,7 @@ async function runWizardMode(rl) {
     });
   }
 
-  await performInstallation(langStrategy, selectedLicense, selectedExtras);
+  await performInstallation(mainLang, additionalLangs, selectedLicense, selectedExtras);
 }
 
 // --- Mode 2: Add Specific Templates ---
@@ -149,14 +178,11 @@ async function runWizardMode(rl) {
 async function runAddSpecificMode(rl) {
   console.log(colorize('\n➕ Add Specific Templates', 'blue'));
   
-  // In this mode, we assume the user might already have a project.
-  // We should ask for language preference for these specific files.
-  console.log(colorize('\n🌐 Which language version do you want to add?', 'yellow'));
-  console.log('1. English');
-  console.log('2. Portuguese');
-  console.log('3. Both');
-  const langChoice = await askQuestion(rl, 'Choice (1-3): ');
-  const langStrategy = langChoice === '2' ? 'pt' : (langChoice === '3' ? 'both' : 'en');
+  console.log(colorize('\n🌐 Select Language:', 'yellow'));
+  const availableLangs = Object.keys(config.languages);
+  availableLangs.forEach((l, i) => console.log(`${i + 1}. ${config.languages[l].name} (${l})`));
+  const langChoice = await askQuestion(rl, `Choice (1-${availableLangs.length}): `);
+  const selectedLang = availableLangs[parseInt(langChoice) - 1] || 'en';
 
   console.log(colorize('\n📦 Available Templates:', 'yellow'));
   extras.forEach((e, i) => console.log(`${i + 1}. ${e.name}`));
@@ -165,7 +191,21 @@ async function runAddSpecificMode(rl) {
   const selectedExtra = extras[parseInt(choice) - 1];
 
   if (selectedExtra) {
-    await performInstallation(langStrategy, null, [selectedExtra], true); // true = skip README generation
+    // Treat as single installation: Main Lang = selected, No additional
+    // But we need to know if it should go to root or other-languages.
+    // For simplicity in this mode, let's ask "Is this the main language of the project?"
+    const isMain = await askQuestion(rl, 'Is this the main language of the project? (y/n): ');
+    
+    if (isMain.toLowerCase().startsWith('y')) {
+        await performInstallation(selectedLang, [], null, [selectedExtra], true);
+    } else {
+        // It's an additional language. We need to hack the performInstallation to treat it as such.
+        // Or just run it as mainLang=dummy, additional=[selectedLang] and ignore main?
+        // Better: performInstallation handles logic.
+        // Let's just install it to current directory for simplicity or respect the structure?
+        // Let's respect the structure.
+        await performInstallation('ignore', [selectedLang], null, [selectedExtra], true);
+    }
   } else {
     console.log(colorize('❌ Invalid selection.', 'red'));
   }
@@ -181,20 +221,21 @@ async function runAutomatedMode(args) {
     return;
   }
 
-  let langStrategy = flags.lang || 'en';
-  
-  // Handle comma-separated languages (e.g. "en,pt" or "pt,en") to fix bug!!!
-  if (typeof langStrategy === 'string' && langStrategy.includes(',')) {
-    const langs = langStrategy.split(',').map(l => l.trim().toLowerCase());
-    if (langs.includes('en') && langs.includes('pt')) {
-      langStrategy = 'both';
-    } else if (langs.includes('pt')) {
-      langStrategy = 'pt';
-    } else {
-      langStrategy = 'en';
-    }
+  // Backward compatibility for --lang=both
+  if (flags.lang === 'both') {
+    flags['main-lang'] = 'en';
+    flags.langs = 'pt';
+  } else if (flags.lang) {
+    flags['main-lang'] = flags.lang;
   }
+
+  const mainLang = flags['main-lang'] || 'en';
+  let additionalLangs = [];
   
+  if (flags.langs) {
+    additionalLangs = flags.langs.split(',').map(l => l.trim().toLowerCase());
+  }
+
   // License
   let selectedLicense = null;
   if (flags.license) {
@@ -213,89 +254,87 @@ async function runAutomatedMode(args) {
     });
   }
 
-  await performInstallation(langStrategy, selectedLicense, selectedExtras);
+  await performInstallation(mainLang, additionalLangs, selectedLicense, selectedExtras);
 }
 
 function showFlagsHelp() {
   console.log(colorize('\n🤖 Automated Setup Flags:', 'cyan'));
-  console.log('  --lang <en|pt|both>      Set language strategy (default: en)');
+  console.log('  --main-lang <code>       Set main language (root) (default: en)');
+  console.log('  --langs <code,code>      Set additional languages (e.g., pt,fr)');
   console.log('  --license <name>         Select license (e.g., mit, apache)');
   console.log('  --all                    Install all templates');
   console.log('  --with-<template>        Install specific template (e.g., --with-roadmap)');
-  console.log('\nAvailable templates: ' + extras.map(e => e.id).join(', '));
+  console.log('\nSupported Languages: ' + Object.keys(config.languages).join(', '));
   console.log('\nExample:');
-  console.log('  npx awesome-readme --lang=both --license=mit --with-roadmap --with-contributing');
+  console.log('  npx awesome-readme --main-lang=en --langs=pt,es --license=mit --all');
 }
 
 // --- Core Installation Logic ---
 
-async function performInstallation(langStrategy, selectedLicense, selectedExtras, skipReadme = false) {
+async function performInstallation(mainLang, additionalLangs, selectedLicense, selectedExtras, skipReadme = false) {
   console.log(colorize('\n🚀 Starting installation...', 'blue'));
+
+  const allLangs = [mainLang, ...additionalLangs].filter(l => l !== 'ignore');
 
   // 1. Install README (if not skipped)
   if (!skipReadme) {
-    await installReadme(langStrategy, selectedExtras);
+    await installReadme(mainLang, additionalLangs, selectedExtras);
   }
 
-  // 2. Install License
+  // 2. Install License (Only in root)
   if (selectedLicense && selectedLicense.file) {
-    const src = path.join(templateDir, 'license-templates', selectedLicense.file);
+    const src = path.join(config.paths.templates, 'license-templates', selectedLicense.file);
     const dest = path.join(process.cwd(), 'LICENSE');
     processFile(src, dest);
   }
 
   // 3. Install Extras
-  const languages = langStrategy === 'both' ? ['en', 'pt'] : [langStrategy];
-
   for (const extra of selectedExtras) {
+    // Folder Extras (e.g., .github) - Install only for Main Language (Root) usually?
+    // Or should we have localized .github templates?
+    // For now, let's install folder extras only for main language to avoid conflicts/mess.
     if (extra.type === 'folder') {
-      for (const lang of languages) {
-        const currentLangDir = lang === 'en' ? 'en-template' : 'pt-template';
-        const src = path.join(templateDir, currentLangDir, extra.src);
-        
-        if (fs.existsSync(src)) {
-            copyDir(src, path.join(process.cwd(), extra.dest));
+        if (mainLang !== 'ignore') {
+            const src = path.join(config.paths.templates, `${mainLang}-template`, extra.src);
+            // Fallback to en if main lang template doesn't exist for this folder
+            const fallbackSrc = path.join(config.paths.templates, 'en-template', extra.src);
+            
+            if (fs.existsSync(src)) {
+                copyDir(src, path.join(process.cwd(), extra.dest));
+            } else if (fs.existsSync(fallbackSrc)) {
+                 copyDir(fallbackSrc, path.join(process.cwd(), extra.dest));
+            }
         }
-      }
-      continue;
+        continue;
     }
 
     // File Extras
-    for (const lang of languages) {
-      const currentLangDir = lang === 'en' ? 'en-template' : 'pt-template';
-      const src = path.join(templateDir, currentLangDir, extra.file);
+    for (const lang of allLangs) {
+      // Check if template exists for this language
+      let src = path.join(config.paths.templates, `${lang}-template`, extra.file);
+      if (!fs.existsSync(src)) {
+          // Fallback to English if specific lang template missing
+          src = path.join(config.paths.templates, 'en-template', extra.file);
+          if (!fs.existsSync(src)) continue; 
+      }
       
       let destDir = process.cwd();
       let destName = extra.dest;
-      let otherPath = null;
+      let isMain = (lang === mainLang);
 
-      // Bilingual Mode Logic
-      if (langStrategy === 'both') {
-        if (lang === 'pt') {
-            // Create pt/ directory
-            destDir = path.join(process.cwd(), 'pt');
-            if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
-
-            // Ensure .pt suffix
-            const ext = path.extname(destName);
-            const base = path.basename(destName, ext);
-            destName = `${base}.pt${ext}`;
-            
-            // Link to English (up one level)
-            otherPath = `../${extra.dest}`;
-        } else {
-            // English version. Link to Portuguese (./pt/FILE.pt.md)
-            const ext = path.extname(destName);
-            const base = path.basename(destName, ext);
-            otherPath = `./pt/${base}.pt${ext}`;
-        }
+      if (!isMain) {
+          // Additional Language -> other-languages/{lang}/
+          destDir = path.join(process.cwd(), config.paths.otherLanguages, lang);
+          if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+          // Keep original filename (e.g. CONTRIBUTING.md), no suffixes needed due to folder separation
       }
 
       const dest = path.join(destDir, destName);
       
       processFile(src, dest, (content) => {
-          if (langStrategy === 'both' && otherPath && destName.endsWith('.md')) {
-              return injectLanguageBadge(content, lang, otherPath);
+          // Inject Language Badges if we have multiple languages
+          if (allLangs.length > 1 && destName.endsWith('.md')) {
+              return injectLanguageBadges(content, lang, allLangs, mainLang, destName);
           }
           return content;
       });
@@ -305,60 +344,56 @@ async function performInstallation(langStrategy, selectedLicense, selectedExtras
   console.log(colorize('\n✅ Done! Happy coding!', 'magenta'));
 }
 
-async function installReadme(langStrategy, selectedExtras) {
-  const languages = langStrategy === 'both' ? ['en', 'pt'] : [langStrategy];
+async function installReadme(mainLang, additionalLangs, selectedExtras) {
+  const allLangs = [mainLang, ...additionalLangs].filter(l => l !== 'ignore');
 
-  for (const lang of languages) {
-    const currentLangDir = lang === 'en' ? 'en-template' : 'pt-template';
-    const src = path.join(templateDir, currentLangDir, 'README-template.md');
-    if (!fs.existsSync(src)) continue;
+  for (const lang of allLangs) {
+    let src = path.join(config.paths.templates, `${lang}-template`, 'README-template.md');
+    if (!fs.existsSync(src)) {
+         src = path.join(config.paths.templates, 'en-template', 'README-template.md');
+         if (!fs.existsSync(src)) continue;
+    }
 
     let content = fs.readFileSync(src, 'utf8');
 
-    // Inject Language Badge if Bilingual
-    if (langStrategy === 'both') {
-        const otherPath = lang === 'en' ? './pt/README.md' : '../README.md';
-        content = injectLanguageBadge(content, lang, otherPath);
+    // Inject Language Badges
+    if (allLangs.length > 1) {
+        content = injectLanguageBadges(content, lang, allLangs, mainLang, 'README.md');
     }
 
-    // Inject Documentation
+    // Inject Documentation Links
     if (selectedExtras.length > 0) {
         const isEn = lang === 'en';
-        const header = isEn ? '## 📂 Documentation' : '## 📂 Documentação';
+        // Simple heuristic for header. Ideally should be in config.
+        const header = isEn ? '## 📂 Documentation' : '## 📂 Documentação'; 
         let links = `${header}\n\n`;
         
         selectedExtras.forEach(e => {
-            if (e.type === 'folder') return; // Skip folders
+            if (e.type === 'folder') return;
             
             let name = e.name;
-            // Translate name if needed (simple heuristic or map)
-            if (!isEn) {
+            // Very basic translation map for demo purposes. 
+            // In a real N-lang system, this should be in the template files or config.
+            if (lang === 'pt') {
                 if (name === 'Contributing Guide') name = 'Guia de Contribuição';
-                if (name === 'Changelog') name = 'Changelog'; // Same
                 if (name === 'Code of Conduct') name = 'Código de Conduta';
                 if (name === 'Security Policy') name = 'Política de Segurança';
                 if (name === 'Support Guide') name = 'Suporte';
-                if (name === 'Roadmap') name = 'Roadmap'; // Same
                 if (name === 'Authors') name = 'Autores';
                 if (name === 'Governance Model') name = 'Governança';
             }
+            // Add other langs here...
 
-            // Link path
             let linkPath = `./${e.dest}`;
-            if (langStrategy === 'both' && !isEn) {
-                 const ext = path.extname(e.dest);
-                 const base = path.basename(e.dest, ext);
-                 // Point to pt/ folder with .pt suffix
-                 // But we are in pt/README.md, so we link to ./FILE.pt.md (sibling)
-                 // Wait, if we are in pt/README.md, the extras are in pt/ too.
-                 // So link is ./FILE.pt.md
-                 linkPath = `./${base}.pt${ext}`;
-            } else if (langStrategy === 'both' && isEn) {
-                 // We are in root/README.md
-                 // Link to root/FILE.md
-                 linkPath = `./${e.dest}`;
-            }
-
+            // Since files are now in the same folder (root or other-languages/lang/), 
+            // the relative link is just the filename!
+            // Except for root which might have some in .github (CODEOWNERS)
+            
+            // However, extra.dest might be '.github/CODEOWNERS'.
+            // If we are in other-languages/pt/, we probably didn't copy .github there.
+            // So we should link back to root for shared files?
+            // For now, we only copied file extras to the lang folder.
+            
             links += `- [${name}](${linkPath})\n`;
         });
         
@@ -367,57 +402,28 @@ async function installReadme(langStrategy, selectedExtras) {
         content = content.replace('<!-- DOCUMENTATION_SECTION -->', '');
     }
 
-    // Dest filename
+    // Determine Destination
     let destDir = process.cwd();
     let destName = 'README.md';
 
-    if (langStrategy === 'both' && lang === 'pt') {
-        destDir = path.join(process.cwd(), 'pt');
+    if (lang !== mainLang) {
+        destDir = path.join(process.cwd(), config.paths.otherLanguages, lang);
         if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
-        destName = 'README.md';
     }
     
     const destPath = path.join(destDir, destName);
     
     if (fs.existsSync(destPath)) {
-      console.log(colorize(`⚠️  ${destName} already exists. Skipping.`, 'yellow'));
+      console.log(colorize(`⚠️  ${destName} already exists in ${lang}. Skipping.`, 'yellow'));
       continue;
     }
 
     fs.writeFileSync(destPath, content);
-    console.log(colorize(`✅ Created ${lang === 'pt' && langStrategy === 'both' ? 'pt/' : ''}${destName}`, 'green'));
+    console.log(colorize(`✅ Created ${lang === mainLang ? '' : config.paths.otherLanguages + '/' + lang + '/'}${destName}`, 'green'));
   }
 }
 
 // --- Helpers ---
-
-function askQuestion(rl, question) {
-  return new Promise(resolve => rl.question(question, resolve));
-}
-
-function parseArgs(args) {
-  const flags = {};
-  for (let i = 0; i < args.length; i++) {
-    const arg = args[i];
-    if (arg.startsWith('--')) {
-      const parts = arg.substring(2).split('=');
-      const key = parts[0];
-      let value = parts[1];
-
-      if (!value) {
-        // Check if next arg is a value (not starting with --)
-        if (i + 1 < args.length && !args[i + 1].startsWith('--')) {
-          value = args[i + 1];
-          i++; // Skip next arg
-        } else {
-          value = true;
-        }
-      }
-      flags[key] = value;
-    }
-  }
-  return flags;
-}
 
 function processFile(src, dest, modifier) {
   if (fs.existsSync(src)) {
@@ -442,14 +448,70 @@ function processFile(src, dest, modifier) {
   }
 }
 
-function injectLanguageBadge(content, currentLang, otherPath) {
-    const badgeText = currentLang === 'en' ? 'Pt--Br' : 'En';
-    const badgeColor = currentLang === 'en' ? 'green' : 'blue';
-    const badgeAlt = currentLang === 'en' ? 'Portuguese' : 'English';
-    const badgeUrl = `https://img.shields.io/badge/Lang-${badgeText}-${badgeColor}?style=flat-square`;
+function injectLanguageBadges(content, currentLang, allLangs, mainLang, currentFileName) {
+    // Generate a bar of badges for ALL languages.
+    // Current language badge should link to nothing or be disabled? 
+    // Usually it's better to just show all and link to others.
     
-    const badgeMarkdown = `[![${badgeAlt}](${badgeUrl})](${otherPath})`;
-    return badgeMarkdown + '\n\n' + content;
+    let badgeBar = '';
+    
+    allLangs.forEach(lang => {
+        const langConfig = config.languages[lang] || { name: lang, badge: lang, color: 'grey', alt: lang };
+        const badgeUrl = `https://img.shields.io/badge/Lang-${langConfig.badge}-${langConfig.color}?style=flat-square`;
+        
+        let linkPath = '';
+        
+        if (lang === currentLang) {
+            // No link for current language
+            linkPath = '#'; 
+        } else {
+            // Calculate relative path to the other language file
+            if (currentLang === mainLang) {
+                // From Root to Other: ./other-languages/{lang}/{filename}
+                linkPath = `./${config.paths.otherLanguages}/${lang}/${currentFileName}`;
+            } else {
+                // From Other to ...
+                if (lang === mainLang) {
+                    // From Other to Root: ../../{filename}
+                    linkPath = `../../${currentFileName}`;
+                } else {
+                    // From Other to Other: ../{lang}/{filename}
+                    linkPath = `../${lang}/${currentFileName}`;
+                }
+            }
+        }
+        
+        badgeBar += `[![${langConfig.alt}](${badgeUrl})](${linkPath}) `;
+    });
+
+    return badgeBar + '\n\n' + content;
+}
+
+function askQuestion(rl, question) {
+  return new Promise(resolve => rl.question(question, resolve));
+}
+
+function parseArgs(args) {
+  const flags = {};
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    if (arg.startsWith('--')) {
+      const parts = arg.substring(2).split('=');
+      const key = parts[0];
+      let value = parts[1];
+
+      if (!value) {
+        if (i + 1 < args.length && !args[i + 1].startsWith('--')) {
+          value = args[i + 1];
+          i++; 
+        } else {
+          value = true;
+        }
+      }
+      flags[key] = value;
+    }
+  }
+  return flags;
 }
 
 function copyDir(src, dest) {
@@ -459,7 +521,6 @@ function copyDir(src, dest) {
     for (const entry of entries) {
         const srcPath = path.join(src, entry.name);
         
-        // Strip -template suffix from filename if present
         let destName = entry.name.replace(/-template(\.[^.]+)$/, '$1');
         const destPath = path.join(dest, destName);
 

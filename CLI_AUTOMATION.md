@@ -1,100 +1,88 @@
-# 🤖 Automação via CLI (One-Line Configuration)
+# 🤖 CLI Automation & Multi-Language Support
 
-Este documento explica detalhadamente como utilizar o modo de automação do **Awesome README Templates**, permitindo configurar e gerar toda a documentação do seu projeto em **uma única linha de comando**.
+This guide explains how to use the **Awesome Readme Templates** CLI in automated environments (CI/CD, scripts) and how to leverage its new **Multi-Language Support**.
 
-Isso é ideal para:
-- Scripts de CI/CD.
-- Configuração rápida de novos projetos.
-- Usuários avançados que preferem evitar o assistente interativo.
+## 🌍 Multi-Language Architecture
 
-## 🚀 O Comando Mágico
+The CLI now supports an arbitrary number of languages. You define a **Main Language** (which resides in the project root) and **Additional Languages** (which reside in the `other-languages/` directory).
 
-Você pode executar a ferramenta diretamente via `npx` passando as flags de configuração:
+### Folder Structure
+
+If you select **English** as main and **Portuguese** and **French** as additional:
+
+```
+my-project/
+├── README.md           (English - Main)
+├── CONTRIBUTING.md     (English - Main)
+├── other-languages/
+│   ├── pt/
+│   │   ├── README.md       (Portuguese)
+│   │   └── CONTRIBUTING.md (Portuguese)
+│   └── fr/
+│       ├── README.md       (French)
+│       └── CONTRIBUTING.md (French)
+```
+
+### Language Navigation
+
+The CLI automatically injects a **Language Navigation Bar** at the top of every generated Markdown file, allowing users to easily switch between versions.
+
+Example (in `README.md`):
+`[Pt-Br] [Fr] [Es]`
+
+## 🚀 Automated Usage (Flags)
+
+You can skip the interactive wizard by passing flags directly to the command.
+
+### Basic Syntax
 
 ```bash
 npx awesome-readme-templates [flags]
 ```
 
-### Exemplo Completo
+### Available Flags
 
-Para criar um projeto bilíngue (EN/PT), com licença MIT, e incluir Roadmap e Guia de Contribuição:
+| Flag | Description | Example |
+|------|-------------|---------|
+| `--main-lang` | Sets the main language code (root). Default: `en`. | `--main-lang=pt` |
+| `--langs` | Comma-separated list of additional languages. | `--langs=en,es` |
+| `--license` | Selects a license by name. | `--license=mit` |
+| `--all` | Installs ALL available templates. | `--all` |
+| `--with-<template>` | Installs a specific template. | `--with-roadmap` |
 
+### Examples
+
+**1. Standard Bilingual Setup (English Root + Portuguese)**
 ```bash
-npx awesome-readme-templates --lang=both --license=mit --with-roadmap --with-contributing
+npx awesome-readme-templates --main-lang=en --langs=pt --license=mit --all
 ```
 
----
-
-## 🛠️ Como Funciona
-
-Quando você executa o comando com argumentos (flags), a ferramenta detecta automaticamente que deve pular o "Wizard Interativo" e entrar no **Modo Automatizado**.
-
-1.  **Parsing de Argumentos**: O script lê as flags passadas (ex: `--lang=pt`).
-2.  **Validação**: Verifica se as opções são válidas (ex: se a licença existe).
-3.  **Execução**: Gera os arquivos solicitados diretamente, sem fazer perguntas.
-
----
-
-## 🚩 Flags Disponíveis
-
-Aqui está a lista completa de opções que você pode configurar:
-
-### 1. Idioma (`--lang`)
-Define a estratégia de idioma para os arquivos gerados.
-
-*   `--lang=en`: Apenas Inglês (Padrão).
-*   `--lang=pt`: Apenas Português.
-*   `--lang=both`: Bilíngue (Inglês na raiz, Português em `pt/`).
-
-### 2. Licença (`--license`)
-Escolhe a licença open-source do projeto. O nome pode ser parcial (ex: "mit" encontra "MIT License").
-
-*   `--license=mit`
-*   `--license=apache`
-*   `--license=gpl`
-*   `--license=bsd`
-*   `--license=none` (Não cria arquivo LICENSE)
-
-### 3. Seleção de Templates (`--with-*` ou `--all`)
-Decide quais arquivos adicionais serão criados.
-
-*   **Instalar Tudo**:
-    *   `--all`: Instala TODOS os templates disponíveis.
-
-*   **Instalar Específicos** (use quantos quiser):
-    *   `--with-contributing`: Guia de Contribuição.
-    *   `--with-changelog`: Histórico de mudanças.
-    *   `--with-code_of_conduct`: Código de Conduta.
-    *   `--with-security`: Política de Segurança.
-    *   `--with-support`: Guia de Suporte.
-    *   `--with-roadmap`: Roadmap do projeto.
-    *   `--with-authors`: Lista de autores.
-    *   `--with-governance`: Modelo de governança.
-    *   `--with-adr`: Template de ADR (Architecture Decision Record).
-    *   `--with-citation`: Arquivo CITATION.cff.
-    *   `--with-github`: Templates de Issue e PR (.github/).
-
----
-
-## 💡 Exemplos de Uso
-
-### Configuração Básica (Apenas README e Licença)
+**2. Portuguese Root + English & Spanish**
 ```bash
-npx awesome-readme-templates --license=mit
+npx awesome-readme-templates --main-lang=pt --langs=en,es --license=apache --with-contributing
 ```
 
-### Projeto Open Source Completo (Português)
+**3. English Only (Default)**
 ```bash
-npx awesome-readme-templates --lang=pt --license=gpl --all
+npx awesome-readme-templates --license=mit --with-readme
 ```
 
-### Apenas Arquivos de Governança
-```bash
-npx awesome-readme-templates --with-code_of_conduct --with-security --with-governance
+## 🛠️ Adding New Languages
+
+To add support for a new language to the CLI:
+
+1.  Create a new folder in `templates/`: `templates/{lang_code}-template/` (e.g., `templates/fr-template/`).
+2.  Add translated versions of the templates inside this folder.
+3.  Open `bin/awesome-readme.js` and add the language to the `config` object:
+
+```javascript
+const config = {
+  languages: {
+    // ... existing languages
+    fr: { name: 'French', badge: 'Fr', color: 'red', alt: 'French' }
+  },
+  // ...
+};
 ```
 
-### Adicionar Templates a um Projeto Existente
-Se você já tem um README e quer apenas adicionar o CONTRIBUTING e o CHANGELOG sem sobrescrever o resto (o script avisa se já existir):
-```bash
-npx awesome-readme-templates --with-contributing --with-changelog
-```
+The CLI will automatically pick up the new language in the Wizard and Flags!
