@@ -66,6 +66,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - Nothing yet
 
+## [1.4.0] - 2025-12-06
+
+### Added
+- 🌍 **Multi-Language Support**: CLI now supports an arbitrary number of languages (N-langs).
+- 📂 **New Folder Structure**: Additional languages are organized in `other-languages/{lang}/` directory.
+- 🔗 **Smart Navigation**: Automatically generates a navigation bar with badges linking all language versions.
+- 🤖 **Automation Docs**: Added `CLI_AUTOMATION.md` with detailed guide for automated usage and adding new languages.
+- 🚩 **New Flags**: Added `--main-lang` and `--langs` flags for flexible language configuration.
+
+### Changed
+- 🎨 **Standardized Badges**: Updated README templates to use consistent, high-quality badges (NPM, License, Stars, Buy Me a Coffee).
+- 🛠️ **Refactored CLI**: Complete rewrite of language handling logic to support N languages.
+
 ## [1.3.0] - 2025-12-01
 
 ### Changed
