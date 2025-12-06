@@ -99,7 +99,7 @@ npx awesome-readme-templates --lang=both --license=mit --with-roadmap
 *   **CONTRIBUTING.md**: Guidelines for contributors.
 *   **CHANGELOG.md**: Track project history.
 *   **CODE_OF_CONDUCT.md**: Community standards.
-*   **SECURITY.md**: Security policy.
+
 *   **SUPPORT.md**: Support channels.
 *   **ROADMAP.md**: Project future plans.
 *   **AUTHORS.md**: Project credits.
