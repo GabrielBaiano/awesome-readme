@@ -241,7 +241,7 @@ async function performInstallation(langStrategy, selectedLicense, selectedExtras
   if (selectedLicense && selectedLicense.file) {
     const src = path.join(templateDir, 'license-templates', selectedLicense.file);
     const dest = path.join(process.cwd(), 'LICENSE');
-    copyFile(src, dest);
+    processFile(src, dest);
   }
 
   // 3. Install Extras
@@ -267,21 +267,38 @@ async function performInstallation(langStrategy, selectedLicense, selectedExtras
       
       let destDir = process.cwd();
       let destName = extra.dest;
+      let otherPath = null;
 
       // Bilingual Mode Logic
-      if (langStrategy === 'both' && lang === 'pt') {
-        // Create pt/ directory
-        destDir = path.join(process.cwd(), 'pt');
-        if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+      if (langStrategy === 'both') {
+        if (lang === 'pt') {
+            // Create pt/ directory
+            destDir = path.join(process.cwd(), 'pt');
+            if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
 
-        // Ensure .pt suffix (User request: keep .pt suffix inside pt folder)
-        const ext = path.extname(destName);
-        const base = path.basename(destName, ext);
-        destName = `${base}.pt${ext}`;
+            // Ensure .pt suffix
+            const ext = path.extname(destName);
+            const base = path.basename(destName, ext);
+            destName = `${base}.pt${ext}`;
+            
+            // Link to English (up one level)
+            otherPath = `../${extra.dest}`;
+        } else {
+            // English version. Link to Portuguese (./pt/FILE.pt.md)
+            const ext = path.extname(destName);
+            const base = path.basename(destName, ext);
+            otherPath = `./pt/${base}.pt${ext}`;
+        }
       }
 
       const dest = path.join(destDir, destName);
-      copyFile(src, dest);
+      
+      processFile(src, dest, (content) => {
+          if (langStrategy === 'both' && otherPath && destName.endsWith('.md')) {
+              return injectLanguageBadge(content, lang, otherPath);
+          }
+          return content;
+      });
     }
   }
 
@@ -298,13 +315,10 @@ async function installReadme(langStrategy, selectedExtras) {
 
     let content = fs.readFileSync(src, 'utf8');
 
-    // Remove buttons if single language
-    if (langStrategy === 'en') {
-        content = content.replace(/<a href="\/README\.pt\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
-        content = content.replace(/<a href="\.\/README\.pt\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
-    } else if (langStrategy === 'pt') {
-        content = content.replace(/<a href="\/README\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
-        content = content.replace(/<a href="\.\/README\.md".*?<\/a>\s*&nbsp;&nbsp;&nbsp;\|&nbsp;&nbsp;&nbsp;/g, '');
+    // Inject Language Badge if Bilingual
+    if (langStrategy === 'both') {
+        const otherPath = lang === 'en' ? './pt/README.md' : '../README.md';
+        content = injectLanguageBadge(content, lang, otherPath);
     }
 
     // Inject Documentation
@@ -335,7 +349,14 @@ async function installReadme(langStrategy, selectedExtras) {
                  const ext = path.extname(e.dest);
                  const base = path.basename(e.dest, ext);
                  // Point to pt/ folder with .pt suffix
-                 linkPath = `./pt/${base}.pt${ext}`;
+                 // But we are in pt/README.md, so we link to ./FILE.pt.md (sibling)
+                 // Wait, if we are in pt/README.md, the extras are in pt/ too.
+                 // So link is ./FILE.pt.md
+                 linkPath = `./${base}.pt${ext}`;
+            } else if (langStrategy === 'both' && isEn) {
+                 // We are in root/README.md
+                 // Link to root/FILE.md
+                 linkPath = `./${e.dest}`;
             }
 
             links += `- [${name}](${linkPath})\n`;
@@ -347,10 +368,16 @@ async function installReadme(langStrategy, selectedExtras) {
     }
 
     // Dest filename
+    let destDir = process.cwd();
     let destName = 'README.md';
-    if (langStrategy === 'both' && lang === 'pt') destName = 'README.pt.md';
+
+    if (langStrategy === 'both' && lang === 'pt') {
+        destDir = path.join(process.cwd(), 'pt');
+        if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+        destName = 'README.md';
+    }
     
-    const destPath = path.join(process.cwd(), destName);
+    const destPath = path.join(destDir, destName);
     
     if (fs.existsSync(destPath)) {
       console.log(colorize(`⚠️  ${destName} already exists. Skipping.`, 'yellow'));
@@ -358,7 +385,7 @@ async function installReadme(langStrategy, selectedExtras) {
     }
 
     fs.writeFileSync(destPath, content);
-    console.log(colorize(`✅ Created ${destName}`, 'green'));
+    console.log(colorize(`✅ Created ${lang === 'pt' && langStrategy === 'both' ? 'pt/' : ''}${destName}`, 'green'));
   }
 }
 
@@ -392,7 +419,7 @@ function parseArgs(args) {
   return flags;
 }
 
-function copyFile(src, dest) {
+function processFile(src, dest, modifier) {
   if (fs.existsSync(src)) {
     if (fs.existsSync(dest)) {
       console.log(colorize(`⚠️  ${path.basename(dest)} already exists. Skipping.`, 'yellow'));
@@ -401,12 +428,28 @@ function copyFile(src, dest) {
       if (!fs.existsSync(destDir)) {
         fs.mkdirSync(destDir, { recursive: true });
       }
-      fs.copyFileSync(src, dest);
+      
+      let content = fs.readFileSync(src, 'utf8');
+      if (modifier) {
+        content = modifier(content);
+      }
+      
+      fs.writeFileSync(dest, content);
       console.log(colorize(`✅ Created ${path.basename(dest)}`, 'green'));
     }
   } else {
     console.log(colorize(`⚠️  Source ${path.basename(src)} not found.`, 'red'));
   }
+}
+
+function injectLanguageBadge(content, currentLang, otherPath) {
+    const badgeText = currentLang === 'en' ? 'Pt--Br' : 'En';
+    const badgeColor = currentLang === 'en' ? 'green' : 'blue';
+    const badgeAlt = currentLang === 'en' ? 'Portuguese' : 'English';
+    const badgeUrl = `https://img.shields.io/badge/Lang-${badgeText}-${badgeColor}?style=flat-square`;
+    
+    const badgeMarkdown = `[![${badgeAlt}](${badgeUrl})](${otherPath})`;
+    return badgeMarkdown + '\n\n' + content;
 }
 
 function copyDir(src, dest) {

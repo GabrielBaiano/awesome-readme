@@ -10,29 +10,17 @@
 </p>
 
 <p align="center">
-  <a href="/README.pt.md" target="_blank">🇧🇷 Português</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="[RELEASES_URL]" target="_blank">📦 Downloads</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="[ORIGINAL_VERSION_URL]" target="_blank">📚 Original Version</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="[ISSUE_TEMPLATE_URL]" target="_blank">🐛 Report Bug</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="[LINKEDIN_URL]" target="_blank">💼 LinkedIn</a>
-</p>
-
-<p align="center">
+  <a href="https://www.npmjs.com/package/[PACKAGE_NAME]" target="_blank">
+    <img src="https://img.shields.io/npm/v/[PACKAGE_NAME]?style=flat-square" alt="NPM Version">
+  </a>
+  <a href="[GITHUB_REPO_URL]/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/[USERNAME]/[REPO_NAME]?style=flat-square" alt="License">
+  </a>
   <a href="[GITHUB_REPO_URL]/stargazers">
     <img src="https://img.shields.io/github/stars/[USERNAME]/[REPO_NAME]?style=social" alt="GitHub stars">
   </a>
-  <a href="[GITHUB_REPO_URL]/issues">
-    <img src="https://img.shields.io/github/issues/[USERNAME]/[REPO_NAME]" alt="GitHub issues">
-  </a>
-  <a href="[GITHUB_REPO_URL]/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/[USERNAME]/[REPO_NAME]" alt="License">
-  </a>
-  <a href="[GITHUB_REPO_URL]/releases">
-    <img src="https://img.shields.io/github/v/release/[USERNAME]/[REPO_NAME]" alt="Latest Release">
+  <a href="https://buymeacoffee.com/[BUYMEACOFFEE_USERNAME]" target="_blank">
+    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee">
   </a>
 </p>
 
