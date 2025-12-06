@@ -1,0 +1,18 @@
+# Este é um arquivo CODEOWNERS.
+# Ele permite definir quem é responsável pelo código neste repositório.
+# O GitHub solicitará automaticamente revisões desses proprietários quando um PR alterar o código deles.
+
+# Sintaxe:
+# [padrao_de_arquivo] [proprietario]
+
+# Proprietário global (corresponde a tudo)
+# *       @dono-global
+
+# Arquivos JavaScript
+# *.js    @dono-js
+
+# Documentação
+# /docs/  @time-docs
+
+# Arquivo específico
+# LICENSE @time-legal

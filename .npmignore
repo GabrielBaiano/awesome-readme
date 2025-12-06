@@ -55,3 +55,18 @@ coverage/
 # Package manager files
 package-lock.json
 yarn.lock
+
+# GitHub files (repo specific, not for package)
+.github/
+
+# Root Template Files (ignore these in the package)
+CODEOWNERS
+CITATION.cff
+GOVERNANCE.md
+AUTHORS.md
+ROADMAP.md
+SECURITY.md
+SUPPORT.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+# Note: README.md, CHANGELOG.md and LICENSE are usually good to keep for NPM display

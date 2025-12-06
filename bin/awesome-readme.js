@@ -249,24 +249,10 @@ async function performInstallation(langStrategy, selectedLicense, selectedExtras
 
   for (const extra of selectedExtras) {
     if (extra.type === 'folder') {
-      // For folders (like .github), we usually just copy the structure.
-      // If bilingual, we might need to be careful.
-      // Currently .github templates are separated in en/pt folders in the repo.
-      
       for (const lang of languages) {
-        const src = path.join(templateDir, lang, extra.src);
-        // If bilingual, we can't easily merge .github folders without conflicts usually.
-        // But for .github, usually you pick one primary language for the templates.
-        // OR we overwrite. Let's assume we copy the requested language(s).
-        // If 'both', maybe we prioritize English or copy both if filenames differ?
-        // For simplicity: If 'both', we copy English then Portuguese (PT overwrites if same name, but usually filenames are standard).
-        // Wait, issue templates can be bilingual? Usually not in same file.
-        // Let's copy from the primary language if single, or both if 'both'.
+        const currentLangDir = lang === 'en' ? 'en-template' : 'pt-template';
+        const src = path.join(templateDir, currentLangDir, extra.src);
         
-        // If 'both', let's copy 'en' first, then 'pt'. 
-        // Note: This might overwrite standard files like PULL_REQUEST_TEMPLATE.md.
-        // A bilingual repo usually has one PR template (often in English or bilingual text).
-        // For now, let's copy the specified language(s).
         if (fs.existsSync(src)) {
             copyDir(src, path.join(process.cwd(), extra.dest));
         }
@@ -276,7 +262,8 @@ async function performInstallation(langStrategy, selectedLicense, selectedExtras
 
     // File Extras
     for (const lang of languages) {
-      const src = path.join(templateDir, lang, extra.file);
+      const currentLangDir = lang === 'en' ? 'en-template' : 'pt-template';
+      const src = path.join(templateDir, currentLangDir, extra.file);
       
       let destDir = process.cwd();
       let destName = extra.dest;
@@ -305,7 +292,8 @@ async function installReadme(langStrategy, selectedExtras) {
   const languages = langStrategy === 'both' ? ['en', 'pt'] : [langStrategy];
 
   for (const lang of languages) {
-    const src = path.join(templateDir, lang, 'README-template.md');
+    const currentLangDir = lang === 'en' ? 'en-template' : 'pt-template';
+    const src = path.join(templateDir, currentLangDir, 'README-template.md');
     if (!fs.existsSync(src)) continue;
 
     let content = fs.readFileSync(src, 'utf8');
@@ -427,7 +415,10 @@ function copyDir(src, dest) {
 
     for (const entry of entries) {
         const srcPath = path.join(src, entry.name);
-        const destPath = path.join(dest, entry.name);
+        
+        // Strip -template suffix from filename if present
+        let destName = entry.name.replace(/-template(\.[^.]+)$/, '$1');
+        const destPath = path.join(dest, destName);
 
         if (entry.isDirectory()) {
             copyDir(srcPath, destPath);
