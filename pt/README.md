@@ -29,6 +29,9 @@
   <a href="https://github.com/GabrielBaiano/awesome-readme/stargazers">
     <img src="https://img.shields.io/github/stars/GabrielBaiano/awesome-readme?style=social" alt="GitHub stars">
   </a>
+  <a href="https://buymeacoffee.com/gabrielngal" target="_blank">
+    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee">
+  </a>
 </p>
 
 ---
