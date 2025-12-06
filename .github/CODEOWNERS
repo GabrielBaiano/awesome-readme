@@ -1,0 +1,18 @@
+# This is a CODEOWNERS file.
+# It allows you to define who is responsible for code in this repository.
+# GitHub will automatically request reviews from these owners when a PR touches their code.
+
+# Syntax:
+# [file_pattern] [owner]
+
+# Global owner (matches everything)
+# *       @global-owner
+
+# JavaScript files
+# *.js    @js-owner
+
+# Documentation
+# /docs/  @docs-team
+
+# Specific file
+# LICENSE @legal-team

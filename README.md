@@ -102,6 +102,7 @@ npx awesome-readme-templates --lang=both --license=mit --with-roadmap
 *   **AUTHORS.md**: Project credits.
 *   **GOVERNANCE.md**: Governance model.
 *   **CITATION.cff**: Citation file.
+*   **CODEOWNERS**: Define code owners for PR reviews.
 *   **.github/**: Issue and PR templates.
 
 ## 🤝 Contributing

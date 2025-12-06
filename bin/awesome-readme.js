@@ -48,6 +48,7 @@ const extras = [
   { id: 'governance', name: 'Governance Model', file: 'docs-templates/GOVERNANCE-template.md', dest: 'GOVERNANCE.md' },
   { id: 'adr', name: 'ADR Template', file: 'docs-templates/adr-template.md', dest: 'ADR-template.md' },
   { id: 'citation', name: 'CITATION.cff', file: 'docs-templates/CITATION-template.cff', dest: 'CITATION.cff' },
+  { id: 'codeowners', name: 'CODEOWNERS', file: 'CODEOWNERS-template', dest: '.github/CODEOWNERS' },
   { id: 'github', name: 'GitHub Templates (.github)', type: 'folder', src: 'github-templates', dest: '.github' }
 ];
 
@@ -180,7 +181,19 @@ async function runAutomatedMode(args) {
     return;
   }
 
-  const langStrategy = flags.lang || 'en';
+  let langStrategy = flags.lang || 'en';
+  
+  // Handle comma-separated languages (e.g. "en,pt" or "pt,en") to fix bug!!!
+  if (typeof langStrategy === 'string' && langStrategy.includes(',')) {
+    const langs = langStrategy.split(',').map(l => l.trim().toLowerCase());
+    if (langs.includes('en') && langs.includes('pt')) {
+      langStrategy = 'both';
+    } else if (langs.includes('pt')) {
+      langStrategy = 'pt';
+    } else {
+      langStrategy = 'en';
+    }
+  }
   
   // License
   let selectedLicense = null;
@@ -369,12 +382,25 @@ function askQuestion(rl, question) {
 
 function parseArgs(args) {
   const flags = {};
-  args.forEach(arg => {
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
     if (arg.startsWith('--')) {
       const parts = arg.substring(2).split('=');
-      flags[parts[0]] = parts[1] || true;
+      const key = parts[0];
+      let value = parts[1];
+
+      if (!value) {
+        // Check if next arg is a value (not starting with --)
+        if (i + 1 < args.length && !args[i + 1].startsWith('--')) {
+          value = args[i + 1];
+          i++; // Skip next arg
+        } else {
+          value = true;
+        }
+      }
+      flags[key] = value;
     }
-  });
+  }
   return flags;
 }
 
@@ -383,6 +409,10 @@ function copyFile(src, dest) {
     if (fs.existsSync(dest)) {
       console.log(colorize(`⚠️  ${path.basename(dest)} already exists. Skipping.`, 'yellow'));
     } else {
+      const destDir = path.dirname(dest);
+      if (!fs.existsSync(destDir)) {
+        fs.mkdirSync(destDir, { recursive: true });
+      }
       fs.copyFileSync(src, dest);
       console.log(colorize(`✅ Created ${path.basename(dest)}`, 'green'));
     }
