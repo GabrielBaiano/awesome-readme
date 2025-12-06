@@ -36,7 +36,7 @@ Este Código de Conduta aplica-se a todos os espaços da comunidade e também se
 
 ## Aplicação
 
-Instâncias de comportamento abusivo, assediador ou de outra forma inaceitável podem ser relatadas aos líderes da comunidade responsáveis pela aplicação em **[CONTACT_EMAIL]**.
+Instâncias de comportamento abusivo, assediador ou de outra forma inaceitável podem ser relatadas aos líderes da comunidade responsáveis pela aplicação em **gabrielngama@gmail.com**.
 Todas as reclamações serão revisadas e investigadas prontamente e de forma justa.
 
 Todos os líderes da comunidade são obrigados a respeitar a privacidade e a segurança do repórter de qualquer incidente.

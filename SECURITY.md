@@ -12,12 +12,12 @@ Use this section to tell people about which versions of your project are current
 
 ## Reporting a Vulnerability
 
-We take the security of **[PROJECT_NAME]** seriously. If you have found a security vulnerability, please help us fix it.
+We take the security of **Awesome Readme Templates** seriously. If you have found a security vulnerability, please help us fix it.
 
 ### How to Report
 
 1. **Do not open a public issue.** Publicly reporting a vulnerability can put the community at risk.
-2. Please email us at **[CONTACT_EMAIL]** with the subject line "Security Vulnerability in [PROJECT_NAME]".
+2. Please email us at **gabrielngama@gmail.com** with the subject line "Security Vulnerability in Awesome Readme Templates".
 3. Include as much detail as possible:
    - Type of vulnerability (e.g., XSS, SQL Injection, RCE)
    - Steps to reproduce
@@ -31,4 +31,4 @@ We take the security of **[PROJECT_NAME]** seriously. If you have found a securi
 - We ask that you give us a reasonable amount of time to fix the issue before disclosing it to the public.
 - We will credit you in the release notes and/or our "Security Hall of Fame" (if applicable) once the issue is resolved.
 
-Thank you for helping keep **[PROJECT_NAME]** safe!
+Thank you for helping keep **Awesome Readme Templates** safe!

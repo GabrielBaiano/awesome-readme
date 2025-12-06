@@ -6,7 +6,7 @@
 # [file_pattern] [owner]
 
 # Global owner (matches everything)
-# *       @global-owner
+*       @GabrielBaiano
 
 # JavaScript files
 # *.js    @js-owner

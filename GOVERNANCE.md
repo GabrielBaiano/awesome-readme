@@ -1,12 +1,12 @@
 # Governance Model
 
 ## Overview
-This project is managed by **[PROJECT_OWNER]** and the community. We aim to create a welcoming and inclusive environment for everyone.
+This project is managed by **GabrielBaiano** and the community. We aim to create a welcoming and inclusive environment for everyone.
 
 ## Roles and Responsibilities
 
 ### Project Lead / Benevolent Dictator
-- **[PROJECT_OWNER]**: Responsible for the overall direction, release management, and final decision making.
+- **GabrielBaiano**: Responsible for the overall direction, release management, and final decision making.
 
 ### Maintainers
 Maintainers are responsible for:

@@ -1,29 +1,33 @@
 # Roadmap
 
-This document outlines the development plan for **[PROJECT_NAME]**.
+This document outlines the development plan for **Awesome Readme Templates**.
 *Note: This roadmap is subject to change based on community feedback and priorities.*
 
 ## 🏆 Goals
 
-- [GOAL_1_DESCRIPTION]
-- [GOAL_2_DESCRIPTION]
-- [GOAL_3_DESCRIPTION]
+- Launch a formal website to improve platform usage.
+- Establish a Discord server and a solid community base.
+- Explore and implement all types of usable templates.
+- Create extensive documentation on documentation best practices.
+- Maximize support for different languages.
+- Improve installation options.
 
 ## 📅 Milestones
 
-### Q1 [YEAR] - [MILESTONE_NAME_1]
-- [ ] **Feature A**: Description of feature A
-- [ ] **Feature B**: Description of feature B
-- [ ] **Improvement**: Performance optimization for X
+### Q1 2026 - Foundation & Community
+- [ ] **Community**: Launch official Discord server and build community base.
+- [ ] **Installation**: Improve installation options (e.g., brew, choco).
+- [ ] **Templates**: Research and list all usable template types.
 
-### Q2 [YEAR] - [MILESTONE_NAME_2]
-- [ ] **Integration**: Support for [THIRD_PARTY_TOOL]
-- [ ] **Refactor**: Clean up legacy code in module Y
-- [ ] **Docs**: Complete API documentation
+### Q2 2026 - Platform & Expansion
+- [ ] **Website**: Launch official website for better platform usage.
+- [ ] **Templates**: Implement new template types explored in Q1.
+- [ ] **Docs**: Draft the "Ultimate Guide to Documentation".
 
-### Q3 [YEAR] - [MILESTONE_NAME_3]
-- [ ] **Mobile App**: Beta release for iOS/Android
-- [ ] **Localization**: Support for Spanish and French
+### Q3 2026 - Global Reach & Education
+- [ ] **Localization**: Maximize access to different languages (Spanish, French, etc.).
+- [ ] **Education**: Publish the extensive documentation guide.
+- [ ] **Refinement**: Polish the website and CLI based on feedback.
 
 ## 🔮 Future Ideas (Backlog)
 

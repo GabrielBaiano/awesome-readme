@@ -12,12 +12,12 @@ Use esta seção para informar as pessoas sobre quais versões do seu projeto es
 
 ## Reportando uma Vulnerabilidade
 
-Levamos a segurança do **[PROJECT_NAME]** a sério. Se você encontrou uma vulnerabilidade de segurança, por favor, ajude-nos a corrigi-la.
+Levamos a segurança do **Awesome Readme Templates** a sério. Se você encontrou uma vulnerabilidade de segurança, por favor, ajude-nos a corrigi-la.
 
 ### Como Reportar
 
 1. **Não abra uma issue pública.** Reportar publicamente uma vulnerabilidade pode colocar a comunidade em risco.
-2. Por favor, envie um e-mail para **[CONTACT_EMAIL]** com o assunto "Vulnerabilidade de Segurança em [PROJECT_NAME]".
+2. Por favor, envie um e-mail para **gabrielngama@gmail.com** com o assunto "Vulnerabilidade de Segurança em Awesome Readme Templates".
 3. Inclua o máximo de detalhes possível:
    - Tipo de vulnerabilidade (ex: XSS, SQL Injection, RCE)
    - Passos para reproduzir
@@ -31,4 +31,4 @@ Levamos a segurança do **[PROJECT_NAME]** a sério. Se você encontrou uma vuln
 - Pedimos que nos dê um tempo razoável para corrigir o problema antes de divulgá-lo ao público.
 - Daremos crédito a você nas notas de lançamento e/ou em nosso "Hall da Fama de Segurança" (se aplicável) assim que o problema for resolvido.
 
-Obrigado por ajudar a manter o **[PROJECT_NAME]** seguro!
+Obrigado por ajudar a manter o **Awesome Readme Templates** seguro!

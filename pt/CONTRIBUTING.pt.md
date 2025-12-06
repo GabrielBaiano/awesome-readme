@@ -1,16 +1,16 @@
-# Contribuindo para [PROJECT_NAME]
+# Contribuindo para Awesome Readme Templates
 
-Primeiro, obrigado por considerar contribuir para o [PROJECT_NAME]! São pessoas como você que fazem do mundo open source um lugar incrível para aprender, inspirar e criar.
+Primeiro, obrigado por considerar contribuir para o **Awesome Readme Templates**! São pessoas como você que fazem do mundo open source um lugar incrível para aprender, inspirar e criar.
 
 ## 🤝 Código de Conduta
 
-Este projeto e todos os participantes estão sob o [Código de Conduta](CODE_OF_CONDUCT.md). Ao participar, espera-se que você mantenha este código. Por favor, reporte comportamentos inaceitáveis para [CONTACT_EMAIL].
+Este projeto e todos os participantes estão sob o [Código de Conduta](CODE_OF_CONDUCT.md). Ao participar, espera-se que você mantenha este código. Por favor, reporte comportamentos inaceitáveis para **gabriel.baiano@example.com**.
 
 ## 🚀 Como Posso Contribuir?
 
 ### Reportando Bugs
 
-Esta seção guia você através do envio de um relatório de bug para o [PROJECT_NAME]. Seguir estas diretrizes ajuda os mantenedores e a comunidade a entender seu relatório, reproduzir o comportamento e encontrar relatórios relacionados.
+Esta seção guia você através do envio de um relatório de bug para o **Awesome Readme Templates**. Seguir estas diretrizes ajuda os mantenedores e a comunidade a entender seu relatório, reproduzir o comportamento e encontrar relatórios relacionados.
 
 - **Use uma pesquisa clara e descritiva** para ver se o problema já foi reportado.
 - **Verifique se o problema já foi corrigido** tentando reproduzi-lo na versão mais recente.
@@ -18,7 +18,7 @@ Esta seção guia você através do envio de um relatório de bug para o [PROJEC
 
 ### Sugerindo Melhorias
 
-Esta seção guia você através do envio de uma sugestão de melhoria para o [PROJECT_NAME], incluindo recursos completamente novos e pequenas melhorias na funcionalidade existente.
+Esta seção guia você através do envio de uma sugestão de melhoria para o **Awesome Readme Templates**, incluindo recursos completamente novos e pequenas melhorias na funcionalidade existente.
 
 - **Use uma pesquisa clara e descritiva** para ver se a melhoria já foi sugerida.
 - **Abra uma Issue** usando o template de Feature Request fornecido.
@@ -34,9 +34,12 @@ Esta seção guia você através do envio de uma sugestão de melhoria para o [P
 
 ## 🎨 Guia de Estilo
 
-- [STYLE_GUIDE_LINK] - Se houver um guia de estilo específico, linke-o aqui.
+- Commits devem seguir a convenção [Conventional Commits](https://www.conventionalcommits.org/).
 - Commits devem seguir a convenção [Conventional Commits](https://www.conventionalcommits.org/).
 
 ## 🛠️ Configuração de Desenvolvimento
 
-[INSTRUCTIONS_TO_SETUP_DEV_ENVIRONMENT]
+1. Certifique-se de ter o Node.js instalado.
+2. Clone o repositório.
+3. Execute `npm install` para instalar as dependências.
+4. Execute `npm test` para rodar os testes.

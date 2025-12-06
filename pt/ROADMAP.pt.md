@@ -1,29 +1,33 @@
 # Roadmap
 
-Este documento descreve o plano de desenvolvimento para o **[PROJECT_NAME]**.
+Este documento descreve o plano de desenvolvimento para o **Awesome Readme Templates**.
 *Nota: Este roadmap está sujeito a alterações com base no feedback da comunidade e prioridades.*
 
 ## 🏆 Objetivos
 
-- [GOAL_1_DESCRIPTION]
-- [GOAL_2_DESCRIPTION]
-- [GOAL_3_DESCRIPTION]
+- Lançar um site formal para melhorar o uso da plataforma.
+- Estabelecer um servidor no Discord e uma base sólida de comunidade.
+- Explorar e implementar todos os tipos de templates utilizáveis.
+- Criar uma documentação extensa sobre as melhores práticas de documentação.
+- Maximizar o acesso a diferentes idiomas.
+- Melhorar as opções de instalação.
 
 ## 📅 Marcos (Milestones)
 
-### Q1 [ANO] - [MILESTONE_NAME_1]
-- [ ] **Feature A**: Descrição da feature A
-- [ ] **Feature B**: Descrição da feature B
-- [ ] **Melhoria**: Otimização de desempenho para X
+### Q1 2026 - Fundação & Comunidade
+- [ ] **Comunidade**: Lançar servidor oficial no Discord e construir base da comunidade.
+- [ ] **Instalação**: Melhorar opções de instalação (ex: brew, choco).
+- [ ] **Templates**: Pesquisar e listar todos os tipos de templates utilizáveis.
 
-### Q2 [ANO] - [MILESTONE_NAME_2]
-- [ ] **Integração**: Suporte para [THIRD_PARTY_TOOL]
-- [ ] **Refatoração**: Limpeza de código legado no módulo Y
-- [ ] **Docs**: Documentação completa da API
+### Q2 2026 - Plataforma & Expansão
+- [ ] **Site**: Lançar site oficial para melhor uso da plataforma.
+- [ ] **Templates**: Implementar novos tipos de templates explorados no Q1.
+- [ ] **Docs**: Rascunhar o "Guia Definitivo de Documentação".
 
-### Q3 [ANO] - [MILESTONE_NAME_3]
-- [ ] **App Móvel**: Lançamento Beta para iOS/Android
-- [ ] **Localização**: Suporte para Espanhol e Francês
+### Q3 2026 - Alcance Global & Educação
+- [ ] **Localização**: Maximizar acesso a diferentes idiomas (Espanhol, Francês, etc.).
+- [ ] **Educação**: Publicar o guia extenso de documentação.
+- [ ] **Refinamento**: Polir o site e a CLI com base no feedback.
 
 ## 🔮 Ideias Futuras (Backlog)
 

@@ -1,12 +1,12 @@
 # Modelo de Governança
 
 ## Visão Geral
-Este projeto é gerenciado por **[PROJECT_OWNER]** e pela comunidade. Nosso objetivo é criar um ambiente acolhedor e inclusivo para todos.
+Este projeto é gerenciado por **GabrielBaiano** e pela comunidade. Nosso objetivo é criar um ambiente acolhedor e inclusivo para todos.
 
 ## Papéis e Responsabilidades
 
 ### Líder do Projeto / Ditador Benevolente
-- **[PROJECT_OWNER]**: Responsável pela direção geral, gerenciamento de lançamentos e tomada de decisão final.
+- **GabrielBaiano**: Responsável pela direção geral, gerenciamento de lançamentos e tomada de decisão final.
 
 ### Mantenedores
 Mantenedores são responsáveis por:
