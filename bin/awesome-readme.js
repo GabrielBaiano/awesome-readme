@@ -11,13 +11,13 @@ const config = {
   languages: {
     en: { name: 'English', badge: 'En', color: 'blue', alt: 'English' },
     pt: { name: 'Portuguese', badge: 'Pt--Br', color: 'green', alt: 'Portuguese' },
-    es: { name: 'Spanish', badge: 'Es', color: 'yellow', alt: 'Spanish' },
-    fr: { name: 'French', badge: 'Fr', color: 'red', alt: 'French' },
-    de: { name: 'German', badge: 'De', color: 'orange', alt: 'German' },
-    it: { name: 'Italian', badge: 'It', color: 'lightgrey', alt: 'Italian' },
-    ja: { name: 'Japanese', badge: 'Ja', color: 'pink', alt: 'Japanese' },
-    zh: { name: 'Chinese', badge: 'Zh', color: 'red', alt: 'Chinese' },
-    ru: { name: 'Russian', badge: 'Ru', color: 'blue', alt: 'Russian' }
+    // es: { name: 'Spanish', badge: 'Es', color: 'yellow', alt: 'Spanish' },
+    // fr: { name: 'French', badge: 'Fr', color: 'red', alt: 'French' },
+    // de: { name: 'German', badge: 'De', color: 'orange', alt: 'German' },
+    // it: { name: 'Italian', badge: 'It', color: 'lightgrey', alt: 'Italian' },
+    // ja: { name: 'Japanese', badge: 'Ja', color: 'pink', alt: 'Japanese' },
+    // zh: { name: 'Chinese', badge: 'Zh', color: 'red', alt: 'Chinese' },
+    // ru: { name: 'Russian', badge: 'Ru', color: 'blue', alt: 'Russian' }
   },
   paths: {
     templates: path.join(__dirname, '..', 'templates'),
