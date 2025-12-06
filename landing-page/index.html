@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Readme Templates - Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Simple Markdown Parser for Rendered View (Optional, or we can just use pre-rendered HTML) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="hero">
+            <h1>Awesome Readme <span class="gradient-text">Generator</span></h1>
+            <p>The easiest way to create professional documentation for your GitHub projects.</p>
+        </header>
+
+        <!-- Command Section (Moved to Top) -->
+        <section class="glass-panel command-section">
+            <h2>🚀 Quick Start</h2>
+            <p class="subtitle">Run this command in your project root to start the interactive CLI.</p>
+
+            <div class="command-wrapper">
+                <div class="command-text">
+                    <span class="prefix">$</span>
+                    <code id="cliCommand">npx awesome-readme-templates</code>
+                </div>
+                <button id="copyBtn" class="btn-primary">
+                    Copy Command
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Preview & Selection Section -->
+        <section class="glass-panel preview-layout">
+            <div class="sidebar">
+                <h3>Select Template</h3>
+                <div class="template-list" id="templateList">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <div class="main-preview">
+                <div class="preview-header">
+                    <h3 id="previewTitle">README.md</h3>
+                    <div class="view-toggle">
+                        <button class="toggle-btn active" data-view="raw">Raw Markdown</button>
+                        <button class="toggle-btn" data-view="rendered">Rendered</button>
+                    </div>
+                </div>
+
+                <div class="preview-content-area">
+                    <pre id="rawView" class="view-pane active"><code class="language-markdown">...</code></pre>
+                    <div id="renderedView" class="view-pane markdown-body">
+                        <!-- Rendered HTML goes here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
