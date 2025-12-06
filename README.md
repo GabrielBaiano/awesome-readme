@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="/README-pt.md" target="_blank">🇧🇷 Português</a>
+  <a href="./pt/README.md" target="_blank">🇧🇷 Português</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">📚 NPM Package</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

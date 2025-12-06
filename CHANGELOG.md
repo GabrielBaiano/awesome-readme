@@ -1,4 +1,5 @@
 # 📝 Changelog
+[![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/CHANGELOG.pt.md)
 
 All notable changes to the Awesome README Templates project will be documented in this file.
 

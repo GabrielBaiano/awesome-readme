@@ -1,4 +1,5 @@
 # Contribuindo para Awesome Readme Templates
+[![English](https://img.shields.io/badge/Lang-En-red)](../CONTRIBUTING.md)
 
 Primeiro, obrigado por considerar contribuir para o **Awesome Readme Templates**! São pessoas como você que fazem do mundo open source um lugar incrível para aprender, inspirar e criar.
 

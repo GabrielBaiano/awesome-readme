@@ -1,4 +1,5 @@
 # 🤝 Contributing to Awesome README Templates
+[![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/CONTRIBUTING.pt.md)
 
 Thank you for considering contributing to this project! This guide will help you understand how to contribute effectively and make the most impact.
 

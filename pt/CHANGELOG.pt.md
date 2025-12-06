@@ -1,4 +1,5 @@
 # Changelog
+[![English](https://img.shields.io/badge/Lang-En-red)](../CHANGELOG.md)
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 

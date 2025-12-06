@@ -1,4 +1,5 @@
 # Código de Conduta
+[![English](https://img.shields.io/badge/Lang-En-red)](../CODE_OF_CONDUCT.md)
 
 ## Nosso Compromisso
 

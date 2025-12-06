@@ -1,4 +1,5 @@
 # Política de Segurança
+[![English](https://img.shields.io/badge/Lang-En-red)](../SECURITY.md)
 
 ## Versões Suportadas
 

@@ -1,4 +1,5 @@
 # Roadmap
+[![English](https://img.shields.io/badge/Lang-En-red)](../ROADMAP.md)
 
 Este documento descreve o plano de desenvolvimento para o **Awesome Readme Templates**.
 *Nota: Este roadmap está sujeito a alterações com base no feedback da comunidade e prioridades.*

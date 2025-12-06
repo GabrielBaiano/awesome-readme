@@ -1,4 +1,5 @@
 # Code of Conduct
+[![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/CODE_OF_CONDUCT.pt.md)
 
 ## Our Pledge
 

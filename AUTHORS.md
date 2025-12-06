@@ -1,4 +1,5 @@
 # Authors & Contributors
+[![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/AUTHORS.pt.md)
 
 **Awesome Readme Templates** is made possible by the hard work of these individuals.
 

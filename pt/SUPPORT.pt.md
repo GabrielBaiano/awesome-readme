@@ -1,4 +1,5 @@
 # Suporte
+[![English](https://img.shields.io/badge/Lang-En-red)](../SUPPORT.md)
 
 Está com problemas com o **Awesome Readme Templates**? Estamos aqui para ajudar!
 

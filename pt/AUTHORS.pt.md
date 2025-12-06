@@ -1,4 +1,5 @@
 # Autores e Contribuidores
+[![English](https://img.shields.io/badge/Lang-En-red)](../AUTHORS.md)
 
 **Awesome Readme Templates** é possível graças ao trabalho árduo dessas pessoas.
 

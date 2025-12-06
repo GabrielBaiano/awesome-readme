@@ -1,4 +1,5 @@
 # Roadmap
+[![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/ROADMAP.pt.md)
 
 This document outlines the development plan for **Awesome Readme Templates**.
 *Note: This roadmap is subject to change based on community feedback and priorities.*

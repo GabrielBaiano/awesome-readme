@@ -1,4 +1,5 @@
 # Security Policy
+[![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/SECURITY.pt.md)
 
 ## Supported Versions
 

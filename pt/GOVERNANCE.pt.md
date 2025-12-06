@@ -1,4 +1,5 @@
 # Modelo de Governança
+[![English](https://img.shields.io/badge/Lang-En-red)](../GOVERNANCE.md)
 
 ## Visão Geral
 Este projeto é gerenciado por **GabrielBaiano** e pela comunidade. Nosso objetivo é criar um ambiente acolhedor e inclusivo para todos.

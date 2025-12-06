@@ -1,4 +1,5 @@
 # Support
+[![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/SUPPORT.pt.md)
 
 Having trouble with **Awesome Readme Templates**? We’re here to help!
 

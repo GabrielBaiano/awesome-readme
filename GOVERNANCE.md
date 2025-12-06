@@ -1,4 +1,5 @@
 # Governance Model
+[![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/GOVERNANCE.pt.md)
 
 ## Overview
 This project is managed by **GabrielBaiano** and the community. We aim to create a welcoming and inclusive environment for everyone.
