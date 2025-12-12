@@ -1,6 +1,7 @@
 {
   "name": "awesome-readme-templates",
-  "version": "1.4.2",
+  "version": "1.4.3",
+  "type": "module",
   "description": "Professional and reusable README templates for GitHub projects. Create stunning documentation in minutes with our bilingual templates (EN/PT).",
   "main": "index.js",
   "bin": {
@@ -46,6 +47,7 @@
   },
   "files": [
     "bin/",
+    "lib/",
     "templates/",
     "README.md",
     "LICENSE",

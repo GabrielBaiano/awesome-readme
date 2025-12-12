@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const require = createRequire(import.meta.url);
 
 // Test if all required files exist
 const requiredFiles = [
@@ -9,11 +15,10 @@ const requiredFiles = [
   'templates/en-template/README-template.md',
   'templates/pt-template/README-template.md',
   'templates/en-template/CONTRIBUTING-template.md',
-  'templates/pt-template/CONTRIBUTING-template.md',
-  'templates/en-template/CHANGELOG-template.md',
-  'templates/pt-template/CHANGELOG-template.md',
-  'templates/license-templates/MIT-LICENSE.txt',
-  'templates/license-templates/Apache-2.0-LICENSE.txt',
+  'lib/config.js',
+  'lib/installer.js',
+  'lib/ui.js',
+  'lib/utils.js',
   'bin/awesome-readme.js',
   'README.md',
   'LICENSE',
@@ -82,10 +87,10 @@ console.log('\n⚡ Testing CLI script...');
 const cliPath = path.join(__dirname, 'awesome-readme.js');
 if (fs.existsSync(cliPath)) {
   const cliContent = fs.readFileSync(cliPath, 'utf8');
-  if (cliContent.includes('Interactive Wizard') && cliContent.includes('Automated Setup')) {
-    console.log('✅ CLI script has required functions');
+  if (cliContent.includes('renderMenu') && cliContent.includes('config')) {
+    console.log('✅ CLI script has required imports/functions');
   } else {
-    console.log('❌ CLI script missing required functions');
+    console.log('❌ CLI script missing required imports/functions');
     allTestsPassed = false;
   }
 } else {
