@@ -12,34 +12,35 @@
 <p align="center">
   <a href="./pt/README.md" target="_blank">🇧🇷 Português</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">� Downloads</a>
+  <a href="https://github.com/GabrielBaiano/awesome-readme/issues" target="_blank">� Report Bug</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano/awesome-readme/blob/main/LICENSE" target="_blank">📚 License</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano/awesome-readme/issues" target="_blank">🐛 Report Bug</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano" target="_blank">💼 LinkedIn</a>
+  <a href="https://buymeacoffee.com/gabrielngal" target="_blank">
+    <img src="https://cdntest.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="30" width="108" >
+  </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/GabrielBaiano/awesome-readme/stargazers">
-    <img src="https://img.shields.io/github/stars/GabrielBaiano/awesome-readme?style=social" alt="GitHub stars">
+  <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">
+    <img src="https://img.shields.io/npm/v/awesome-readme-templates?style=for-the-badge&color=CC3534&logo=npm" alt="NPM Version">
   </a>
-  <a href="https://github.com/GabrielBaiano/awesome-readme/issues">
-    <img src="https://img.shields.io/github/issues/GabrielBaiano/awesome-readme" alt="GitHub issues">
+  <a href="https://github.com/GabrielBaiano/awesome-readme/stargazers">
+    <img src="https://img.shields.io/github/stars/GabrielBaiano/awesome-readme?style=for-the-badge&color=yellow" alt="GitHub stars">
   </a>
   <a href="https://github.com/GabrielBaiano/awesome-readme/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme" alt="License">
-  </a>
-  <a href="https://github.com/GabrielBaiano/awesome-readme/releases">
-    <img src="https://img.shields.io/github/v/release/GabrielBaiano/awesome-readme" alt="Latest Release">
+    <img src="https://img.shields.io/github/license/GabrielBaiano/awesome-readme?style=for-the-badge&color=blue" alt="License">
   </a>
 </p>
 
 ---
 
 <p align="center">
-  <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=2940&auto=format&fit=crop" alt="Showcase"/>
+  <img src="./website/image.png" alt="Awesome README Showcase" width="100%"/>
+</p>
+
+<p align="center">
+  <a href="https://gabrielbaiano.github.io/awesome-readme/" target="_blank">
+    <h3>🚀 Check the site ➜ <span style="text-decoration:underline; color:#58a6ff;">Live Demo</span></h3>
+  </a>
 </p>
 
 **Awesome README Templates** allows you to create professional documentation in seconds.
