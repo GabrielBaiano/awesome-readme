@@ -1,72 +1,34 @@
-# Development files
-.git/
+# NPM Ignore
+# Files/Directories to exclude from the published package
+
+# Version Control
+.git
 .gitignore
-.gitattributes
-.vscode/
-.idea/
+.github
+
+# Development
+node_modules
+tests
 *.log
-*.tmp
+coverage
+.nyc_output
 
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Configuration
+.eslintrc
+.prettierrc
+tsconfig.json
+jest.config.js
+rollup.config.js
 
-# OS generated files
+# Website / Documentation Site (Excluded from NPM)
+website/
+web/
+webtest/
+scripts/
+
+# Misc
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
-# Test files
-test/
-tests/
-*.test.js
-*.spec.js
-
-# Documentation (keep main ones)
-# README.md - keep this
-# LICENSE - keep this
-# CHANGELOG.md - keep this
-# CONTRIBUTING.md - keep this
-# LICENSE-GUIDE.md - keep this
-
-# Build files
-dist/
-build/
-coverage/
-
-# Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Editor files
-*.swp
-*.swo
-*~
-
-# Package manager files
-package-lock.json
-yarn.lock
-
-# GitHub files (repo specific, not for package)
-.github/
-
-# Root Template Files (ignore these in the package)
-CODEOWNERS
-CITATION.cff
-GOVERNANCE.md
-AUTHORS.md
-ROADMAP.md
-SECURITY.md
-SUPPORT.md
-CODE_OF_CONDUCT.md
-CONTRIBUTING.md
-# Note: README.md, CHANGELOG.md and LICENSE are usually good to keep for NPM display
+# Keep these (Explicitly allowed via lack of ignore or if needed, but 'bin' and 'lib' are usually safe)
+# The package.json 'files' property whitelist is safer, but ignore list works too.

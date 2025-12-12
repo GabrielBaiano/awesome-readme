@@ -3,7 +3,7 @@
 import readline from 'readline';
 import { colorize } from '../lib/utils.js';
 import { config } from '../lib/config.js';
-import { runWizardMode, runAddSpecificMode, runAutomatedMode, showFlagsHelp, askQuestion, renderMenu } from '../lib/ui.js';
+import { runInteractiveMode, runAutomatedMode, showFlagsHelp, renderMenu } from '../lib/ui.js';
 
 // --- Main Execution ---
 
@@ -30,11 +30,8 @@ async function main() {
     const action = await renderMenu(rl, config.menus.main);
 
     switch (action) {
-      case 'runWizardMode':
-        await runWizardMode(rl);
-        break;
-      case 'runAddSpecificMode':
-        await runAddSpecificMode(rl);
+      case 'runInteractiveMode':
+        await runInteractiveMode(rl);
         break;
       case 'showFlagsHelp':
         showFlagsHelp();
