@@ -145,5 +145,6 @@ This project is licensed under the MIT License.
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/GabrielBaiano" target="_blank">GabrielBaiano</a>
+  Made with ❤️ by <a href="https://github.com/GabrielBaiano" target="_blank">GabrielBaiano!</a>
 </p>
+
