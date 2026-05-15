@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const state = {
         currentPage: 'getting-started',
+        currentTemplate: null,
+        viewMode: 'preview', // 'preview' or 'code'
         lang: 'en',
         data: null
     };
@@ -8,222 +10,47 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const markdownContainer = document.getElementById('markdown-container');
     const pageTitle = document.getElementById('current-page-title');
+    const breadcrumbRoot = document.getElementById('breadcrumb-root');
     const tocNav = document.getElementById('toc-nav');
     const navLinks = document.querySelectorAll('.nav-link');
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const dynamicNav = document.getElementById('dynamic-nav');
 
-    // Pages Content
+    // Pages Content (Documentation)
     const pages = {
         'getting-started': {
             title: 'Getting Started',
             content: {
-                en: `# Getting Started
-
-**Awesome README Templates** is a high-productivity CLI tool designed to help developers create professional, standardized, and beautiful documentation for their GitHub repositories in seconds.
-
-## 🌟 Why Documentation Matters?
-
-First impressions are everything in Open Source. A repository with a clean, structured README attracts more contributors, makes installation easier for users, and gives your project a professional look from day one.
-
-## ⚡ Instant Setup (Recommended)
-
-You don't need to install anything permanently. Just navigate to your project's root directory and run:
-
-\`\`\`bash
-npx awesome-readme-templates
-\`\`\`
-
-## 🔄 The 3-Step Workflow
-
-Our tool follows a guided, interactive process to ensure you get exactly what you need.
-
-### 1. Choose your Language
-Select between **English**, **Portuguese (PT-BR)**, or generate both simultaneously. This is perfect for projects reaching a global audience while maintaining a local presence.
-
-### 2. Pick your Style
-Not every project needs a massive documentation file. Choose the style that fits your stage:
-- **Minimalist**: Just the essentials (Description, Install, License).
-- **Standard**: The professional default for most libraries and apps.
-- **Complete**: A detailed structure including Architecture, API Reference, and Roadmap.
-
-### 3. Metadata Collection
-The CLI will ask for key project details:
-- Project Name & Tagline.
-- GitHub handles & Repository name.
-- Links for Live Demos and Documentation.
-- Contact info (Email, Socials).
-
-## 📂 What gets generated?
-
-Once completed, the tool will create a \`.github/\` folder (optional) and several Markdown files:
-- \`README.md\`: Your project's landing page.
-- \`CONTRIBUTING.md\`: How others can help.
-- \`CHANGELOG.md\`: Version history.
-- \`LICENSE\`: Legal boilerplate.
-
-## 🚀 Next Steps
-
-After generating your files, we recommend:
-1. **Reviewing the content**: While our templates are robust, you might want to add specific technical details.
-2. **Pushing to GitHub**: Watch as GitHub automatically renders your beautiful new documentation!
-3. **Customize further**: You can always re-run the tool to try a different style.`,
-                pt: `# Começando
-
-O **Awesome README Templates** é uma ferramenta CLI de alta produtividade projetada para ajudar desenvolvedores a criar documentação profissional, padronizada e bonita para seus repositórios no GitHub em segundos.
-
-## 🌟 Por que a documentação importa?
-
-A primeira impressão é tudo no Open Source. Um repositório com um README limpo e estruturado atrai mais contribuidores, facilita a instalação para os usuários e dá ao seu projeto uma aparência profissional desde o primeiro dia.
-
-## ⚡ Configuração Instantânea (Recomendado)
-
-Você não precisa instalar nada permanentemente. Basta navegar até o diretório raiz do seu projeto e executar:
-
-\`\`\`bash
-npx awesome-readme-templates
-\`\`\`
-
-## 🔄 O Fluxo de Trabalho de 3 Passos
-
-Nossa ferramenta segue um processo interativo e guiado.
-
-### 1. Escolha seu Idioma
-Selecione entre **Inglês**, **Português (PT-BR)**, ou gere ambos simultaneamente.
-
-### 2. Escolha seu Estilo
-- **Minimalista**: Apenas o essencial.
-- **Padrão**: O padrão profissional para a maioria das bibliotecas.
-- **Completo**: Estrutura detalhada incluindo Arquitetura, Referência de API e Roadmap.
-
-### 3. Coleta de Metadados
-O CLI solicitará detalhes como nome do projeto, links de demonstração, redes sociais e muito mais.`
+                en: `# Getting Started\n\n**Awesome README Templates** is a high-productivity CLI tool designed to help developers create professional documentation for their GitHub repositories in seconds.\n\n## ⚡ Instant Setup\n\nRun the tool using \`npx\` in your project root:\n\n\`\`\`bash\nnpx awesome-readme-templates\n\`\`\`\n\n## 🔄 Workflow\n\n1. **Choose Language**: EN, PT, or both.\n2. **Select Style**: Minimal, Standard, or Complete.\n3. **Fill Metadata**: Project name, social links, etc.`,
+                pt: `# Começando\n\nO **Awesome README Templates** é uma ferramenta CLI de alta produtividade projetada para ajudar desenvolvedores a criar documentação profissional para seus repositórios no GitHub em segundos.\n\n## ⚡ Início Rápido\n\nBasta rodar a ferramenta usando \`npx\` na raiz do seu projeto:\n\n\`\`\`bash\nnpx awesome-readme-templates\n\`\`\``
             }
         },
         'installation': {
             title: 'Installation',
             content: {
-                en: `# Installation
-
-While \`npx\` is the recommended way to use the tool, you can install it globally or locally.
-
-## Global Installation
-
-Install via npm to have the \`awesome-readme\` command available globally:
-
-\`\`\`bash
-npm install -g awesome-readme-templates
-\`\`\`
-
-## Local Installation
-
-Add it as a dev dependency to your project:
-
-\`\`\`bash
-npm install -D awesome-readme-templates
-\`\`\`
-
-## Usage
-
-If installed globally:
-\`\`\`bash
-awesome-readme
-\`\`\`
-
-If installed locally:
-\`\`\`bash
-npx awesome-readme
-\`\`\``,
-                pt: `# Instalação`
+                en: `# Installation\n\nInstall globally:\n\`\`\`bash\nnpm install -g awesome-readme-templates\n\`\`\`\n\nOr use as a dev dependency:\n\`\`\`bash\nnpm install -D awesome-readme-templates\n\`\`\``,
+                pt: `# Instalação\n\nInstale globalmente:\n\`\`\`bash\nnpm install -g awesome-readme-templates\n\`\`\`\n\nOu use como dependência de desenvolvimento:\n\`\`\`bash\nnpm install -D awesome-readme-templates\n\`\`\``
             }
         },
         'whats-new': {
             title: "What's New",
             content: {
-                en: `# What's New in v1.5.0
-
-We've been working hard to make **Awesome README Templates** the most flexible documentation tool for developers. Here's what landed in the latest version:
-
-### 🎭 Dynamic Template Styles
-You are no longer limited to a single template. We introduced three distinct styles for READMEs:
-- **Minimalist**: For quick projects or small utilities.
-- **Standard**: Our recommended professional default.
-- **Complete**: A comprehensive document with Roadmap, API Reference, and Architecture sections.
-
-### 🔗 Expanded Project Metadata
-The CLI now collects more data to ensure your templates are ready to push without manual edits:
-- **Social Links**: Direct integration for Twitter/X and Contact Email.
-- **Web Presence**: Dedicated fields for Live Demo and Documentation URLs.
-- **Automated Tags**: Improved handling of license types and package names.
-
-### 🌍 Bilingual Refinement
-Our bilingual core (EN/PT) is now faster and more robust. You can generate a dual-language setup with better consistency across all extra templates like Contributing and Changelog.
-
-### 💻 Brand New Documentation Portal
-You're looking at it! We've launched this dedicated portal to help you explore templates and master the CLI flags.
-
-### 🚀 Under the Hood
-- **Regex Optimization**: Variable replacement is now significantly faster.
-- **Directory Smart-Creation**: Better handling of nested \`.github/\` structures.
-- **New Placeholders**: Added \`[YEAR]\`, \`[LOGO_URL]\`, and \`[TECH_STACK]\`.`,
-                pt: `# O que há de novo na v1.5.0
-
-Trabalhamos muito para tornar o **Awesome README Templates** a ferramenta de documentação mais flexível para desenvolvedores.
-
-### 🎭 Estilos Dinâmicos de Template
-Agora você não está limitado a apenas um modelo. Introduzimos três estilos distintos para READMEs:
-- **Minimalista**: Para projetos rápidos ou utilitários pequenos.
-- **Padrão**: Nosso padrão profissional recomendado.
-- **Completo**: Um documento abrangente com seções de Roadmap, Referência de API e Arquitetura.
-
-### 🔗 Metadados Expandidos
-O CLI agora coleta mais dados para garantir que seus templates estejam prontos para uso sem edições manuais:
-- **Links Sociais**: Integração direta para Twitter/X e E-mail de contato.
-- **Presença Web**: Campos dedicados para URLs de Demo e Documentação.
-
-### 🚀 Melhorias Internas
-- **Otimização de Regex**: A substituição de variáveis agora é significativamente mais rápida.
-- **Novos Placeholders**: Adicionados \`[YEAR]\`, \`[LOGO_URL]\` e \`[TECH_STACK]\`.`
+                en: `# What's New\n\nStay up to date with the latest features and improvements.\n\n## [1.4.3] - Latest\n- ✨ **Template Dashboard**: New interactive website to explore and copy templates.\n- 🎨 **Visual Refresh**: Complete UI overhaul with premium docs aesthetics.\n- 📂 **Dynamic Sidebar**: Templates are now grouped by type and platform.\n\n## [1.4.2]\n- 📝 **Updated README**: Added detailed explanation of multi-language features.\n- 🤝 **Call for Contributors**: Added a section inviting the community to translate.\n\n## [1.4.0]\n- 🌍 **Multi-Language Support**: CLI now supports N-langs.\n- 🚩 **New Flags**: Added \`--main-lang\` and \`--langs\` flags.`,
+                pt: `# Novidades\n\nFique por dentro das últimas funcionalidades e melhorias.\n\n## [1.4.3] - Atual\n- ✨ **Dashboard de Templates**: Novo site interativo para explorar e copiar templates.\n- 🎨 **Visual Renovado**: Interface completamente nova com estética premium.\n- 📂 **Sidebar Dinâmica**: Templates agora são agrupados por tipo e plataforma.`
             }
         },
         'cli-flags': {
             title: 'CLI Flags',
             content: {
-                en: `# CLI Flags
-
-For automation and CI/CD, you can use flags to skip interactive prompts.
-
-| Flag | Description |
-| :--- | :--- |
-| \`--lang\` | Set the main language (\`en\` or \`pt\`) |
-| \`--langs\` | Additional languages (comma separated) |
-| \`--all\` | Install all available templates |
-| \`--with-roadmap\` | Include the Roadmap template |
-| \`--license\` | Specify the license type |
-
-## Example
-
-\`\`\`bash
-awesome-readme --lang=pt --all --license=mit
-\`\`\``,
-                pt: `# Flags do CLI`
+                en: `# CLI Flags\n\nUse these flags to automate the template installation process.\n\n| Flag | Description | Example |\n| :--- | :--- | :--- |\n| \`--main-lang\` | Set the project's root language | \`--main-lang pt\` |\n| \`--langs\` | List of additional languages (comma-separated) | \`--langs en,fr\` |\n| \`--license\` | Choose a license (mit, apache, gpl, etc.) | \`--license mit\` |\n| \`--all\` | Install EVERY available template | \`--all\` |\n| \`--with-<id>\` | Install a specific template or group | \`--with-roadmap\` |\n\n### Examples\n\n\`\`\`bash\nnpx awesome-readme --all --main-lang pt\nnpx awesome-readme --with-github --license mit\n\`\`\``,
+                pt: `# Flags do CLI\n\nUse estas flags para automatizar o processo de instalação.\n\n| Flag | Descrição | Exemplo |\n| :--- | :--- | :--- |\n| \`--main-lang\` | Define o idioma principal na raiz | \`--main-lang pt\` |\n| \`--langs\` | Idiomas adicionais (separados por vírgula) | \`--langs en,fr\` |\n| \`--license\` | Escolhe uma licença | \`--license mit\` |\n| \`--all\` | Instala TODOS os templates | \`--all\` |\n| \`--with-<id>\` | Instala um template ou grupo específico | \`--with-github\` |`
             }
         },
         'custom-vars': {
             title: 'Placeholders',
             content: {
-                en: `# Placeholders
-
-The tool uses a simple bracket system for variables. Here are the most common ones:
-
-| Variable | Description |
-| :--- | :--- |
-| \`[PROJECT_NAME]\` | Your project title |
-| \`[PROJECT_DESCRIPTION]\` | A short summary |
-| \`[AUTHOR_NAME]\` | Your name |
-| \`[GITHUB_USERNAME]\` | Your GitHub handle |
-| \`[YEAR]\` | Current year (auto-detected) |
-| \`[DEMO_URL]\` | Live preview link |
-| \`[DOCS_URL]\` | Documentation link |`,
-                pt: `# Placeholders`
+                en: `# Placeholders\n\nThese variables are automatically replaced with your project metadata during installation.\n\n### Project Identity\n- \`[PROJECT_NAME]\`: Title of your project.\n- \`[PROJECT_DESCRIPTION]\`: Brief overview.\n- \`[PROJECT_TAGLINE]\`: A catchy one-liner.\n- \`[YEAR]\`: Current year.\n\n### Author & Links\n- \`[AUTHOR_NAME]\`: Your full name.\n- \`[GITHUB_USERNAME]\`: Your GitHub handle.\n- \`[GITHUB_PROFILE_URL]\`: Link to your profile.\n- \`[CONTACT_EMAIL]\`: Your email address.\n\n### URLs\n- \`[PROJECT_URL]\`: Main website or repository link.\n- \`[DEMO_URL]\`: Link to a live demo.\n- \`[DOCS_URL]\`: Link to documentation.\n\n### Integration\n- \`[PACKAGE_NAME]\`: NPM/PyPI package name.\n- \`[TWITTER_HANDLE]\`: Your Twitter/X handle.\n- \`[BUYMEACOFFEE_USERNAME]\`: For support links.`,
+                pt: `# Placeholders\n\nVariáveis que são substituídas automaticamente pelos dados do seu projeto.\n\n### Identidade\n- \`[PROJECT_NAME]\`: Nome do projeto.\n- \`[PROJECT_DESCRIPTION]\`: Descrição curta.\n- \`[PROJECT_TAGLINE]\`: Frase de impacto.\n\n### Autor\n- \`[AUTHOR_NAME]\`: Nome do autor.\n- \`[GITHUB_USERNAME]\`: Usuário do GitHub.\n- \`[CONTACT_EMAIL]\`: Email de contato.`
             }
         }
     };
@@ -234,29 +61,208 @@ The tool uses a simple bracket system for variables. Here are the most common on
             const response = await fetch('data.json');
             state.data = await response.json();
             
+            renderSidebar();
             setupEventListeners();
             loadContent(state.currentPage);
+            createToolbar();
         } catch (error) {
             console.error('Initialization error:', error);
         }
     }
 
-    function setupEventListeners() {
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
+    function renderSidebar() {
+        const sections = {
+            'Project Documentation': [],
+            'GitHub Templates': []
+        };
+
+        // Categorize templates
+        state.data.templates.forEach(t => {
+            if (t.category === 'GitHub') {
+                sections['GitHub Templates'].push(t);
+            } else {
+                sections['Project Documentation'].push(t);
+            }
+        });
+
+        dynamicNav.innerHTML = '';
+        
+        Object.keys(sections).forEach(sectionTitle => {
+            const templates = sections[sectionTitle];
+            if (templates.length === 0) return;
+
+            const groupDiv = document.createElement('div');
+            groupDiv.className = 'nav-group';
+            
+            const title = document.createElement('h5');
+            title.className = 'nav-group-title';
+            title.textContent = sectionTitle;
+            groupDiv.appendChild(title);
+
+            const ul = document.createElement('ul');
+
+            // Group by base filename within section
+            const fileGroups = {};
+            templates.forEach(t => {
+                const baseName = t.dest.split('/').pop();
+                if (!fileGroups[baseName]) fileGroups[baseName] = [];
+                fileGroups[baseName].push(t);
+            });
+
+            Object.keys(fileGroups).sort().forEach(baseName => {
+                const groupTemplates = fileGroups[baseName];
                 
-                const pageId = link.dataset.page;
-                const templateId = link.dataset.template;
+                if (groupTemplates.length > 1) {
+                    const li = document.createElement('li');
+                    li.className = 'nav-item-expandable';
+                    
+                    const span = document.createElement('span');
+                    span.className = 'nav-link-header';
+                    span.textContent = baseName;
+                    li.appendChild(span);
 
-                // Update Active State
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
+                    const subUl = document.createElement('ul');
+                    subUl.className = 'nav-sublist';
+                    
+                    groupTemplates.sort((a, b) => {
+                        if (a.name === baseName.replace('.md', '')) return -1;
+                        return a.name.localeCompare(b.name);
+                    });
 
-                if (pageId) {
-                    loadContent(pageId);
-                } else if (templateId) {
-                    loadTemplate(templateId);
+                    groupTemplates.forEach(t => {
+                        const subLi = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = '#';
+                        a.className = 'nav-link';
+                        a.dataset.template = t.id;
+                        a.textContent = t.name;
+                        subLi.appendChild(a);
+                        subUl.appendChild(subLi);
+                    });
+                    li.appendChild(subUl);
+                    ul.appendChild(li);
+                } else {
+                    const t = groupTemplates[0];
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.className = 'nav-link';
+                    a.dataset.template = t.id;
+                    a.textContent = t.name;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                }
+            });
+
+            groupDiv.appendChild(ul);
+            dynamicNav.appendChild(groupDiv);
+        });
+    }
+
+    function createToolbar() {
+        const breadcrumbRight = document.querySelector('.breadcrumb-right');
+        
+        const toolbar = document.createElement('div');
+        toolbar.className = 'toolbar-actions';
+        toolbar.innerHTML = `
+            <div class="view-toggle">
+                <button class="toggle-btn active" data-view="preview" title="Preview Mode"><i data-lucide="eye"></i></button>
+                <button class="toggle-btn" data-view="code" title="Raw Code"><i data-lucide="code"></i></button>
+            </div>
+            <button class="copy-btn" title="Copy Content"><i data-lucide="copy"></i></button>
+        `;
+        
+        breadcrumbRight.prepend(toolbar);
+        lucide.createIcons();
+
+        // Toolbar Events
+        toolbar.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                state.viewMode = btn.dataset.view;
+                toolbar.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                refreshView();
+            });
+        });
+
+        toolbar.querySelector('.copy-btn').addEventListener('click', () => {
+            const btn = toolbar.querySelector('.copy-btn');
+            const content = getCurrentRawContent();
+            
+            navigator.clipboard.writeText(content).then(() => {
+                const icon = btn.querySelector('i');
+                const originalIcon = icon.getAttribute('data-lucide');
+                
+                // Success State
+                btn.classList.add('copied');
+                icon.setAttribute('data-lucide', 'check');
+                lucide.createIcons();
+
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    icon.setAttribute('data-lucide', originalIcon);
+                    lucide.createIcons();
+                }, 2000);
+            });
+        });
+    }
+
+    function refreshView() {
+        if (state.currentTemplate) {
+            loadTemplate(state.currentTemplate);
+        } else {
+            loadContent(state.currentPage);
+        }
+    }
+
+    function getCurrentRawContent() {
+        if (state.currentTemplate) {
+            const t = state.data.templates.find(temp => temp.id === state.currentTemplate);
+            return applyMocks(t.content[state.lang] || t.content['en']);
+        } else {
+            const page = pages[state.currentPage];
+            return page.content[state.lang] || page.content['en'];
+        }
+    }
+
+    function setupEventListeners() {
+        // Navigation Links (Use event delegation for dynamic links)
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('.nav-link');
+            if (!link) return;
+            
+            e.preventDefault();
+            
+            const pageId = link.dataset.page;
+            const templateId = link.dataset.template;
+
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+
+            if (pageId) {
+                state.currentTemplate = null;
+                loadContent(pageId);
+            } else if (templateId) {
+                state.currentTemplate = templateId;
+                loadTemplate(templateId);
+            }
+        });
+
+        // Language Buttons
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const newLang = btn.dataset.lang;
+                state.lang = newLang;
+
+                // Update UI
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Refresh Current View
+                if (state.currentTemplate) {
+                    loadTemplate(state.currentTemplate);
+                } else {
+                    loadContent(state.currentPage);
                 }
             });
         });
@@ -267,25 +273,49 @@ The tool uses a simple bracket system for variables. Here are the most common on
         if (!page) return;
 
         state.currentPage = id;
+        state.currentTemplate = null;
         pageTitle.textContent = page.title;
-        renderMarkdown(page.content[state.lang] || page.content['en']);
+        breadcrumbRoot.textContent = id === 'getting-started' || id === 'installation' || id === 'whats-new' ? 'Guide' : 'Reference';
+        
+        const content = page.content[state.lang] || page.content['en'];
+        
+        if (state.viewMode === 'code') {
+            renderCode(content);
+        } else {
+            renderMarkdown(content);
+        }
     }
 
     function loadTemplate(id) {
         let content = '';
         const t = state.data.templates.find(temp => temp.id === id);
         
-        if (id === 'readme') {
-            content = state.data.readme[state.lang];
-        } else if (t && t.content) {
-            content = t.content[state.lang] || t.content['en'];
-        }
+        if (!t) return;
 
-        pageTitle.textContent = t ? t.name : id;
+        content = t.content[state.lang] || t.content['en'] || '# Content not available in this language';
+        pageTitle.textContent = t.name;
+        breadcrumbRoot.textContent = t.category === 'GitHub' ? 'GitHub Templates' : 'Project Documentation';
         
-        // Mock replacements for preview
         content = applyMocks(content);
-        renderMarkdown(content);
+        
+        if (state.viewMode === 'code') {
+            renderCode(content);
+        } else {
+            renderMarkdown(content);
+        }
+    }
+
+    function renderCode(code) {
+        markdownContainer.innerHTML = `<pre><code>${escapeHtml(code)}</code></pre>`;
+        tocNav.innerHTML = '<p style="color: var(--text-muted); font-size: 0.8rem;">Table of contents hidden in code view.</p>';
+        lucide.createIcons();
+        window.scrollTo(0, 0);
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     function applyMocks(content) {
@@ -298,7 +328,8 @@ The tool uses a simple bracket system for variables. Here are the most common on
             PACKAGE_NAME: 'awesome-readme',
             YEAR: new Date().getFullYear(),
             DEMO_URL: 'https://demo.example.com',
-            DOCS_URL: 'https://docs.example.com'
+            DOCS_URL: 'https://docs.example.com',
+            CONTACT_EMAIL: 'hello@example.com'
         };
         Object.keys(mocks).forEach(k => {
             const regex = new RegExp(`\\[${k}\\]`, 'g');

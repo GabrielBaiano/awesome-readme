@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awesome README | Professional Project Scaffolding</title>
+    <meta name="description" content="Generate professional, high-quality READMEs and GitHub configuration templates in seconds. Bilingual support (EN/PT) and modern design.">
+    <meta name="keywords" content="readme, templates, github, documentation, developer tools">
+    <meta property="og:title" content="Awesome README Templates">
+    <meta property="og:description" content="The ultimate collection of professional project scaffolding templates.">
+    <meta property="og:type" content="website">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,15 +59,8 @@
                     </ul>
                 </div>
 
-                <div class="nav-group">
-                    <h5 class="nav-group-title">Templates</h5>
-                    <ul>
-                        <li><a href="#" class="nav-link" data-template="readme">README.md</a></li>
-                        <li><a href="#" class="nav-link" data-template="contributing">Contributing</a></li>
-                        <li><a href="#" class="nav-link" data-template="changelog">Changelog</a></li>
-                        <li><a href="#" class="nav-link" data-template="code_of_conduct">Code of Conduct</a></li>
-                        <li><a href="#" class="nav-link" data-template="security">Security Policy</a></li>
-                    </ul>
+                <div id="dynamic-nav">
+                    <!-- Templates will be loaded here dynamically -->
                 </div>
 
                 <div class="nav-group">
@@ -79,9 +77,17 @@
         <main class="content">
             <div class="content-container">
                 <div class="breadcrumb">
-                    <span class="breadcrumb-root">Docs</span>
-                    <span class="breadcrumb-sep">/</span>
-                    <span id="current-page-title" class="breadcrumb-current">Getting Started</span>
+                    <div class="breadcrumb-left">
+                        <span id="breadcrumb-root" class="breadcrumb-root">Docs</span>
+                        <span class="breadcrumb-sep">/</span>
+                        <span id="current-page-title" class="breadcrumb-current">Getting Started</span>
+                    </div>
+                    <div class="breadcrumb-right">
+                        <div class="lang-switcher">
+                            <button class="lang-btn active" data-lang="en">EN</button>
+                            <button class="lang-btn" data-lang="pt">PT</button>
+                        </div>
+                    </div>
                 </div>
 
                 <article id="markdown-container" class="markdown-body">
