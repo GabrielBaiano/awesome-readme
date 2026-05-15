@@ -45,6 +45,8 @@
 
 * **Bilingual Support**: Ready-to-use templates in English and Portuguese (PT-BR).
 * **CLI Generator**: Interactive command-line tool `awesome-readme` to easily setup your docs.
+* **Variable Replacement**: Automatic substitution of `[PROJECT_NAME]`, `[AUTHOR_NAME]`, etc.
+* **Multiple Styles**: Choose between Professional, Minimalist, and more styles for your README.
 * **Extensible**: Modular design allowing easy addition of new sections and templates.
 * **Zero Dependencies**: Lightweight and fast, built with pure Node.js.
 
@@ -83,8 +85,10 @@ Installation is simple and straightforward via NPM.
 1. Run `npx awesome-readme-templates`.
 2. Select **Interactive Selection**.
 3. Choose your preferred language (English or Portuguese).
-4. Select the templates you want (README, Contributing, Changelog, etc.).
-5. Confirm and write files to your project.
+4. Fill in your project details (Name, Description, Author) for automatic replacement.
+5. Select the README style (Standard or Minimalist).
+6. Select the templates you want (Contributing, Changelog, etc.).
+7. Confirm and write files to your project.
 
 ### Method 2: Automated Mode (Flags)
 
