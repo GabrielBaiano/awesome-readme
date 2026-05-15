@@ -1,97 +1,119 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awesome Readme Templates - Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Awesome README | Professional Project Scaffolding</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" id="markdown-theme">
+    
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-
-<body>
-    <div class="background-glow"></div>
-
-    <main class="container">
-        <!-- Hero Section (Restored) -->
-        <header class="hero">
-            <h1>Awesome Readme <span class="gradient-text">Generator</span></h1>
-            <p>The easiest way to create professional documentation for your GitHub projects.</p>
-        </header>
-
-        <!-- Floating Command Bar -->
-        <div class="floating-command-bar">
-            <section class="glass-panel command-section">
-                <div class="command-wrapper">
-                    <div class="command-text">
-                        <span class="prefix">$</span>
-                        <code id="cliCommand">npx awesome-readme-templates</code>
-                    </div>
-                    <button id="copyBtn" class="btn-primary" title="Copy Command">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                    </button>
+<body class="docs-theme">
+    <!-- Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="/" class="logo">
+                    <i data-lucide="github"></i>
+                    <span>Awesome<span>README</span></span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="https://twitter.com/GabrielBaiano" target="_blank" class="nav-icon-link" title="Twitter"><i data-lucide="twitter"></i></a>
+                    <a href="https://github.com/GabrielBaiano/awesome-readme/issues" target="_blank" class="nav-icon-link" title="Report Issue"><i data-lucide="message-square"></i></a>
+                    <a href="https://github.com/GabrielBaiano/awesome-readme" class="github-pill" target="_blank">
+                        <i data-lucide="star"></i>
+                        <span>Star on GitHub</span>
+                    </a>
                 </div>
-                <p class="subtitle" style="margin-top: 10px; margin-bottom: 0; font-size: 0.9rem;">Run this command in
-                    your project root to start the interactive CLI.</p>
-            </section>
+            </div>
         </div>
+    </nav>
 
-        <!-- Main Layout with Sidebars -->
-        <section class="glass-panel preview-layout">
-            <!-- Language Sidebar -->
-            <div class="sidebar language-sidebar">
-                <h3>Language</h3>
-                <div class="language-list">
-                    <div class="language-item active" data-lang="en">
-                        <span class="lang-flag">🇺🇸</span>
-                        <span>English</span>
-                    </div>
-                    <div class="language-item" data-lang="pt">
-                        <span class="lang-flag">🇧🇷</span>
-                        <span>Português</span>
-                    </div>
+    <div class="layout-main">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="nav-group">
+                    <h5 class="nav-group-title">Guide</h5>
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-page="getting-started">Getting Started</a></li>
+                        <li><a href="#" class="nav-link" data-page="installation">Installation</a></li>
+                        <li><a href="#" class="nav-link" data-page="whats-new">What's New</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h5 class="nav-group-title">Templates</h5>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-template="readme">README.md</a></li>
+                        <li><a href="#" class="nav-link" data-template="contributing">Contributing</a></li>
+                        <li><a href="#" class="nav-link" data-template="changelog">Changelog</a></li>
+                        <li><a href="#" class="nav-link" data-template="code_of_conduct">Code of Conduct</a></li>
+                        <li><a href="#" class="nav-link" data-template="security">Security Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h5 class="nav-group-title">Reference</h5>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="cli-flags">CLI Flags</a></li>
+                        <li><a href="#" class="nav-link" data-page="custom-vars">Placeholders</a></li>
+                    </ul>
                 </div>
             </div>
+        </aside>
 
-            <!-- Template Sidebar -->
-            <div class="sidebar template-sidebar">
-                <h3>Select Template</h3>
-                <div class="template-list" id="templateList">
-                    <!-- Populated by JS -->
+        <!-- Main Content Area -->
+        <main class="content">
+            <div class="content-container">
+                <div class="breadcrumb">
+                    <span class="breadcrumb-root">Docs</span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span id="current-page-title" class="breadcrumb-current">Getting Started</span>
                 </div>
-            </div>
 
-            <div class="main-preview">
-                <div class="preview-header">
-                    <h3 id="previewTitle">README.md</h3>
-                    <div class="view-toggle">
-                        <button class="toggle-btn active" data-view="raw">Raw Markdown</button>
-                        <button class="toggle-btn" data-view="rendered">Rendered</button>
+                <article id="markdown-container" class="markdown-body">
+                    <!-- Loaded dynamically -->
+                </article>
+
+                <footer class="content-footer">
+                    <div class="footer-left">
+                        <p>Released under the MIT License.</p>
                     </div>
-                </div>
-
-                <div class="preview-content-area">
-                    <pre id="rawView" class="view-pane active"><code class="language-markdown">...</code></pre>
-                    <div id="renderedView" class="view-pane markdown-body">
-                        <!-- Rendered HTML goes here -->
+                    <div class="footer-right">
+                        <a href="https://github.com/GabrielBaiano/awesome-readme" target="_blank" class="edit-github">
+                            <i data-lucide="edit-3"></i>
+                            <span>Edit this page on GitHub</span>
+                        </a>
                     </div>
-                </div>
+                </footer>
             </div>
-        </section>
-    </main>
+        </main>
+
+        <!-- TOC -->
+        <aside class="toc-sidebar">
+            <div class="toc-wrapper">
+                <h5 class="toc-title">On this page</h5>
+                <nav id="toc-nav" class="toc-nav">
+                    <!-- Loaded dynamically -->
+                </nav>
+            </div>
+        </aside>
+    </div>
 
     <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
 </body>
-
 </html>
