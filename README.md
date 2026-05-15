@@ -26,9 +26,7 @@
 
 ---
 
-<p align="center">
-  <img src="./website/image.png" alt="Awesome Readme Templates Showcase"/>
-</p>
+
 
 
 **Awesome Readme Templates** helps you create professional documentation for your projects without the hassle of writing everything from scratch. Choose from a variety of templates and get started instantly.

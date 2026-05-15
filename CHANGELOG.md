@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.4] - 2026-05-15
+
+### Added
+- ✨ **Template Dashboard**: Complete interactive website to explore, preview and copy templates.
+- 🎨 **Premium UI/UX**: New visual identity for the documentation portal with dark mode and animations.
+- 📂 **Dynamic Organization**: Templates are now automatically synced and categorized in the sidebar.
+- 📋 **Copy to Clipboard**: Added "Copy" functionality with visual feedback and tooltips.
+- 📑 **Dual View Mode**: Support for switching between "Preview" (rendered) and "Code" (raw) markdown.
+- 🔗 **Smart Breadcrumbs**: Dynamic navigation tracks that reflect the current template category.
+
 ### Added
 - NPM package configuration with package.json
 - CLI tool (awesome-readme) for easy template installation
