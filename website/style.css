@@ -299,6 +299,7 @@ body {
     justify-content: center;
     cursor: pointer;
     border-radius: 8px;
+    position: relative;
     transition: all 0.2s;
 }
 
