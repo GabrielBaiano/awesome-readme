@@ -5,7 +5,7 @@
   "description": "Professional and reusable README templates for GitHub projects. Create stunning documentation in minutes with our bilingual templates (EN/PT).",
   "main": "index.js",
   "bin": {
-    "awesome-readme": "./bin/awesome-readme.js"
+    "awesome-readme": "bin/awesome-readme.js"
   },
   "scripts": {
     "install-template": "node bin/awesome-readme.js",
@@ -36,7 +36,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GabrielBaiano/awesome-readme.git"
+    "url": "git+https://github.com/GabrielBaiano/awesome-readme.git"
   },
   "bugs": {
     "url": "https://github.com/GabrielBaiano/awesome-readme/issues"

@@ -268,6 +268,391 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Template Explanations Database
+    const templateExplanations = {
+        'authors': {
+            visibility: 'auxiliary',
+            dest: 'AUTHORS.md',
+            en: {
+                why: "Lists all core team members, maintainers, and community contributors. It provides clear recognition, which increases contributor engagement and trust.",
+                how: "Saved at the root level of your repo. While not highlighted by default on the home page, it is usually linked from the README or AUTHORS section."
+            },
+            pt: {
+                why: "Lista todos os membros do time principal, mantenedores e colaboradores. Proporciona reconhecimento claro, o que aumenta o engajamento e a confiança da comunidade.",
+                how: "Salvo na raiz do repositório. Embora não seja destacado por padrão na página inicial, geralmente é referenciado a partir do README ou da seção de Autores."
+            }
+        },
+        'changelog-short': {
+            visibility: 'auxiliary',
+            dest: 'CHANGELOG-short.md',
+            en: {
+                why: "Documents all notable changes and version releases in a simplified, concise format. Perfect for fast-moving, smaller projects.",
+                how: "Saved at the root level. Provides an easy-to-read chronological summary of updates that helps users track software changes."
+            },
+            pt: {
+                why: "Documenta todas as alterações relevantes e versões lançadas de forma simplificada e concisa. Ideal para projetos menores ou de rápido desenvolvimento.",
+                how: "Salvo na raiz do repositório. Fornece um resumo cronológico fácil de ler que ajuda os usuários a acompanharem a evolução do software."
+            }
+        },
+        'changelog': {
+            visibility: 'auxiliary',
+            dest: 'CHANGELOG.md',
+            en: {
+                why: "Documents all notable changes and version releases following the professional 'Keep a Changelog' standard. Crucial for open-source project management.",
+                how: "Saved at the root level. Adheres to Semantic Versioning (SemVer), providing clear sections for Added, Changed, Deprecated, Removed, Fixed, and Security."
+            },
+            pt: {
+                why: "Documenta todas as alterações e lançamentos de versão seguindo o padrão profissional 'Keep a Changelog'. Crucial para a governança de projetos de código aberto.",
+                how: "Salvo na raiz. Adere ao Versionamento Semântico (SemVer), oferecendo seções claras para Adicionado, Alterado, Depreciado, Removido, Corrigido e Segurança."
+            }
+        },
+        'codeowners': {
+            visibility: 'discreet',
+            dest: '.github/CODEOWNERS',
+            en: {
+                why: "Defines which individuals or teams own specific paths in the repository. Automatically requests reviews from the respective owners when a PR touches their files.",
+                how: "Discreet file saved under the `.github/` folder. It works silently in the background of PRs, prompting review assignments automatically without cluttering the homepage."
+            },
+            pt: {
+                why: "Define quais indivíduos ou equipes são responsáveis por pastas ou arquivos específicos no repositório. Solicita revisões automaticamente quando um PR altera esses arquivos.",
+                how: "Arquivo silencioso salvo dentro da pasta `.github/`. Funciona de forma discreta em segundo plano nos PRs, automatizando a atribuição de revisões sem poluir a página inicial."
+            }
+        },
+        'code_of_conduct': {
+            visibility: 'prominent',
+            dest: 'CODE_OF_CONDUCT.md',
+            en: {
+                why: "Establishes community standards, acceptable behaviors, and enforcement rules to ensure a safe, welcoming, and inclusive environment for everyone.",
+                how: "Highly prominent. GitHub automatically detects this file and highlights it under the 'Community standards' checklist, showing a direct badge/link to it when users interact."
+            },
+            pt: {
+                why: "Estabelece padrões de conduta da comunidade, comportamentos aceitáveis e regras para garantir um ambiente seguro, acolhedor e inclusivo para todos.",
+                how: "Altamente destacado. O GitHub detecta automaticamente este arquivo e o destaca na checklist de 'Padrões de comunidade', criando um link/selo direto para acesso dos usuários."
+            }
+        },
+        'contributing-short': {
+            visibility: 'prominent',
+            dest: 'CONTRIBUTING-short.md',
+            en: {
+                why: "Provides quick, straightforward instructions on how to set up, build, and submit contributions. Ideal for projects that want to encourage fast, low-friction collaboration.",
+                how: "Highly prominent on GitHub. A direct link is displayed on the issue-creation page and the pull-request-creation page, inviting users to read it first."
+            },
+            pt: {
+                why: "Fornece instruções rápidas e diretas sobre como configurar, desenvolver e enviar contribuições. Ideal para projetos que buscam incentivar a colaboração rápida e sem barreiras.",
+                how: "Altamente destacado no GitHub. Um link direto para ele é exibido na página de criação de novas issues e novos pull requests, convidando o usuário a lê-lo antes."
+            }
+        },
+        'contributing': {
+            visibility: 'prominent',
+            dest: 'CONTRIBUTING.md',
+            en: {
+                why: "Provides comprehensive, professional step-by-step instructions on how to contribute, including coding style, testing commands, and git branch rules.",
+                how: "Highly prominent. GitHub automatically detects and links this file inside key interaction pages (Issue creation, PR creation, and Community Checklist) to guide new developers."
+            },
+            pt: {
+                why: "Fornece instruções passo a passo detalhadas e profissionais sobre como colaborar, cobrindo guias de estilo, comandos de teste e regras de criação de branch.",
+                how: "Altamente destacado. O GitHub detecta e linka este arquivo automaticamente em páginas-chave de interação (Criação de Issues, Pull Requests e Checklist Comunitário)."
+            }
+        },
+        'readme-long': {
+            visibility: 'prominent',
+            dest: 'README-long.md',
+            en: {
+                why: "The comprehensive entry point of your project. Features structural sections for architecture overview, performance benchmarks, and detailed API references.",
+                how: "The most prominent file on GitHub. It is automatically rendered and displayed directly on the repository's home tab for anyone who visits the repository."
+            },
+            pt: {
+                why: "O ponto de entrada completo do seu projeto. Apresenta seções estruturais para arquitetura detalhada, benchmarks de desempenho e referências de API completas.",
+                how: "O arquivo mais destacado do GitHub. É automaticamente renderizado e exibido no centro da página principal do repositório para qualquer visitante."
+            }
+        },
+        'readme-minimal': {
+            visibility: 'prominent',
+            dest: 'README-minimal.md',
+            en: {
+                why: "A lightweight README template focusing strictly on getting started, quick installation, and code examples. Perfect for small libraries or utilities.",
+                how: "The most prominent file on GitHub. It is automatically rendered and displayed directly on the repository's home tab, offering a clean, direct overview."
+            },
+            pt: {
+                why: "Um template de README leve focado estritamente em introdução rápida, instalação direta e exemplos de código. Perfeito para pequenas bibliotecas ou utilitários.",
+                how: "O arquivo mais destacado do GitHub. É automaticamente renderizado e exibido no centro da página principal do repositório, oferecendo uma visão limpa e direta."
+            }
+        },
+        'readme': {
+            visibility: 'prominent',
+            dest: 'README.md',
+            en: {
+                why: "A balanced, standard README template with sections for core features, technologies, setup instructions, and use cases. Highly versatile.",
+                how: "The most prominent file on GitHub. It is automatically rendered and displayed directly on the repository's home tab, functioning as the storefront of your project."
+            },
+            pt: {
+                why: "Um template de README padrão e equilibrado com seções para funcionalidades principais, tecnologias, instruções de setup e casos de uso. Altamente versátil.",
+                how: "O arquivo mais destacado do GitHub. É automaticamente renderizado e exibido no centro da página principal do repositório, funcionando como a vitrine do seu projeto."
+            }
+        },
+        'roadmap': {
+            visibility: 'auxiliary',
+            dest: 'ROADMAP.md',
+            en: {
+                why: "Outlines the vision, future goals, and scheduled milestones of the project. Helps contributors align their work with the project's long-term plan.",
+                how: "Saved at the root level. Highly visible when linked from the README, letting users easily see planned features, status updates, and backlog items."
+            },
+            pt: {
+                why: "Descreve a visão, objetivos futuros e marcos (milestones) planejados para o projeto. Ajuda colaboradores a alinharem seus esforços com o futuro do projeto.",
+                how: "Salvo na raiz do repositório. Muito útil para dar transparência ao projeto quando referenciado a partir do README, mostrando itens planejados e progresso."
+            }
+        },
+        'security': {
+            visibility: 'prominent',
+            dest: 'SECURITY.md',
+            en: {
+                why: "Defines the security policy, supported versions, and instructions on how to report a vulnerability privately. Crucial for open-source safety.",
+                how: "Prominent integration. GitHub displays a 'Security Policy' link under the repository Security tab and directly inside the new issue page warning users."
+            },
+            pt: {
+                why: "Define a política de segurança, quais versões são suportadas e instruções sobre como reportar uma vulnerabilidade de forma privada e segura. Crucial para projetos públicos.",
+                how: "Integração destacada. O GitHub exibe um link direto para a política de segurança na aba 'Security' e opcionalmente em avisos na página de criação de novas issues."
+            }
+        },
+        'support': {
+            visibility: 'prominent',
+            dest: 'SUPPORT.md',
+            en: {
+                why: "Gives users clear channels for asking questions, getting help, and reporting issues, offloading redundant inquiries from main contribution tracks.",
+                how: "GitHub detects it automatically, adding a direct support button/link when users open new issues, guiding them to appropriate community platforms."
+            },
+            pt: {
+                why: "Direciona os usuários aos canais oficiais para tirar dúvidas, obter suporte ou suporte comercial, evitando o acúmulo de perguntas comuns nas issues principais.",
+                how: "O GitHub detecta automaticamente, gerando um link e botão de suporte destacado na aba de issues, guiando os usuários para canais adequados."
+            }
+        },
+        'docs-templates-adr': {
+            visibility: 'auxiliary',
+            dest: 'docs/adr/0001-template.md',
+            en: {
+                why: "Captures important architectural decisions made along with their context, rationale, and consequences. Essential for long-term project maintainability.",
+                how: "Kept inside the documentation directory (e.g. `docs/adr/`). It acts as a history log of decisions, accessible by contributors and senior developers."
+            },
+            pt: {
+                why: "Registra decisões de arquitetura importantes, incluindo contexto, justificativa e consequências. Essencial para a manutenibilidade de longo prazo do projeto.",
+                how: "Armazenado na pasta de documentação (ex: `docs/adr/`). Funciona como um histórico de decisões críticas, acessível para desenvolvedores e arquitetos."
+            }
+        },
+        'docs-templates-citation': {
+            visibility: 'prominent',
+            dest: 'CITATION.cff',
+            en: {
+                why: "Standard format to define citation metadata for your software. Vital for academic projects, scientific packages, or research-driven open-source code.",
+                how: "Highly integrated. When GitHub detects a `CITATION.cff` file in the root, it automatically adds a 'Cite this repository' button on the sidebar."
+            },
+            pt: {
+                why: "Formato padrão para metadados de citação do software. Fundamental para projetos acadêmicos, pacotes científicos ou projetos originados em pesquisa.",
+                how: "Altamente integrado. Quando o GitHub detecta o arquivo `CITATION.cff` na raiz, ele adiciona automaticamente o botão 'Cite este repositório' na barra lateral direita."
+            }
+        },
+        'docs-templates-governance': {
+            visibility: 'auxiliary',
+            dest: 'GOVERNANCE.md',
+            en: {
+                why: "Clarifies who makes decisions, how they are made, roles (leads, maintainers, contributors), and the process for resolving disagreements.",
+                how: "Saved at the root or within community folders. Promotes transparency and trust, showing that the project is managed fairly and professionally."
+            },
+            pt: {
+                why: "Esclarece quem toma decisões, como são tomadas, os papéis (líderes, mantenedores, colaboradores) e o processo para resolver divergências de forma justa.",
+                how: "Salvo na raiz do repositório ou pasta comunitária. Promove transparência e credibilidade profissional, mostrando governança clara."
+            }
+        },
+        'github-templates-funding': {
+            visibility: 'discreet',
+            dest: '.github/FUNDING.yml',
+            en: {
+                why: "Enables sponsor links (GitHub Sponsors, Patreon, Open Collective, Ko-fi, etc.) for your repository to support monetization or crowdfunding.",
+                how: "Discreet but highly effective. It displays a prominent pink 'Sponsor' heart button at the top of the repository home page and when users view issues/PRs."
+            },
+            pt: {
+                why: "Habilita links de patrocínio (GitHub Sponsors, Patreon, Open Collective, Ko-fi, etc.) para incentivar doações e apoiar financeiramente o projeto.",
+                how: "Discreto mas extremamente funcional. Gera o botão de coração rosa 'Sponsor' no topo do repositório e na barra lateral de issues/PRs."
+            }
+        },
+        'github-templates-pull_request_template': {
+            visibility: 'discreet',
+            dest: '.github/PULL_REQUEST_TEMPLATE.md',
+            en: {
+                why: "Standardizes pull request descriptions, ensuring developers provide context, testing proof, checkboxes, and mention related issues.",
+                how: "Completely automated. When a contributor creates a new Pull Request, this template is automatically loaded and pre-fills the description box."
+            },
+            pt: {
+                why: "Padroniza as descrições de pull requests, garantindo que desenvolvedores forneçam contexto, comprovação de testes executados e linkem as issues.",
+                how: "Completamente automatizado. Ao abrir um novo Pull Request, o GitHub preenche automaticamente a caixa de texto com este template."
+            }
+        },
+        'github-templates-issue_template-bug_report': {
+            visibility: 'discreet',
+            dest: '.github/ISSUE_TEMPLATE/bug_report.md',
+            en: {
+                why: "Structures bug reports with reproduction steps, expected behavior, screenshots, and environment details. Eliminates vague 'it does not work' issues.",
+                how: "Discreet until needed. When clicking 'New Issue', users are presented with a selection menu showing this template alongside others."
+            },
+            pt: {
+                why: "Estrutura relatos de bugs com passos de reprodução, comportamento esperado, capturas de tela e ambiente. Elimina relatos vagos do tipo 'não funciona'.",
+                how: "Discreto até o uso. Ao clicar em 'New Issue', o GitHub mostra um menu de opções onde o usuário escolhe este template para preencher."
+            }
+        },
+        'github-templates-issue_template-config': {
+            visibility: 'discreet',
+            dest: '.github/ISSUE_TEMPLATE/config.yml',
+            en: {
+                why: "Configures the issue picker behavior. Allows disabling blank issues to enforce templates, and directs users to custom external links (Discussions, Security Policy).",
+                how: "Under-the-hood configuration. Runs in the background of the issue creation system, forcing template utilization and styling the options page."
+            },
+            pt: {
+                why: "Configura a página de seleção de issues. Permite desativar issues em branco (forçando templates) e redireciona usuários para links específicos de suporte.",
+                how: "Configuração de bastidores. Funciona nos bastidores do sistema de issues do GitHub, moldando o comportamento e botões da página de nova issue."
+            }
+        },
+        'github-templates-issue_template-feature_request': {
+            visibility: 'discreet',
+            dest: '.github/ISSUE_TEMPLATE/feature_request.md',
+            en: {
+                why: "Structures feature suggestions, requiring users to explain the motivation, context, mockups, and alternatives considered before proposing.",
+                how: "Interactive template. Displayed in the 'New Issue' menu, letting contributors propose features in a well-defined format."
+            },
+            pt: {
+                why: "Estrutura sugestões de funcionalidades, exigindo motivação, contexto, mockups e alternativas consideradas antes do envio.",
+                how: "Template interativo. Aparece como opção na página de novas issues, permitindo sugestões organizadas e padronizadas."
+            }
+        },
+        'github-templates-issue_template-question': {
+            visibility: 'discreet',
+            dest: '.github/ISSUE_TEMPLATE/question.md',
+            en: {
+                why: "Gives users a structured format to ask questions, helping maintainers categorize and tag them properly under the 'question' label.",
+                how: "Offered in the 'New Issue' menu, keeping help requests organized if your project doesn't have GitHub Discussions enabled."
+            },
+            pt: {
+                why: "Fornece um formato estruturado para tirar dúvidas, ajudando mantenedores a categorizá-las e rotulá-las corretamente sob a etiqueta 'question'.",
+                how: "Opção no menu de novas issues, mantendo dúvidas organizadas se seu projeto não tiver as Discussões do GitHub ativas."
+            }
+        },
+        'github-templates-workflows-ci': {
+            visibility: 'discreet',
+            dest: '.github/workflows/ci.yml',
+            en: {
+                why: "Automates testing and building on every commit/PR. Prevents broken code from merging, ensuring repository stability (Continuous Integration).",
+                how: "Discreet execution. Works automatically via GitHub Actions, showing a green checkmark or red cross next to commits and PRs."
+            },
+            pt: {
+                why: "Automatiza a execução de testes e build a cada commit/PR. Impede que códigos quebrados sejam mesclados, garantindo a integridade (Integração Contínua).",
+                how: "Execução silenciosa. Roda via GitHub Actions, exibindo um selo verde de sucesso ou vermelho de falha nos commits e pull requests."
+            }
+        },
+        'github-templates-workflows-lint': {
+            visibility: 'discreet',
+            dest: '.github/workflows/lint.yml',
+            en: {
+                why: "Enforces consistent code styling, formatting, and syntax rules across all contributions automatically before code review.",
+                how: "Silently runs as a GitHub Action on push/PR events. Blocks or warns on style issues and displays validation status in PR checks."
+            },
+            pt: {
+                why: "Garante a consistência de estilo, formatação e sintaxe de código em todas as contribuições de forma automática antes da revisão humana.",
+                how: "Roda silenciosamente como um workflow do GitHub Actions em pushes/PRs, avisando ou bloqueando desvios de estilo diretamente no PR."
+            }
+        },
+        'github-templates-workflows-release': {
+            visibility: 'discreet',
+            dest: '.github/workflows/release.yml',
+            en: {
+                why: "Automates compiling draft changelogs and publishing releases on tag pushes. Eliminates repetitive manual steps in deployment cycles.",
+                how: "Triggered automatically when pushing tags starting with 'v*'. Generates release drafts and attaches release builds silently."
+            },
+            pt: {
+                why: "Automatiza a geração de notas de atualização e publicação de releases quando tags são enviadas. Elimina o trabalho manual no ciclo de lançamento.",
+                how: "Disparado ao enviar tags começando com 'v*'. Cria rascunhos de release e anexa builds automaticamente no GitHub Actions."
+            }
+        }
+    };
+
+    function renderTemplateInfoBox(id) {
+        const infoBox = document.getElementById('template-info-box');
+        if (!infoBox) return;
+
+        const info = templateExplanations[id];
+        if (!info) {
+            infoBox.style.display = 'none';
+            return;
+        }
+
+        const lang = state.lang;
+        const details = info[lang] || info['en'];
+        
+        const labels = {
+            en: {
+                why: "Why Use & Utility",
+                how: "GitHub Mechanism & Visibility",
+                prominent: "Prominent (High Visibility)",
+                discreet: "Discreet (Internal/System)",
+                auxiliary: "Auxiliary (General Doc)"
+            },
+            pt: {
+                why: "Por que usar & Utilidade",
+                how: "Mecanismo & Visibilidade no GitHub",
+                prominent: "Destacado (Alta Visibilidade)",
+                discreet: "Discreto (Interno/Sistema)",
+                auxiliary: "Auxiliar (Doc Geral)"
+            }
+        };
+
+        const currentLabels = labels[lang] || labels['en'];
+
+        let badgeClass = 'badge-auxiliary';
+        let badgeIcon = 'help-circle';
+        let badgeText = currentLabels.auxiliary;
+
+        if (info.visibility === 'prominent') {
+            badgeClass = 'badge-prominent';
+            badgeIcon = 'sparkles';
+            badgeText = currentLabels.prominent;
+        } else if (info.visibility === 'discreet') {
+            badgeClass = 'badge-discreet';
+            badgeIcon = 'cpu';
+            badgeText = currentLabels.discreet;
+        }
+
+        infoBox.innerHTML = `
+            <div class="info-box-header">
+                <div class="info-box-meta">
+                    <span class="info-box-badge ${badgeClass}">
+                        <i data-lucide="${badgeIcon}"></i>
+                        <span>${badgeText}</span>
+                    </span>
+                    <span class="info-box-path">
+                        <i data-lucide="folder"></i>
+                        <code>${info.dest}</code>
+                    </span>
+                </div>
+            </div>
+            <div class="info-box-grid">
+                <div class="info-box-col">
+                    <h6 class="info-box-col-title why-title">
+                        <i data-lucide="help-circle"></i>
+                        <span>${currentLabels.why}</span>
+                    </h6>
+                    <p>${details.why}</p>
+                </div>
+                <div class="info-box-col">
+                    <h6 class="info-box-col-title how-title">
+                        <i data-lucide="eye"></i>
+                        <span>${currentLabels.how}</span>
+                    </h6>
+                    <p>${details.how}</p>
+                </div>
+            </div>
+        `;
+        
+        infoBox.style.display = 'block';
+        lucide.createIcons();
+    }
+
     function loadContent(id) {
         const page = pages[id];
         if (!page) return;
@@ -279,6 +664,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const content = page.content[state.lang] || page.content['en'];
         
+        const infoBox = document.getElementById('template-info-box');
+        if (infoBox) {
+            infoBox.style.display = 'none';
+        }
+
         if (state.viewMode === 'code') {
             renderCode(content);
         } else {
@@ -298,6 +688,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         content = applyMocks(content);
         
+        // Render the dynamic template explanation box
+        renderTemplateInfoBox(id);
+
         if (state.viewMode === 'code') {
             renderCode(content);
         } else {
