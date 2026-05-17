@@ -131,6 +131,46 @@ body {
     padding: 2rem 1.5rem;
 }
 
+/* Sidebar Search Styling */
+.sidebar-search {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-search i {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    transition: color 0.2s;
+}
+
+.sidebar-search input {
+    width: 100%;
+    background: rgba(18, 18, 26, 0.45);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.6rem 0.75rem 0.6rem 2.25rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.sidebar-search input:focus {
+    border-color: var(--primary);
+    background: rgba(18, 18, 26, 0.75);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.sidebar-search input:focus + i {
+    color: var(--primary);
+}
+
 .nav-group { margin-bottom: 2rem; }
 
 .nav-group-title {

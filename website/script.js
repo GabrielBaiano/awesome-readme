@@ -70,27 +70,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function renderSidebar() {
+    function renderSidebar(searchQuery = '') {
+        const query = searchQuery.trim().toLowerCase();
         const sections = {
             'Project Documentation': [],
             'GitHub Templates': []
         };
 
-        // Categorize templates
+        // Categorize templates, filtering by search query if present
         state.data.templates.forEach(t => {
-            if (t.category === 'GitHub') {
-                sections['GitHub Templates'].push(t);
-            } else {
-                sections['Project Documentation'].push(t);
+            const matchesQuery = !query || 
+                t.name.toLowerCase().includes(query) || 
+                t.dest.toLowerCase().includes(query) || 
+                (t.id && t.id.toLowerCase().includes(query));
+
+            if (matchesQuery) {
+                if (t.category === 'GitHub') {
+                    sections['GitHub Templates'].push(t);
+                } else {
+                    sections['Project Documentation'].push(t);
+                }
             }
         });
 
         dynamicNav.innerHTML = '';
+        let hasResults = false;
         
         Object.keys(sections).forEach(sectionTitle => {
             const templates = sections[sectionTitle];
             if (templates.length === 0) return;
 
+            hasResults = true;
             const groupDiv = document.createElement('div');
             groupDiv.className = 'nav-group';
             
@@ -157,6 +167,21 @@ document.addEventListener('DOMContentLoaded', () => {
             groupDiv.appendChild(ul);
             dynamicNav.appendChild(groupDiv);
         });
+
+        // Show empty state if no templates matched the query
+        if (!hasResults && query) {
+            const emptyDiv = document.createElement('div');
+            emptyDiv.style.padding = '1.5rem 0.5rem';
+            emptyDiv.style.textAlign = 'center';
+            emptyDiv.style.color = 'var(--text-muted)';
+            emptyDiv.style.fontSize = '0.85rem';
+            emptyDiv.innerHTML = `
+                <i data-lucide="search" style="width: 24px; height: 24px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto; opacity: 0.5; color: var(--primary);"></i>
+                <span>${state.lang === 'en' ? 'No templates found' : 'Nenhum template encontrado'}</span>
+            `;
+            dynamicNav.appendChild(emptyDiv);
+            lucide.createIcons();
+        }
     }
 
     function createToolbar() {
@@ -226,6 +251,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupEventListeners() {
+        const searchInput = document.getElementById('sidebar-search-input');
+
+        // Sidebar Search Input
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                renderSidebar(e.target.value);
+            });
+        }
+
         // Navigation Links (Use event delegation for dynamic links)
         document.addEventListener('click', (e) => {
             const link = e.target.closest('.nav-link');
@@ -258,12 +292,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 langBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
+                // Update search placeholder
+                if (searchInput) {
+                    searchInput.placeholder = newLang === 'pt' ? 'Buscar templates...' : 'Search templates...';
+                }
+
                 // Refresh Current View
                 if (state.currentTemplate) {
                     loadTemplate(state.currentTemplate);
                 } else {
                     loadContent(state.currentPage);
                 }
+
+                // Refresh sidebar with current search query to apply translation
+                renderSidebar(searchInput ? searchInput.value : '');
             });
         });
     }
