@@ -1,3 +1,4 @@
+/* global lucide, marked */
 document.addEventListener('DOMContentLoaded', () => {
     const state = {
         currentPage: 'getting-started',
