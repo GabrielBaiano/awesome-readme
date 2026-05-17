@@ -58,6 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize
     async function init() {
         try {
+            // Theme Initialization
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+            const isLight = savedTheme === 'light' || (!savedTheme && systemPrefersLight);
+            
+            if (isLight) {
+                document.body.classList.add('light-theme');
+            } else {
+                document.body.classList.remove('light-theme');
+            }
+            updateThemeUI(isLight);
+
             const response = await fetch('data.json');
             state.data = await response.json();
             
@@ -70,37 +82,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function renderSidebar(searchQuery = '') {
-        const query = searchQuery.trim().toLowerCase();
+    function renderSidebar() {
         const sections = {
             'Project Documentation': [],
             'GitHub Templates': []
         };
 
-        // Categorize templates, filtering by search query if present
+        // Categorize templates
         state.data.templates.forEach(t => {
-            const matchesQuery = !query || 
-                t.name.toLowerCase().includes(query) || 
-                t.dest.toLowerCase().includes(query) || 
-                (t.id && t.id.toLowerCase().includes(query));
-
-            if (matchesQuery) {
-                if (t.category === 'GitHub') {
-                    sections['GitHub Templates'].push(t);
-                } else {
-                    sections['Project Documentation'].push(t);
-                }
+            if (t.category === 'GitHub') {
+                sections['GitHub Templates'].push(t);
+            } else {
+                sections['Project Documentation'].push(t);
             }
         });
 
         dynamicNav.innerHTML = '';
-        let hasResults = false;
         
         Object.keys(sections).forEach(sectionTitle => {
             const templates = sections[sectionTitle];
             if (templates.length === 0) return;
 
-            hasResults = true;
             const groupDiv = document.createElement('div');
             groupDiv.className = 'nav-group';
             
@@ -167,21 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
             groupDiv.appendChild(ul);
             dynamicNav.appendChild(groupDiv);
         });
-
-        // Show empty state if no templates matched the query
-        if (!hasResults && query) {
-            const emptyDiv = document.createElement('div');
-            emptyDiv.style.padding = '1.5rem 0.5rem';
-            emptyDiv.style.textAlign = 'center';
-            emptyDiv.style.color = 'var(--text-muted)';
-            emptyDiv.style.fontSize = '0.85rem';
-            emptyDiv.innerHTML = `
-                <i data-lucide="search" style="width: 24px; height: 24px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto; opacity: 0.5; color: var(--primary);"></i>
-                <span>${state.lang === 'en' ? 'No templates found' : 'Nenhum template encontrado'}</span>
-            `;
-            dynamicNav.appendChild(emptyDiv);
-            lucide.createIcons();
-        }
     }
 
     function createToolbar() {
@@ -252,11 +239,104 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setupEventListeners() {
         const searchInput = document.getElementById('sidebar-search-input');
+        const searchDropdown = document.getElementById('search-results-dropdown');
 
-        // Sidebar Search Input
-        if (searchInput) {
+        // Navbar Search input & dropdown
+        if (searchInput && searchDropdown) {
             searchInput.addEventListener('input', (e) => {
-                renderSidebar(e.target.value);
+                const query = e.target.value.trim().toLowerCase();
+                if (!query) {
+                    searchDropdown.classList.remove('active');
+                    searchDropdown.innerHTML = '';
+                    return;
+                }
+
+                // Filter templates matching query
+                const matches = state.data.templates.filter(t => 
+                    t.name.toLowerCase().includes(query) || 
+                    t.dest.toLowerCase().includes(query) || 
+                    (t.id && t.id.toLowerCase().includes(query))
+                );
+
+                searchDropdown.innerHTML = '';
+                searchDropdown.classList.add('active');
+
+                if (matches.length === 0) {
+                    const noResults = document.createElement('div');
+                    noResults.className = 'search-no-results';
+                    const text = state.lang === 'en' ? 'No templates found' : 'Nenhum template encontrado';
+                    noResults.innerHTML = `
+                        <i data-lucide="search"></i>
+                        <span>${text}</span>
+                    `;
+                    searchDropdown.appendChild(noResults);
+                    lucide.createIcons();
+                    return;
+                }
+
+                matches.forEach(t => {
+                    const item = document.createElement('div');
+                    item.className = 'search-result-item';
+                    item.dataset.template = t.id;
+                    
+                    const title = document.createElement('span');
+                    title.className = 'search-result-title';
+                    title.textContent = t.name;
+                    item.appendChild(title);
+
+                    const meta = document.createElement('div');
+                    meta.className = 'search-result-meta';
+                    
+                    const category = document.createElement('span');
+                    category.textContent = t.category === 'GitHub' ? 'GitHub' : 'Doc';
+                    meta.appendChild(category);
+
+                    const path = document.createElement('code');
+                    path.textContent = t.dest;
+                    meta.appendChild(path);
+
+                    item.appendChild(meta);
+
+                    // Click handler to load the template
+                    item.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+
+                        state.currentTemplate = t.id;
+                        loadTemplate(t.id);
+                        
+                        // Set active state in sidebar nav link
+                        document.querySelectorAll('.nav-link').forEach(l => {
+                            if (l.dataset.template === t.id) {
+                                l.classList.add('active');
+                            } else {
+                                l.classList.remove('active');
+                            }
+                        });
+
+                        // Clear and hide search
+                        searchInput.value = '';
+                        searchDropdown.classList.remove('active');
+                        searchDropdown.innerHTML = '';
+                    });
+
+                    searchDropdown.appendChild(item);
+                });
+                lucide.createIcons();
+            });
+
+            // Close on click outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#navbar-search-container')) {
+                    searchDropdown.classList.remove('active');
+                }
+            });
+
+            // Re-open on focus if query has content
+            searchInput.addEventListener('focus', () => {
+                if (searchInput.value.trim()) {
+                    searchDropdown.classList.add('active');
+                }
             });
         }
 
@@ -304,10 +384,44 @@ document.addEventListener('DOMContentLoaded', () => {
                     loadContent(state.currentPage);
                 }
 
-                // Refresh sidebar with current search query to apply translation
-                renderSidebar(searchInput ? searchInput.value : '');
+                // Refresh sidebar to apply translation
+                renderSidebar();
             });
         });
+
+        // Theme Toggle Click Handler (Phase 4)
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const isLight = document.body.classList.toggle('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                updateThemeUI(isLight);
+            });
+        }
+    }
+
+    function updateThemeUI(isLight) {
+        const markdownTheme = document.getElementById('markdown-theme');
+        const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return;
+
+        const icon = themeToggle.querySelector('i');
+        if (!icon) return;
+
+        if (isLight) {
+            if (markdownTheme) {
+                markdownTheme.href = 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css';
+            }
+            icon.setAttribute('data-lucide', 'moon');
+            themeToggle.title = 'Switch to Dark Mode';
+        } else {
+            if (markdownTheme) {
+                markdownTheme.href = 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css';
+            }
+            icon.setAttribute('data-lucide', 'sun');
+            themeToggle.title = 'Switch to Light Mode';
+        }
+        lucide.createIcons();
     }
 
     // Template Explanations Database

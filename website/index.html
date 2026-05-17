@@ -16,9 +16,144 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.4.3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" id="markdown-theme">
     
+    <style>
+        /* Bulletproof Centered Navbar Search & Dropdown Override */
+        .nav-center {
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 100% !important;
+            max-width: 480px !important;
+            display: flex !important;
+            justify-content: center !important;
+            z-index: 100 !important;
+        }
+
+        .navbar-search {
+            position: relative !important;
+            width: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .navbar-search i, .navbar-search svg {
+            position: absolute !important;
+            left: 0.85rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            color: var(--text-muted) !important;
+            width: 15px !important;
+            height: 15px !important;
+            pointer-events: none !important;
+            transition: color 0.2s ease !important;
+        }
+
+        .navbar-search input {
+            width: 100% !important;
+            background: var(--bg-secondary) !important;
+            border: 1px solid var(--border) !important;
+            color: var(--text) !important;
+            padding: 0.5rem 1.25rem 0.5rem 2.25rem !important;
+            border-radius: 8px !important;
+            font-size: 0.85rem !important;
+            outline: none !important;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .navbar-search input:focus {
+            border-color: var(--primary) !important;
+            background: var(--bg-navbar) !important;
+            box-shadow: 0 0 10px var(--primary-glow) !important;
+        }
+
+        .navbar-search input:focus + i, .navbar-search input:focus + svg {
+            color: var(--primary) !important;
+        }
+
+        .search-results-dropdown {
+            position: absolute !important;
+            top: calc(100% + 8px) !important;
+            left: 0 !important;
+            right: 0 !important;
+            background: var(--bg-pre) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+            max-height: 380px !important;
+            overflow-y: auto !important;
+            z-index: 1000 !important;
+            display: none !important;
+            padding: 0.5rem !important;
+        }
+
+        .search-results-dropdown.active {
+            display: block !important;
+            animation: slideDownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .search-result-item {
+            display: flex !important;
+            flex-direction: column !important;
+            padding: 0.75rem 1rem !important;
+            border-radius: 8px !important;
+            cursor: pointer !important;
+            transition: background 0.2s ease !important;
+            text-decoration: none !important;
+            color: var(--text) !important;
+        }
+
+        .search-result-item:hover {
+            background: var(--bg-hover) !important;
+        }
+
+        .search-result-title {
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 0.25rem !important;
+            text-align: left !important;
+        }
+
+        .search-result-meta {
+            font-size: 0.75rem !important;
+            color: var(--text-muted) !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            text-align: left !important;
+        }
+
+        .search-result-meta code {
+            font-family: var(--font-mono) !important;
+            color: var(--text) !important;
+            background: var(--bg-secondary) !important;
+            padding: 0.1rem 0.3rem !important;
+            border-radius: 4px !important;
+            font-size: 0.7rem !important;
+            border: 1px solid var(--border) !important;
+        }
+
+        .search-no-results {
+            padding: 1.5rem 1rem !important;
+            text-align: center !important;
+            color: var(--text-muted) !important;
+            font-size: 0.85rem !important;
+        }
+
+        .search-no-results i, .search-no-results svg {
+            width: 20px !important;
+            height: 20px !important;
+            margin-bottom: 0.5rem !important;
+            display: block !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            color: var(--primary) !important;
+            opacity: 0.6 !important;
+        }
+    </style>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -33,10 +168,26 @@
                     <span>Awesome<span>README</span></span>
                 </a>
             </div>
+
+            <!-- Navbar Search (Center) -->
+            <div class="nav-center">
+                <div class="navbar-search" id="navbar-search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="sidebar-search-input" placeholder="Search templates..." autocomplete="off">
+                    <div id="search-results-dropdown" class="search-results-dropdown"></div>
+                </div>
+            </div>
+
             <div class="nav-right">
                 <div class="nav-links">
                     <a href="https://twitter.com/GabrielBaiano" target="_blank" class="nav-icon-link" title="Twitter"><i data-lucide="twitter"></i></a>
                     <a href="https://github.com/GabrielBaiano/awesome-readme/issues" target="_blank" class="nav-icon-link" title="Report Issue"><i data-lucide="message-square"></i></a>
+                    
+                    <!-- Theme Toggle (Phase 4) -->
+                    <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme">
+                        <i data-lucide="sun"></i>
+                    </button>
+
                     <a href="https://github.com/GabrielBaiano/awesome-readme" class="github-pill" target="_blank">
                         <i data-lucide="star"></i>
                         <span>Star on GitHub</span>
@@ -49,10 +200,6 @@
     <div class="layout-main">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="sidebar-search">
-                <i data-lucide="search"></i>
-                <input type="text" id="sidebar-search-input" placeholder="Search templates..." autocomplete="off">
-            </div>
             <div class="sidebar-content">
                 <div class="nav-group">
                     <h5 class="nav-group-title">Guide</h5>
@@ -124,7 +271,7 @@
         </aside>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=1.4.3"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>
