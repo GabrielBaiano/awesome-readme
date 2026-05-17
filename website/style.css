@@ -290,6 +290,7 @@ body {
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
+    text-align: left;
 }
 
 .search-result-meta {
@@ -298,6 +299,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-align: left;
 }
 
 .search-result-meta code {
