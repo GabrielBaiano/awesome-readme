@@ -34,11 +34,6 @@
 **[Check the live site here!](https://awesome-readme-nu.vercel.app/)**
 
 
-> 📚 **Project Evolution**: Started as a simple template collection, now evolved into a powerful CLI tool to scaffold documentation for any project.
-
-<!-- DOCUMENTATION_SECTION -->
-
-
 ## 🎓 Main Features
 
 * **Multilingual Support**: Ready-to-use templates in English, Portuguese (PT-BR), and Spanish (ES).
@@ -128,13 +123,6 @@ npm start
 npm link
 awesome-readme
 ```
-
-## 📚 Perfect for Developers
-
-- **Open Source Maintainers**: Quickly standardize your repo docs.
-- **Freelancers**: Deliver professional documentation to clients.
-- **Students**: Learn best practices for project documentation.
-- **Teams**: Ensure consistency across all company repositories.
 
 ## 🤝 Contributing
 
