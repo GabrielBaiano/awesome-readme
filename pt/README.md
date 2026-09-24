@@ -65,6 +65,7 @@ npm install -g awesome-readme-templates
 ## 📖 Uso
 
 ### Modo Interativo (Wizard)
+
 Execute o comando e siga as instruções:
 
 ```bash
@@ -77,9 +78,11 @@ Você será solicitado a:
 3.  **Selecionar Extras**: Adicione Guia de Contribuição, Changelog, Roadmap, etc.
 
 ### Adicionar Templates Específicos
+
 Precisa de apenas um arquivo? Use o modo "Add Specific Templates" no menu para escolher exatamente o que você precisa.
 
 ### Modo Automatizado (Flags CLI)
+
 Perfeito para scripts ou usuários avançados.
 
 ```bash

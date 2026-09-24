@@ -1,0 +1,15 @@
+# Markdownlint configuration for Super-Linter
+default: true
+MD013: false # Allow long lines
+MD033: false # Allow inline HTML for centered logos and badges
+MD041: false # Allow centered hero/banner before first h1
+MD026: false # Allow trailing punctuation
+MD024: false # Allow multiple headings with same title
+MD034: false # Bare URLs
+MD030: false # Spaces after list markers
+MD004: false # Unordered list style
+MD031: false # Fenced code blocks blank lines
+MD032: false # Lists blank lines
+MD012: false # Multiple consecutive blank lines
+MD022: false # Blanks around headings
+MD047: false # Trailing newline

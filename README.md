@@ -52,7 +52,7 @@
 
 ## 📖 How to Use and Install
 
-Installation is simple and straightforward via NPM.
+Installation is simple and straightforward via npm.
 
 1. **Install with npx**:
    ```bash
@@ -94,7 +94,8 @@ Installation is simple and straightforward via NPM.
    awesome-readme --lang=pt --readme --contributing
    ```
 
-### Supported Templates:
+### Supported Templates
+
 - **README.md**: Complete project documentation.
 - **CONTRIBUTING.md**: Guidelines for contributors.
 - **CHANGELOG.md**: History of changes.
