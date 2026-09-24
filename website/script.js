@@ -22,36 +22,41 @@ document.addEventListener('DOMContentLoaded', () => {
         'getting-started': {
             title: 'Getting Started',
             content: {
-                en: `# Getting Started\n\n**Awesome README Templates** is a high-productivity CLI tool designed to help developers create professional documentation for their GitHub repositories in seconds.\n\n## ⚡ Instant Setup\n\nRun the tool using \`npx\` in your project root:\n\n\`\`\`bash\nnpx awesome-readme-templates\n\`\`\`\n\n## 🔄 Workflow\n\n1. **Choose Language**: EN, PT, or both.\n2. **Select Style**: Minimal, Standard, or Complete.\n3. **Fill Metadata**: Project name, social links, etc.`,
-                pt: `# Começando\n\nO **Awesome README Templates** é uma ferramenta CLI de alta produtividade projetada para ajudar desenvolvedores a criar documentação profissional para seus repositórios no GitHub em segundos.\n\n## ⚡ Início Rápido\n\nBasta rodar a ferramenta usando \`npx\` na raiz do seu projeto:\n\n\`\`\`bash\nnpx awesome-readme-templates\n\`\`\``
+                en: `# Getting Started\n\n**Awesome README Templates** is a high-productivity CLI tool designed to help developers create professional documentation for their GitHub repositories in seconds.\n\n## ⚡ Instant Setup\n\nRun the tool using \`npx\` in your project root:\n\n\`\`\`bash\nnpx awesome-readme-templates\n\`\`\`\n\n## 🔄 Workflow\n\n1. **Choose Language**: EN, PT, ES, or all.\n2. **Select Style**: Minimal, Standard, or Complete.\n3. **Fill Metadata**: Project name, social links, etc.`,
+                pt: `# Começando\n\nO **Awesome README Templates** é uma ferramenta CLI de alta produtividade projetada para ajudar desenvolvedores a criar documentação profissional para seus repositórios no GitHub em segundos.\n\n## ⚡ Início Rápido\n\nBasta rodar a ferramenta usando \`npx\` na raiz do seu projeto:\n\n\`\`\`bash\nnpx awesome-readme-templates\n\`\`\`\n\n## 🔄 Fluxo de Trabalho\n\n1. **Escolha o Idioma**: EN, PT, ES ou múltiplos.\n2. **Selecione o Estilo**: Minimal, Standard ou Complete.\n3. **Preencha os Metadados**: Nome do projeto, links sociais, etc.`,
+                es: `# Primeros Pasos\n\n**Awesome README Templates** es una herramienta CLI de alta productividad diseñada para ayudar a desarrolladores a crear documentación profesional para sus repositorios de GitHub en segundos.\n\n## ⚡ Inicio Rápido\n\nEjecuta la herramienta usando \`npx\` en la raíz de tu proyecto:\n\n\`\`\`bash\nnpx awesome-readme-templates\n\`\`\`\n\n## 🔄 Flujo de Trabajo\n\n1. **Elige el Idioma**: EN, PT, ES o varios.\n2. **Selecciona el Estilo**: Minimal, Standard o Long.\n3. **Completa los Metadatos**: Nombre del proyecto, enlaces sociales, etc.`
             }
         },
         'installation': {
             title: 'Installation',
             content: {
                 en: `# Installation\n\nInstall globally:\n\`\`\`bash\nnpm install -g awesome-readme-templates\n\`\`\`\n\nOr use as a dev dependency:\n\`\`\`bash\nnpm install -D awesome-readme-templates\n\`\`\``,
-                pt: `# Instalação\n\nInstale globalmente:\n\`\`\`bash\nnpm install -g awesome-readme-templates\n\`\`\`\n\nOu use como dependência de desenvolvimento:\n\`\`\`bash\nnpm install -D awesome-readme-templates\n\`\`\``
+                pt: `# Instalação\n\nInstale globalmente:\n\`\`\`bash\nnpm install -g awesome-readme-templates\n\`\`\`\n\nOu use como dependência de desenvolvimento:\n\`\`\`bash\nnpm install -D awesome-readme-templates\n\`\`\``,
+                es: `# Instalación\n\nInstalar globalmente:\n\`\`\`bash\nnpm install -g awesome-readme-templates\n\`\`\`\n\nO usar como dependencia de desarrollo:\n\`\`\`bash\nnpm install -D awesome-readme-templates\n\`\`\``
             }
         },
         'whats-new': {
             title: "What's New",
             content: {
-                en: `# What's New\n\nStay up to date with the latest features and improvements.\n\n## [1.4.3] - Latest\n- ✨ **Template Dashboard**: New interactive website to explore and copy templates.\n- 🎨 **Visual Refresh**: Complete UI overhaul with premium docs aesthetics.\n- 📂 **Dynamic Sidebar**: Templates are now grouped by type and platform.\n\n## [1.4.2]\n- 📝 **Updated README**: Added detailed explanation of multi-language features.\n- 🤝 **Call for Contributors**: Added a section inviting the community to translate.\n\n## [1.4.0]\n- 🌍 **Multi-Language Support**: CLI now supports N-langs.\n- 🚩 **New Flags**: Added \`--main-lang\` and \`--langs\` flags.`,
-                pt: `# Novidades\n\nFique por dentro das últimas funcionalidades e melhorias.\n\n## [1.4.3] - Atual\n- ✨ **Dashboard de Templates**: Novo site interativo para explorar e copiar templates.\n- 🎨 **Visual Renovado**: Interface completamente nova com estética premium.\n- 📂 **Sidebar Dinâmica**: Templates agora são agrupados por tipo e plataforma.`
+                en: `# What's New\n\nStay up to date with the latest features and improvements.\n\n## [1.5.0] - Latest\n- 🌍 **Full Spanish Support**: Complete suite of 25 templates, CLI prompts, and website in Spanish.\n- 🧹 **Zero False Scale**: Streamlined documentation focusing on essential, actionable guides.\n- ⚡ **Automated Metadata**: Intelligent git user detection, project naming, and ISO dates.\n\n## [1.4.3]\n- ✨ **Template Dashboard**: Interactive website to explore and copy templates.\n- 🎨 **Visual Refresh**: Complete UI overhaul with dark/light themes and live preview.\n- 📂 **Dynamic Sidebar**: Templates grouped by category and platform.`,
+                pt: `# Novidades\n\nFique por dentro das últimas funcionalidades e melhorias.\n\n## [1.5.0] - Atual\n- 🌍 **Suporte Completo a Espanhol**: Suite de 25 templates, prompts do CLI e website em Espanhol.\n- 🧹 **Sem Burocracia Desnecessária**: Documentação enxuta e focada no essencial.\n- ⚡ **Metadados Automáticos**: Detecção inteligente de usuário git, nome do projeto e datas ISO.\n\n## [1.4.3]\n- ✨ **Dashboard de Templates**: Site interativo para explorar e copiar templates.\n- 🎨 **Visual Renovado**: Interface com temas claro/escuro e prévia ao vivo.\n- 📂 **Sidebar Dinâmica**: Templates agrupados por categoria e plataforma.`,
+                es: `# Novedades\n\nMantente al día con las últimas funciones y mejoras.\n\n## [1.5.0] - Actual\n- 🌍 **Soporte Completo a Español**: Suite de 25 plantillas, prompts de CLI y sitio web en español.\n- 🧹 **Documentación Esencial**: Eliminación de contenido superfluo y enfoque técnico directo.\n- ⚡ **Metadatos Automáticos**: Detección inteligente de usuario git, nombre de proyecto y fechas ISO.\n\n## [1.4.3]\n- ✨ **Dashboard de Plantillas**: Sitio interactivo para explorar y copiar plantillas.\n- 🎨 **Diseño Renovado**: Interfaz con temas claro/oscuro y vista previa en vivo.\n- 📂 **Barra Lateral Dinámica**: Plantillas agrupadas por categoría y plataforma.`
             }
         },
         'cli-flags': {
             title: 'CLI Flags',
             content: {
-                en: `# CLI Flags\n\nUse these flags to automate the template installation process.\n\n| Flag | Description | Example |\n| :--- | :--- | :--- |\n| \`--main-lang\` | Set the project's root language | \`--main-lang pt\` |\n| \`--langs\` | List of additional languages (comma-separated) | \`--langs en,fr\` |\n| \`--license\` | Choose a license (mit, apache, gpl, etc.) | \`--license mit\` |\n| \`--all\` | Install EVERY available template | \`--all\` |\n| \`--with-<id>\` | Install a specific template or group | \`--with-roadmap\` |\n\n### Examples\n\n\`\`\`bash\nnpx awesome-readme --all --main-lang pt\nnpx awesome-readme --with-github --license mit\n\`\`\``,
-                pt: `# Flags do CLI\n\nUse estas flags para automatizar o processo de instalação.\n\n| Flag | Descrição | Exemplo |\n| :--- | :--- | :--- |\n| \`--main-lang\` | Define o idioma principal na raiz | \`--main-lang pt\` |\n| \`--langs\` | Idiomas adicionais (separados por vírgula) | \`--langs en,fr\` |\n| \`--license\` | Escolhe uma licença | \`--license mit\` |\n| \`--all\` | Instala TODOS os templates | \`--all\` |\n| \`--with-<id>\` | Instala um template ou grupo específico | \`--with-github\` |`
+                en: `# CLI Flags\n\nUse these flags to automate the template installation process.\n\n| Flag | Description | Example |\n| :--- | :--- | :--- |\n| \`--main-lang\` | Set the project's root language | \`--main-lang es\` |\n| \`--langs\` | List of additional languages (comma-separated) | \`--langs en,pt\` |\n| \`--license\` | Choose a license (mit, apache, gpl, etc.) | \`--license mit\` |\n| \`--all\` | Install EVERY available template | \`--all\` |\n| \`--with-<id>\` | Install a specific template or group | \`--with-github\` |\n\n### Examples\n\n\`\`\`bash\nnpx awesome-readme --all --main-lang es\nnpx awesome-readme --with-github --license mit\n\`\`\``,
+                pt: `# Flags do CLI\n\nUse estas flags para automatizar o processo de instalação.\n\n| Flag | Descrição | Exemplo |\n| :--- | :--- | :--- |\n| \`--main-lang\` | Define o idioma principal na raiz | \`--main-lang es\` |\n| \`--langs\` | Idiomas adicionais (separados por vírgula) | \`--langs en,pt\` |\n| \`--license\` | Escolhe uma licença | \`--license mit\` |\n| \`--all\` | Instala TODOS os templates | \`--all\` |\n| \`--with-<id>\` | Instala um template ou grupo específico | \`--with-github\` |\n\n### Exemplos\n\n\`\`\`bash\nnpx awesome-readme --all --main-lang es\nnpx awesome-readme --with-github --license mit\n\`\`\``,
+                es: `# Flags de la CLI\n\nUsa estas flags para automatizar el proceso de instalación de plantillas.\n\n| Flag | Descripción | Ejemplo |\n| :--- | :--- | :--- |\n| \`--main-lang\` | Define el idioma principal en la raíz | \`--main-lang es\` |\n| \`--langs\` | Idiomas adicionales (separados por coma) | \`--langs en,pt\` |\n| \`--license\` | Elige una licencia (mit, apache, gpl, etc.) | \`--license mit\` |\n| \`--all\` | Instala TODAS las plantillas disponibles | \`--all\` |\n| \`--with-<id>\` | Instala una plantilla o grupo específico | \`--with-github\` |\n\n### Ejemplos\n\n\`\`\`bash\nnpx awesome-readme --all --main-lang es\nnpx awesome-readme --with-github --license mit\n\`\`\``
             }
         },
         'custom-vars': {
             title: 'Placeholders',
             content: {
                 en: `# Placeholders\n\nThese variables are automatically replaced with your project metadata during installation.\n\n### Project Identity\n- \`[PROJECT_NAME]\`: Title of your project.\n- \`[PROJECT_DESCRIPTION]\`: Brief overview.\n- \`[PROJECT_TAGLINE]\`: A catchy one-liner.\n- \`[YEAR]\`: Current year.\n\n### Author & Links\n- \`[AUTHOR_NAME]\`: Your full name.\n- \`[GITHUB_USERNAME]\`: Your GitHub handle.\n- \`[GITHUB_PROFILE_URL]\`: Link to your profile.\n- \`[CONTACT_EMAIL]\`: Your email address.\n\n### URLs\n- \`[PROJECT_URL]\`: Main website or repository link.\n- \`[DEMO_URL]\`: Link to a live demo.\n- \`[DOCS_URL]\`: Link to documentation.\n\n### Integration\n- \`[PACKAGE_NAME]\`: NPM/PyPI package name.\n- \`[TWITTER_HANDLE]\`: Your Twitter/X handle.\n- \`[BUYMEACOFFEE_USERNAME]\`: For support links.`,
-                pt: `# Placeholders\n\nVariáveis que são substituídas automaticamente pelos dados do seu projeto.\n\n### Identidade\n- \`[PROJECT_NAME]\`: Nome do projeto.\n- \`[PROJECT_DESCRIPTION]\`: Descrição curta.\n- \`[PROJECT_TAGLINE]\`: Frase de impacto.\n\n### Autor\n- \`[AUTHOR_NAME]\`: Nome do autor.\n- \`[GITHUB_USERNAME]\`: Usuário do GitHub.\n- \`[CONTACT_EMAIL]\`: Email de contato.`
+                pt: `# Placeholders\n\nVariáveis que são substituídas automaticamente pelos dados do seu projeto.\n\n### Identidade\n- \`[PROJECT_NAME]\`: Nome do projeto.\n- \`[PROJECT_DESCRIPTION]\`: Descrição curta.\n- \`[PROJECT_TAGLINE]\`: Frase de impacto.\n- \`[YEAR]\`: Ano atual.\n\n### Autor\n- \`[AUTHOR_NAME]\`: Nome do autor.\n- \`[GITHUB_USERNAME]\`: Usuário do GitHub.\n- \`[GITHUB_PROFILE_URL]\`: Link do perfil.\n- \`[CONTACT_EMAIL]\`: Email de contato.\n\n### URLs\n- \`[PROJECT_URL]\`: Link do site ou repositório.\n- \`[DEMO_URL]\`: Link de demonstração ao vivo.\n- \`[DOCS_URL]\`: Link da documentação.\n\n### Integração\n- \`[PACKAGE_NAME]\`: Nome do pacote no NPM/PyPI.\n- \`[TWITTER_HANDLE]\`: Usuário do Twitter/X.\n- \`[BUYMEACOFFEE_USERNAME]\`: Usuário do Buy Me A Coffee.`,
+                es: `# Placeholders\n\nVariables que se sustituyen automáticamente con los datos de tu proyecto durante la instalación.\n\n### Identidad del Proyecto\n- \`[PROJECT_NAME]\`: Título del proyecto.\n- \`[PROJECT_DESCRIPTION]\`: Breve descripción general.\n- \`[PROJECT_TAGLINE]\`: Frase de impacto.\n- \`[YEAR]\`: Año actual.\n\n### Autor y Enlaces\n- \`[AUTHOR_NAME]\`: Nombre del autor.\n- \`[GITHUB_USERNAME]\`: Usuario de GitHub.\n- \`[GITHUB_PROFILE_URL]\`: Enlace al perfil de GitHub.\n- \`[CONTACT_EMAIL]\`: Correo electrónico de contacto.\n\n### URLs\n- \`[PROJECT_URL]\`: Enlace al sitio o repositorio principal.\n- \`[DEMO_URL]\`: Enlace a la demo en vivo.\n- \`[DOCS_URL]\`: Enlace a la documentación.\n\n### Integración\n- \`[PACKAGE_NAME]\`: Nombre del paquete en NPM/PyPI.\n- \`[TWITTER_HANDLE]\`: Usuario de Twitter/X.\n- \`[BUYMEACOFFEE_USERNAME]\`: Enlace o usuario para donaciones.`
             }
         }
     };
@@ -84,17 +89,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderSidebar() {
+        const titles = {
+            en: { docs: 'Project Documentation', github: 'GitHub Templates' },
+            pt: { docs: 'Documentação do Projeto', github: 'Templates do GitHub' },
+            es: { docs: 'Documentación del Proyecto', github: 'Plantillas de GitHub' }
+        }[state.lang] || { docs: 'Project Documentation', github: 'GitHub Templates' };
+
         const sections = {
-            'Project Documentation': [],
-            'GitHub Templates': []
+            [titles.docs]: [],
+            [titles.github]: []
         };
 
         // Categorize templates
         state.data.templates.forEach(t => {
             if (t.category === 'GitHub') {
-                sections['GitHub Templates'].push(t);
+                sections[titles.github].push(t);
             } else {
-                sections['Project Documentation'].push(t);
+                sections[titles.docs].push(t);
             }
         });
 
@@ -265,7 +276,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (matches.length === 0) {
                     const noResults = document.createElement('div');
                     noResults.className = 'search-no-results';
-                    const text = state.lang === 'en' ? 'No templates found' : 'Nenhum template encontrado';
+                    const noResultsMap = {
+                        en: 'No templates found',
+                        pt: 'Nenhum template encontrado',
+                        es: 'No se encontraron plantillas'
+                    };
+                    const text = noResultsMap[state.lang] || 'No templates found';
                     noResults.innerHTML = `
                         <i data-lucide="search"></i>
                         <span>${text}</span>
@@ -375,7 +391,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Update search placeholder
                 if (searchInput) {
-                    searchInput.placeholder = newLang === 'pt' ? 'Buscar templates...' : 'Search templates...';
+                    const placeholders = {
+                        en: 'Search templates...',
+                        pt: 'Buscar templates...',
+                        es: 'Buscar plantillas...'
+                    };
+                    searchInput.placeholder = placeholders[newLang] || 'Search templates...';
                 }
 
                 // Refresh Current View
@@ -437,6 +458,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Lista todos os membros do time principal, mantenedores e colaboradores. Proporciona reconhecimento claro, o que aumenta o engajamento e a confiança da comunidade.",
                 how: "Salvo na raiz do repositório. Embora não seja destacado por padrão na página inicial, geralmente é referenciado a partir do README ou da seção de Autores."
+            },
+            es: {
+                why: "Enumera a los miembros del equipo principal, mantenedores y colaboradores de la comunidad. Proporciona reconocimiento claro y fomenta la participación.",
+                how: "Guardado en la raíz del repositorio. Aunque no se resalta por defecto en la portada, se suele enlazar desde el README o la sección de Autores."
             }
         },
         'changelog-short': {
@@ -449,6 +474,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Documenta todas as alterações relevantes e versões lançadas de forma simplificada e concisa. Ideal para projetos menores ou de rápido desenvolvimento.",
                 how: "Salvo na raiz do repositório. Fornece um resumo cronológico fácil de ler que ajuda os usuários a acompanharem a evolução do software."
+            },
+            es: {
+                why: "Documenta los cambios notables y versiones en un formato simplificado y conciso. Ideal para proyectos pequeños o de iteración rápida.",
+                how: "Guardado en la raíz del repositorio. Ofrece un resumen cronológico claro para seguir la evolución del software."
             }
         },
         'changelog': {
@@ -461,6 +490,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Documenta todas as alterações e lançamentos de versão seguindo o padrão profissional 'Keep a Changelog'. Crucial para a governança de projetos de código aberto.",
                 how: "Salvo na raiz. Adere ao Versionamento Semântico (SemVer), oferecendo seções claras para Adicionado, Alterado, Depreciado, Removido, Corrigido e Segurança."
+            },
+            es: {
+                why: "Documenta todos los cambios y versiones siguiendo el estándar profesional 'Keep a Changelog'. Crucial para la gobernanza de proyectos open source.",
+                how: "Guardado en la raíz. Sigue Versionado Semántico (SemVer), con secciones para Añadido, Modificado, Obsoleto, Eliminado, Corregido y Seguridad."
             }
         },
         'codeowners': {
@@ -473,6 +506,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Define quais indivíduos ou equipes são responsáveis por pastas ou arquivos específicos no repositório. Solicita revisões automaticamente quando um PR altera esses arquivos.",
                 how: "Arquivo silencioso salvo dentro da pasta `.github/`. Funciona de forma discreta em segundo plano nos PRs, automatizando a atribuição de revisões sem poluir a página inicial."
+            },
+            es: {
+                why: "Define qué personas o equipos son responsables de archivos o rutas específicas. Solicita revisiones automáticamente cuando un PR modifica sus archivos.",
+                how: "Archivo discreto en `.github/`. Funciona en segundo plano en los PRs, asignando revisores automáticamente sin saturar la portada."
             }
         },
         'code_of_conduct': {
@@ -485,6 +522,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Estabelece padrões de conduta da comunidade, comportamentos aceitáveis e regras para garantir um ambiente seguro, acolhedor e inclusivo para todos.",
                 how: "Altamente destacado. O GitHub detecta automaticamente este arquivo e o destaca na checklist de 'Padrões de comunidade', criando um link/selo direto para acesso dos usuários."
+            },
+            es: {
+                why: "Establece normas de convivencia, conductas aceptables y reglas para garantizar un entorno seguro, acogedor e inclusivo para todos.",
+                how: "Altamente destacado. GitHub detecta este archivo automáticamente y lo resalta en la lista de estándares comunitarios con un enlace directo."
             }
         },
         'contributing-short': {
@@ -497,6 +538,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Fornece instruções rápidas e diretas sobre como configurar, desenvolver e enviar contribuições. Ideal para projetos que buscam incentivar a colaboração rápida e sem barreiras.",
                 how: "Altamente destacado no GitHub. Um link direto para ele é exibido na página de criação de novas issues e novos pull requests, convidando o usuário a lê-lo antes."
+            },
+            es: {
+                why: "Ofrece instrucciones rápidas y directas sobre cómo configurar el entorno y enviar contribuciones. Ideal para proyectos ágiles y colaborativos.",
+                how: "Muy destacado en GitHub. Se muestra un enlace directo en las páginas de creación de issues y pull requests para invitar a su lectura."
             }
         },
         'contributing': {
@@ -509,6 +554,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Fornece instruções passo a passo detalhadas e profissionais sobre como colaborar, cobrindo guias de estilo, comandos de teste e regras de criação de branch.",
                 how: "Altamente destacado. O GitHub detecta e linka este arquivo automaticamente em páginas-chave de interação (Criação de Issues, Pull Requests e Checklist Comunitário)."
+            },
+            es: {
+                why: "Proporciona pautas detalladas sobre cómo colaborar, abarcando estilo de código, comandos de prueba y reglas para ramas de git.",
+                how: "Altamente destacado. GitHub lo detecta y enlaza automáticamente en la creación de issues, PRs y checklist de comunidad."
             }
         },
         'readme-long': {
@@ -521,6 +570,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "O ponto de entrada completo do seu projeto. Apresenta seções estruturais para arquitetura detalhada, benchmarks de desempenho e referências de API completas.",
                 how: "O arquivo mais destacado do GitHub. É automaticamente renderizado e exibido no centro da página principal do repositório para qualquer visitante."
+            },
+            es: {
+                why: "El punto de entrada completo para tu proyecto. Incluye secciones para arquitectura detallada, rendimiento y referencias completas de API.",
+                how: "El archivo principal de GitHub. Se renderiza automáticamente en la portada del repositorio para cualquier visitante."
             }
         },
         'readme-minimal': {
@@ -533,6 +586,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Um template de README leve focado estritamente em introdução rápida, instalação direta e exemplos de código. Perfeito para pequenas bibliotecas ou utilitários.",
                 how: "O arquivo mais destacado do GitHub. É automaticamente renderizado e exibido no centro da página principal do repositório, oferecendo uma visão limpa e direta."
+            },
+            es: {
+                why: "Plantilla ligera enfocada en primeros pasos, instalación rápida y ejemplos de código. Perfecta para librerías o utilidades compactas.",
+                how: "El archivo principal de GitHub. Se renderiza directamente en la pestaña inicial, ofreciendo una visión clara y sin distracciones."
             }
         },
         'readme': {
@@ -545,6 +602,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Um template de README padrão e equilibrado com seções para funcionalidades principais, tecnologias, instruções de setup e casos de uso. Altamente versátil.",
                 how: "O arquivo mais destacado do GitHub. É automaticamente renderizado e exibido no centro da página principal do repositório, funcionando como a vitrine do seu projeto."
+            },
+            es: {
+                why: "Plantilla estándar y equilibrada con secciones para características, tecnologías, instalación y casos de uso. Muy versátil.",
+                how: "El archivo más destacado de GitHub. Se renderiza en la portada del repositorio, sirviendo como carta de presentación del proyecto."
             }
         },
         'roadmap': {
@@ -557,6 +618,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Descreve a visão, objetivos futuros e marcos (milestones) planejados para o projeto. Ajuda colaboradores a alinharem seus esforços com o futuro do projeto.",
                 how: "Salvo na raiz do repositório. Muito útil para dar transparência ao projeto quando referenciado a partir do README, mostrando itens planejados e progresso."
+            },
+            es: {
+                why: "Describe la visión, objetivos futuros e hitos planificados del proyecto. Ayuda a alinear las contribuciones con el plan a largo plazo.",
+                how: "Guardado en la raíz del repositorio. Da transparencia al proyecto cuando se enlaza desde el README, mostrando el progreso planeado."
             }
         },
         'security': {
@@ -569,6 +634,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Define a política de segurança, quais versões são suportadas e instruções sobre como reportar uma vulnerabilidade de forma privada e segura. Crucial para projetos públicos.",
                 how: "Integração destacada. O GitHub exibe um link direto para a política de segurança na aba 'Security' e opcionalmente em avisos na página de criação de novas issues."
+            },
+            es: {
+                why: "Define la política de seguridad, versiones con soporte e instrucciones para reportar vulnerabilidades de forma privada y responsable.",
+                how: "Integración destacada. GitHub muestra un enlace a la política de seguridad en la pestaña Security y en avisos al abrir nuevas issues."
             }
         },
         'support': {
@@ -581,6 +650,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Direciona os usuários aos canais oficiais para tirar dúvidas, obter suporte ou suporte comercial, evitando o acúmulo de perguntas comuns nas issues principais.",
                 how: "O GitHub detecta automaticamente, gerando um link e botão de suporte destacado na aba de issues, guiando os usuários para canais adequados."
+            },
+            es: {
+                why: "Ofrece canales claros para resolver dudas, buscar ayuda o soporte comercial, evitando acumular preguntas frecuentes en el flujo principal de issues.",
+                how: "GitHub lo detecta automáticamente y genera un botón de soporte destacado al abrir nuevas issues, guiando a la comunidad."
             }
         },
         'docs-templates-adr': {
@@ -593,6 +666,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Registra decisões de arquitetura importantes, incluindo contexto, justificativa e consequências. Essencial para a manutenibilidade de longo prazo do projeto.",
                 how: "Armazenado na pasta de documentação (ex: `docs/adr/`). Funciona como um histórico de decisões críticas, acessível para desenvolvedores e arquitetos."
+            },
+            es: {
+                why: "Registra decisiones clave de arquitectura junto con su contexto, justificación y consecuencias. Vital para el mantenimiento a largo plazo.",
+                how: "Guardado en el directorio de documentación (`docs/adr/`). Funciona como historial de decisiones para colaboradores y arquitectos."
             }
         },
         'docs-templates-citation': {
@@ -605,6 +682,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Formato padrão para metadados de citação do software. Fundamental para projetos acadêmicos, pacotes científicos ou projetos originados em pesquisa.",
                 how: "Altamente integrado. Quando o GitHub detecta o arquivo `CITATION.cff` na raiz, ele adiciona automaticamente o botão 'Cite este repositório' na barra lateral direita."
+            },
+            es: {
+                why: "Formato estándar para metadatos de citación de software. Esencial para proyectos académicos, científicos o de investigación.",
+                how: "Altamente integrado. Al detectar un archivo `CITATION.cff` en la raíz, GitHub añade el botón 'Cite this repository' en la barra lateral."
             }
         },
         'docs-templates-governance': {
@@ -617,6 +698,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Esclarece quem toma decisões, como são tomadas, os papéis (líderes, mantenedores, colaboradores) e o processo para resolver divergências de forma justa.",
                 how: "Salvo na raiz do repositório ou pasta comunitária. Promove transparência e credibilidade profissional, mostrando governança clara."
+            },
+            es: {
+                why: "Aclara quién toma las decisiones, los roles del equipo (líderes, mantenedores, colaboradores) y el proceso de resolución de discrepancias.",
+                how: "Guardado en la raíz o carpetas de comunidad. Fomenta la transparencia y credibilidad al formalizar la gestión del proyecto."
             }
         },
         'github-templates-funding': {
@@ -629,6 +714,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Habilita links de patrocínio (GitHub Sponsors, Patreon, Open Collective, Ko-fi, etc.) para incentivar doações e apoiar financeiramente o projeto.",
                 how: "Discreto mas extremamente funcional. Gera o botão de coração rosa 'Sponsor' no topo do repositório e na barra lateral de issues/PRs."
+            },
+            es: {
+                why: "Habilita enlaces de patrocinio (GitHub Sponsors, Open Collective, Patreon, Ko-fi, etc.) para incentivar donaciones al proyecto.",
+                how: "Discreto pero muy visible. Genera el botón rosa 'Sponsor' en la portada del repositorio y en la barra lateral de issues y PRs."
             }
         },
         'github-templates-pull_request_template': {
@@ -641,6 +730,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Padroniza as descrições de pull requests, garantindo que desenvolvedores forneçam contexto, comprovação de testes executados e linkem as issues.",
                 how: "Completamente automatizado. Ao abrir um novo Pull Request, o GitHub preenche automaticamente a caixa de texto com este template."
+            },
+            es: {
+                why: "Estandariza las descripciones de pull requests, asegurando contexto, pruebas realizadas, checklists y enlace a issues relacionadas.",
+                how: "Completamente automatizado. Al abrir un nuevo Pull Request, GitHub precarga automáticamente este contenido en el formulario."
             }
         },
         'github-templates-issue_template-bug_report': {
@@ -653,6 +746,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Estrutura relatos de bugs com passos de reprodução, comportamento esperado, capturas de tela e ambiente. Elimina relatos vagos do tipo 'não funciona'.",
                 how: "Discreto até o uso. Ao clicar em 'New Issue', o GitHub mostra um menu de opções onde o usuário escolhe este template para preencher."
+            },
+            es: {
+                why: "Estructura reportes de errores con pasos de reproducción, comportamiento esperado, capturas y entorno. Evita reportes ambiguos.",
+                how: "Discreto hasta su uso. Al pulsar 'New Issue', GitHub presenta este formulario estructurado para ser completado por el usuario."
             }
         },
         'github-templates-issue_template-config': {
@@ -665,6 +762,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Configura a página de seleção de issues. Permite desativar issues em branco (forçando templates) e redireciona usuários para links específicos de suporte.",
                 how: "Configuração de bastidores. Funciona nos bastidores do sistema de issues do GitHub, moldando o comportamento e botões da página de nova issue."
+            },
+            es: {
+                why: "Configura el selector de issues. Permite deshabilitar issues vacías y redirigir a enlaces de soporte (Discussions, Security Policy).",
+                how: "Configuración interna. Opera en el sistema de issues de GitHub personalizando opciones y forzando el uso de formularios."
             }
         },
         'github-templates-issue_template-feature_request': {
@@ -677,6 +778,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Estrutura sugestões de funcionalidades, exigindo motivação, contexto, mockups e alternativas consideradas antes do envio.",
                 how: "Template interativo. Aparece como opção na página de novas issues, permitindo sugestões organizadas e padronizadas."
+            },
+            es: {
+                why: "Estructura propuestas de funciones, solicitando motivación, contexto, mockups y alternativas antes de proponer cambios.",
+                how: "Plantilla interactiva. Aparece en el menú de nuevas issues de GitHub para recibir ideas ordenadas."
             }
         },
         'github-templates-issue_template-question': {
@@ -689,6 +794,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Fornece um formato estruturado para tirar dúvidas, ajudando mantenedores a categorizá-las e rotulá-las corretamente sob a etiqueta 'question'.",
                 how: "Opção no menu de novas issues, mantendo dúvidas organizadas se seu projeto não tiver as Discussões do GitHub ativas."
+            },
+            es: {
+                why: "Proporciona un formato estructurado para dudas, ayudando a clasificarlas bajo la etiqueta 'question'.",
+                how: "Disponible en el menú de nuevas issues, manteniendo las consultas ordenadas si el repositorio no usa GitHub Discussions."
             }
         },
         'github-templates-workflows-ci': {
@@ -701,6 +810,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Automatiza a execução de testes e build a cada commit/PR. Impede que códigos quebrados sejam mesclados, garantindo a integridade (Integração Contínua).",
                 how: "Execução silenciosa. Roda via GitHub Actions, exibindo um selo verde de sucesso ou vermelho de falha nos commits e pull requests."
+            },
+            es: {
+                why: "Automatiza la ejecución de pruebas y compilación en cada commit/PR. Previene errores de integración y garantiza estabilidad.",
+                how: "Ejecución silenciosa en GitHub Actions, mostrando el estado de verificación en commits y pull requests."
             }
         },
         'github-templates-workflows-lint': {
@@ -713,6 +826,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Garante a consistência de estilo, formatação e sintaxe de código em todas as contribuições de forma automática antes da revisão humana.",
                 how: "Roda silenciosamente como um workflow do GitHub Actions em pushes/PRs, avisando ou bloqueando desvios de estilo diretamente no PR."
+            },
+            es: {
+                why: "Garantiza reglas uniformes de estilo, formato y sintaxis en todas las contribuições antes de la revisión de código.",
+                how: "Se ejecuta en segundo plano en GitHub Actions, alertando o bloqueando problemas de estilo en los checks de PR."
             }
         },
         'github-templates-workflows-release': {
@@ -725,6 +842,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pt: {
                 why: "Automatiza a geração de notas de atualização e publicação de releases quando tags são enviadas. Elimina o trabalho manual no ciclo de lançamento.",
                 how: "Disparado ao enviar tags começando com 'v*'. Cria rascunhos de release e anexa builds automaticamente no GitHub Actions."
+            },
+            es: {
+                why: "Automatiza la compilación de notas de versión y publicación de releases al enviar tags. Elimina pasos manuales en el despliegue.",
+                how: "Se dispara al enviar tags con formato 'v*'. Genera borradores de release y adjunta artefactos automáticamente."
             }
         }
     };
@@ -756,6 +877,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 prominent: "Destacado (Alta Visibilidade)",
                 discreet: "Discreto (Interno/Sistema)",
                 auxiliary: "Auxiliar (Doc Geral)"
+            },
+            es: {
+                why: "Por qué usar y utilidad",
+                how: "Mecanismo y visibilidad en GitHub",
+                prominent: "Destacado (Alta Visibilidad)",
+                discreet: "Discreto (Interno/Sistema)",
+                auxiliary: "Auxiliar (Doc General)"
             }
         };
 
@@ -817,7 +945,12 @@ document.addEventListener('DOMContentLoaded', () => {
         state.currentPage = id;
         state.currentTemplate = null;
         pageTitle.textContent = page.title;
-        breadcrumbRoot.textContent = id === 'getting-started' || id === 'installation' || id === 'whats-new' ? 'Guide' : 'Reference';
+        const rootCategory = id === 'getting-started' || id === 'installation' || id === 'whats-new' ? 'guide' : 'reference';
+        const rootLabels = {
+            guide: { en: 'Guide', pt: 'Guia', es: 'Guía' },
+            reference: { en: 'Reference', pt: 'Referência', es: 'Referencia' }
+        };
+        breadcrumbRoot.textContent = (rootLabels[rootCategory] && rootLabels[rootCategory][state.lang]) || rootLabels[rootCategory]['en'];
         
         const content = page.content[state.lang] || page.content['en'];
         
@@ -841,7 +974,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         content = t.content[state.lang] || t.content['en'] || '# Content not available in this language';
         pageTitle.textContent = t.name;
-        breadcrumbRoot.textContent = t.category === 'GitHub' ? 'GitHub Templates' : 'Project Documentation';
+        const templateCategories = {
+            GitHub: { en: 'GitHub Templates', pt: 'Templates do GitHub', es: 'Plantillas de GitHub' },
+            Doc: { en: 'Project Documentation', pt: 'Documentação do Projeto', es: 'Documentación del Proyecto' }
+        };
+        const catKey = t.category === 'GitHub' ? 'GitHub' : 'Doc';
+        breadcrumbRoot.textContent = (templateCategories[catKey] && templateCategories[catKey][state.lang]) || templateCategories[catKey]['en'];
         
         content = applyMocks(content);
         
@@ -857,7 +995,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderCode(code) {
         markdownContainer.innerHTML = `<pre><code>${escapeHtml(code)}</code></pre>`;
-        tocNav.innerHTML = '<p style="color: var(--text-muted); font-size: 0.8rem;">Table of contents hidden in code view.</p>';
+        const tocMsg = {
+            en: 'Table of contents hidden in code view.',
+            pt: 'Sumário oculto na visualização de código.',
+            es: 'Tabla de contenido oculta en la vista de código.'
+        }[state.lang] || 'Table of contents hidden in code view.';
+        tocNav.innerHTML = `<p style="color: var(--text-muted); font-size: 0.8rem;">${tocMsg}</p>`;
         lucide.createIcons();
         window.scrollTo(0, 0);
     }
@@ -900,7 +1043,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const headings = markdownContainer.querySelectorAll('h2, h3');
         
         if (headings.length === 0) {
-            tocNav.innerHTML = '<p style="color: var(--text-muted); font-size: 0.8rem;">No headings on this page.</p>';
+            const emptyMsg = {
+                en: 'No headings on this page.',
+                pt: 'Nenhum título nesta página.',
+                es: 'Sin encabezados en esta página.'
+            }[state.lang] || 'No headings on this page.';
+            tocNav.innerHTML = `<p style="color: var(--text-muted); font-size: 0.8rem;">${emptyMsg}</p>`;
             return;
         }
 
