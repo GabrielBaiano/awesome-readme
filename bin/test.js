@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
+import { sanitizeMarkdown } from '../lib/utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +15,7 @@ const requiredFiles = [
   'package.json',
   'templates/en-template/README-template.md',
   'templates/pt-template/README-template.md',
+  'templates/es-template/README-template.md',
   'templates/en-template/CONTRIBUTING-template.md',
   'lib/config.js',
   'lib/installer.js',
@@ -67,7 +69,11 @@ try {
 
 // Test 3: Check templates have placeholders
 console.log('\n📝 Testing templates...');
-const templateFiles = ['templates/en-template/README-template.md', 'templates/pt-template/README-template.md'];
+const templateFiles = [
+  'templates/en-template/README-template.md',
+  'templates/pt-template/README-template.md',
+  'templates/es-template/README-template.md'
+];
 
 templateFiles.forEach(template => {
   const templatePath = path.join(__dirname, '..', template);
@@ -95,6 +101,67 @@ if (fs.existsSync(cliPath)) {
   }
 } else {
   console.log('❌ CLI script not found');
+  allTestsPassed = false;
+}
+
+// Test 5: Check template parity across supported languages
+console.log('\n🌐 Testing template parity across languages...');
+function getFilesRecursively(dir, baseDir = dir) {
+  let results = [];
+  const list = fs.readdirSync(dir, { withFileTypes: true });
+  for (const item of list) {
+    const fullPath = path.join(dir, item.name);
+    if (item.isDirectory()) {
+      results = results.concat(getFilesRecursively(fullPath, baseDir));
+    } else {
+      results.push(path.relative(baseDir, fullPath));
+    }
+  }
+  return results;
+}
+
+const enTemplateDir = path.join(__dirname, '..', 'templates', 'en-template');
+const baseTemplates = getFilesRecursively(enTemplateDir);
+const targetLangs = ['pt', 'es'];
+
+for (const lang of targetLangs) {
+  const targetDir = path.join(__dirname, '..', 'templates', `${lang}-template`);
+  let missingInLang = 0;
+  for (const relFile of baseTemplates) {
+    const targetFile = path.join(targetDir, relFile);
+    if (!fs.existsSync(targetFile)) {
+      console.log(`❌ Missing in ${lang}-template: ${relFile}`);
+      missingInLang++;
+      allTestsPassed = false;
+    }
+  }
+  if (missingInLang === 0) {
+    console.log(`✅ ${lang}-template has 100% parity with en-template (${baseTemplates.length} files)`);
+  }
+}
+
+// Test 6: Check markdown sanitizer
+console.log('\n🧹 Testing markdown sanitizer...');
+const rawMockMarkdown = `# [PROJECT_NAME]
+<a href="https://buymeacoffee.com/[BUYMEACOFFEE_USERNAME]"><img src="badge.png" /></a>
+<a href="[DEMO_URL]"><img src="demo.png" /></a>
+Description: [PROJECT_DESCRIPTION]
+`;
+
+const sanitized = sanitizeMarkdown(rawMockMarkdown, {
+  PROJECT_NAME: 'TestApp',
+  PROJECT_DESCRIPTION: 'Clean description'
+});
+
+if (
+  sanitized.includes('# TestApp') &&
+  sanitized.includes('Clean description') &&
+  !sanitized.includes('buymeacoffee.com') &&
+  !sanitized.includes('[DEMO_URL]')
+) {
+  console.log('✅ sanitizeMarkdown cleans orphan badges and replaces metadata properly');
+} else {
+  console.log('❌ sanitizeMarkdown failed to properly clean orphan placeholders');
   allTestsPassed = false;
 }
 
