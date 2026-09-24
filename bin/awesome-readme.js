@@ -23,7 +23,10 @@ async function main() {
   });
 
   try {
-    console.log(colorize('\n🎉 Welcome to Awesome README Templates!', 'cyan'));
+    const langEnv = (process.env.LC_ALL || process.env.LANG || '').toLowerCase();
+    const defaultLang = langEnv.startsWith('pt') ? 'pt' : (langEnv.startsWith('es') ? 'es' : 'en');
+    const welcomeText = config.uiMessages[defaultLang]?.welcome || config.uiMessages.en.welcome;
+    console.log(colorize(welcomeText, 'cyan'));
     console.log(colorize('=====================================\n', 'cyan'));
     
     // Config-driven Main Menu
