@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Professional and reusable README templates for GitHub projects.</strong><br>
-  <em>Create stunning documentation in minutes with our bilingual templates (EN/PT).</em>
+  <em>Create stunning documentation in minutes with our multilingual templates (EN/PT/ES).</em>
 </p>
 
 <p align="center">
@@ -41,7 +41,7 @@
 
 ## 🎓 Main Features
 
-* **Bilingual Support**: Ready-to-use templates in English and Portuguese (PT-BR).
+* **Multilingual Support**: Ready-to-use templates in English, Portuguese (PT-BR), and Spanish (ES).
 * **CLI Generator**: Interactive command-line tool `awesome-readme` to easily setup your docs.
 * **Variable Replacement**: Automatic substitution of `[PROJECT_NAME]`, `[AUTHOR_NAME]`, etc.
 * **Multiple Styles**: Choose between Professional, Minimalist, and more styles for your README.

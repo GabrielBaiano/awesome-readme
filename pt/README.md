@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Templates profissionais e reutilizáveis de README para projetos GitHub.</strong><br>
-  <em>Crie documentação impressionante em minutos com nossos templates bilíngues (EN/PT).</em>
+  <em>Crie documentação impressionante em minutos com nossos templates multilíngues (EN/PT/ES).</em>
 </p>
 
 <p align="center">
@@ -36,12 +36,12 @@
 
 ---
 
-**Awesome README Templates** é uma coleção de templates de documentação bilíngues (Inglês/Português) de alta qualidade, projetados para ajudar desenvolvedores a criar documentação profissional de projetos sem esforço. Inclui uma poderosa ferramenta CLI para gerar e configurar seus arquivos automaticamente.
+**Awesome README Templates** é uma coleção de templates de documentação multilíngues (Inglês/Português/Espanhol) de alta qualidade, projetados para ajudar desenvolvedores a criar documentação profissional de projetos sem esforço. Inclui uma poderosa ferramenta CLI para gerar e configurar seus arquivos automaticamente.
 
 ## 🚀 Funcionalidades
 
 *   **🧙 CLI Interativa**: Uma interface estilo assistente para guiá-lo através da configuração.
-*   **🇧🇷 Suporte Bilíngue**: Suporte total para Inglês e Português (Brasil).
+*   **🌐 Suporte Multilíngue**: Suporte completo para Inglês, Português (Brasil) e Espanhol.
 *   **📂 Organização Inteligente**: No modo bilíngue, arquivos em português são colocados automaticamente em uma pasta `pt/`.
 *   **🛡️ Segurança Primeiro**: A CLI verifica arquivos existentes para evitar sobrescritas acidentais.
 *   **📦 Coleção Abrangente**: Inclui README, CONTRIBUTING, CHANGELOG, SECURITY e mais.
