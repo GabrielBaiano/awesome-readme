@@ -100,8 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
             [titles.github]: []
         };
 
+        if (!state.data || !Array.isArray(state.data.templates)) return;
+
         // Categorize templates
         state.data.templates.forEach(t => {
+            if (!t) return;
             if (t.category === 'GitHub') {
                 sections[titles.github].push(t);
             } else {
@@ -128,7 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Group by base filename within section
             const fileGroups = {};
             templates.forEach(t => {
-                const baseName = t.dest.split('/').pop();
+                if (!t || !t.dest) return;
+                const baseName = t.dest.split(/[/\\]/).pop();
                 if (!fileGroups[baseName]) fileGroups[baseName] = [];
                 fileGroups[baseName].push(t);
             });
@@ -185,6 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createToolbar() {
         const breadcrumbRight = document.querySelector('.breadcrumb-right');
+        if (!breadcrumbRight) return;
+        if (breadcrumbRight.querySelector('.toolbar-actions')) return;
         
         const toolbar = document.createElement('div');
         toolbar.className = 'toolbar-actions';
@@ -241,11 +247,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getCurrentRawContent() {
         if (state.currentTemplate) {
-            const t = state.data.templates.find(temp => temp.id === state.currentTemplate);
-            return applyMocks(t.content[state.lang] || t.content['en']);
+            if (!state.data || !Array.isArray(state.data.templates)) return '';
+            const t = state.data.templates.find(temp => temp && temp.id === state.currentTemplate);
+            return applyMocks(t && t.content ? (t.content[state.lang] || t.content['en'] || '') : '');
         } else {
             const page = pages[state.currentPage];
-            return page.content[state.lang] || page.content['en'];
+            return (page && page.content) ? (page.content[state.lang] || page.content['en'] || '') : '';
         }
     }
 
@@ -264,11 +271,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // Filter templates matching query
-                const matches = state.data.templates.filter(t => 
-                    t.name.toLowerCase().includes(query) || 
-                    t.dest.toLowerCase().includes(query) || 
-                    (t.id && t.id.toLowerCase().includes(query))
-                );
+                const matches = (state.data && Array.isArray(state.data.templates))
+                    ? state.data.templates.filter(t => 
+                        t && (
+                            (t.name && t.name.toLowerCase().includes(query)) || 
+                            (t.dest && t.dest.toLowerCase().includes(query)) || 
+                            (t.id && t.id.toLowerCase().includes(query))
+                        )
+                    )
+                    : [];
 
                 searchDropdown.innerHTML = '';
                 searchDropdown.classList.add('active');
@@ -968,11 +979,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadTemplate(id) {
         let content = '';
-        const t = state.data.templates.find(temp => temp.id === id);
+        if (!state.data || !Array.isArray(state.data.templates)) return;
+        const t = state.data.templates.find(temp => temp && temp.id === id);
         
         if (!t) return;
 
-        content = t.content[state.lang] || t.content['en'] || '# Content not available in this language';
+        content = (t.content && (t.content[state.lang] || t.content['en'])) || '# Content not available in this language';
         pageTitle.textContent = t.name;
         const templateCategories = {
             GitHub: { en: 'GitHub Templates', pt: 'Templates do GitHub', es: 'Plantillas de GitHub' },
