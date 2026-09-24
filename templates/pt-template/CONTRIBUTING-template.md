@@ -1,42 +1,82 @@
-# Contribuindo para [PROJECT_NAME]
+# Guia de Contribuição para o [PROJECT_NAME]
 
-Primeiro, obrigado por considerar contribuir para o [PROJECT_NAME]! São pessoas como você que fazem do mundo open source um lugar incrível para aprender, inspirar e criar.
+Obrigado pelo seu interesse em contribuir com o **[PROJECT_NAME]**! Este documento orienta como reportar bugs, sugerir novas funcionalidades e enviar código de forma eficiente.
 
-## 🤝 Código de Conduta
+---
 
-Este projeto e todos os participantes estão sob o [Código de Conduta](CODE_OF_CONDUCT.md). Ao participar, espera-se que você mantenha este código. Por favor, reporte comportamentos inaceitáveis para [CONTACT_EMAIL].
+## 🐛 Reportando Bugs
 
-## 🚀 Como Posso Contribuir?
+Antes de abrir uma nova issue de bug, consulte as [Issues]([GITHUB_REPO_URL]/issues) abertas e fechadas para verificar se o problema já não foi relatado.
 
-### Reportando Bugs
+Ao abrir uma issue, certifique-se de incluir:
+- Um título claro e descritivo.
+- Passos reproduzíveis para disparar o problema.
+- Comportamento esperado versus resultado obtido.
+- Informações do ambiente (Sistema Operacional, versão do runtime/Node, navegador se aplicável).
+- Logs de erro ou capturas de tela quando relevante.
 
-Esta seção guia você através do envio de um relatório de bug para o [PROJECT_NAME]. Seguir estas diretrizes ajuda os mantenedores e a comunidade a entender seu relatório, reproduzir o comportamento e encontrar relatórios relacionados.
+---
 
-- **Use uma pesquisa clara e descritiva** para ver se o problema já foi reportado.
-- **Verifique se o problema já foi corrigido** tentando reproduzi-lo na versão mais recente.
-- **Abra uma Issue** usando o template de Bug Report fornecido.
+## 💡 Sugerindo Melhorias
 
-### Sugerindo Melhorias
+Ideias e solicitações de recursos são muito bem-vindas. Ao abrir uma sugestão:
+1. Explique o caso de uso e a motivação real.
+2. Descreva os benefícios práticos para a comunidade.
+3. Se possível, exemplifique a API ou comando ideal que gostaria de utilizar.
 
-Esta seção guia você através do envio de uma sugestão de melhoria para o [PROJECT_NAME], incluindo recursos completamente novos e pequenas melhorias na funcionalidade existente.
+---
 
-- **Use uma pesquisa clara e descritiva** para ver se a melhoria já foi sugerida.
-- **Abra uma Issue** usando o template de Feature Request fornecido.
+## 🛠️ Fluxo de Trabalho (Development Workflow)
 
-### Seu Primeiro Pull Request
+### 1. Fork e Clone
+```bash
+git clone https://github.com/SEU_USUARIO/[REPO_NAME].git
+cd [REPO_NAME]
+git remote add upstream [GITHUB_REPO_URL].git
+```
 
-1. Faça um Fork do repositório.
-2. Clone o projeto para sua máquina.
-3. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`).
-4. Faça o commit de suas alterações (`git commit -m 'Add some AmazingFeature'`).
-5. Faça o push para a branch (`git push origin feature/AmazingFeature`).
-6. Abra um Pull Request.
+### 2. Crie uma Branch Específica
+```bash
+git checkout -b feat/nome-da-funcionalidade
+# ou para correções:
+git checkout -b fix/descricao-do-problema
+```
 
-## 🎨 Guia de Estilo
+### 3. Implemente as Mudanças
+- Mantenha alterações focadas, atômicas e coesas.
+- Adicione ou atualize os testes relacionados à sua alteração.
+- Garanta que todo o projeto passe nos testes locais.
 
-- [STYLE_GUIDE_LINK] - Se houver um guia de estilo específico, linke-o aqui.
-- Commits devem seguir a convenção [Conventional Commits](https://www.conventionalcommits.org/).
+```bash
+# Rodar testes
+npm test
+```
 
-## 🛠️ Configuração de Desenvolvimento
+### 4. Padrão de Mensagens de Commit
+Este projeto utiliza a convenção [Conventional Commits](https://www.conventionalcommits.org/pt-br/):
 
-[INSTRUCTIONS_TO_SETUP_DEV_ENVIRONMENT]
+- `feat:` Nova funcionalidade
+- `fix:` Correção de bug
+- `docs:` Alterações apenas em documentação
+- `refactor:` Refatoração que não altera comportamento nem adiciona funcionalidade
+- `test:` Adição ou correção de suítes de testes
+- `chore:` Tarefas de manutenção, dependências e automações de CI
+
+Exemplo:
+```bash
+git commit -m "feat(core): adiciona suporte a retentativas com timeout"
+```
+
+### 5. Abra um Pull Request
+1. Envie sua branch para o seu fork:
+   ```bash
+   git push origin feat/nome-da-funcionalidade
+   ```
+2. Abra um Pull Request apontando para a branch `main` do repositório original.
+3. Mencione as issues relacionadas (ex: `Fixes #42`).
+4. Preencha o checklist do template de Pull Request.
+
+---
+
+## 📄 Licença
+Ao contribuir com o [PROJECT_NAME], você concorda que suas contribuições serão submetidas sob a licença [LICENSE_TYPE] do projeto.

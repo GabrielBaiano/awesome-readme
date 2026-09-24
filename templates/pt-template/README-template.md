@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="[LOGO_PATH]" alt="Logo do [PROJECT_NAME]" width="200"/>
+  <img src="[LOGO_PATH]" alt="Logo do [PROJECT_NAME]" width="160"/>
 </p>
 
 <h1 align="center">[PROJECT_NAME]</h1>
@@ -10,124 +10,91 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/[PACKAGE_NAME]" target="_blank">
-    <img src="https://img.shields.io/npm/v/[PACKAGE_NAME]?style=flat-square" alt="Versão NPM">
-  </a>
   <a href="[GITHUB_REPO_URL]/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/[USERNAME]/[REPO_NAME]?style=flat-square" alt="Licença">
+    <img src="https://img.shields.io/github/license/[GITHUB_USERNAME]/[REPO_NAME]?style=flat-square" alt="Licença">
+  </a>
+  <a href="https://www.npmjs.com/package/[PACKAGE_NAME]" target="_blank">
+    <img src="https://img.shields.io/npm/v/[PACKAGE_NAME]?style=flat-square" alt="Versão">
   </a>
   <a href="[GITHUB_REPO_URL]/stargazers">
-    <img src="https://img.shields.io/github/stars/[USERNAME]/[REPO_NAME]?style=social" alt="GitHub stars">
-  </a>
-  <a href="https://buymeacoffee.com/[BUYMEACOFFEE_USERNAME]" target="_blank">
-    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee">
+    <img src="https://img.shields.io/github/stars/[GITHUB_USERNAME]/[REPO_NAME]?style=flat-square" alt="GitHub stars">
   </a>
 </p>
 
 ---
 
-<p align="center">
-  <img src="[SHOWCASE_IMAGE_URL]" alt="Demonstração do [PROJECT_NAME]"/>
-</p>
-
-**[PROJECT_NAME]** [DETAILED_DESCRIPTION_PT]
-
-> 📚 **Evolução do Projeto**: [PROJECT_EVOLUTION_DESCRIPTION_PT]
+O [PROJECT_NAME] é [PROJECT_DESCRIPTION]. Desenvolvido com foco em simplicidade, desempenho e experiência do desenvolvedor.
 
 <!-- DOCUMENTATION_SECTION -->
 
+## 🚀 Funcionalidades
 
-## 🎓 Funcionalidades Principais
+- **Funcionalidade Principal**: [FEATURE_1_DESCRIPTION]
+- **Experiência do Desenvolvedor**: [FEATURE_2_DESCRIPTION]
+- **Rápido e Confiável**: [FEATURE_3_DESCRIPTION]
+- **Extensível**: [FEATURE_4_DESCRIPTION]
 
-* **[FEATURE_1]**: [FEATURE_1_DESCRIPTION_PT]
-* **[FEATURE_2]**: [FEATURE_2_DESCRIPTION_PT]
-* **[FEATURE_3]**: [FEATURE_3_DESCRIPTION_PT]
-* **[FEATURE_4]**: [FEATURE_4_DESCRIPTION_PT]
-
-## 🛠️ Tecnologias Utilizadas
-
-* **Framework**: [FRAMEWORK]
-* **Linguagem**: [LANGUAGE]
-* **[ADDITIONAL_TECH_1]**: [ADDITIONAL_TECH_1_DESCRIPTION_PT]
-* **[ADDITIONAL_TECH_2]**: [ADDITIONAL_TECH_2_DESCRIPTION_PT]
-* **[ADDITIONAL_TECH_3]**: [ADDITIONAL_TECH_3_DESCRIPTION_PT]
-* **Bibliotecas**: [LIBRARIES_LIST_PT]
-
-## 📖 Como Usar e Instalar
-
-A instalação é simples e direta.
-
-1. Acesse a **[Página de Releases aqui]([RELEASES_URL])**.
-2. Baixe o instalador mais recente para o seu sistema operacional (ex: `[PROJECT_NAME]-Setup-X.X.X.exe` para Windows).
-3. Execute o instalador.
-   * **Observação para Windows:** O SmartScreen pode exibir um aviso de "Editor Desconhecido". Isso é normal. Clique em "Mais informações" e depois em "Executar assim mesmo".
-4. [SETUP_STEP_1_PT]: [SETUP_STEP_1_DESCRIPTION_PT]
-
-## 🌐 [CUSTOMIZATION_SECTION_TITLE_PT]
-
-O [PROJECT_NAME] permite que você [CUSTOMIZATION_DESCRIPTION_PT]:
-
-### Método 1: [METHOD_1_TITLE_PT]
-
-1. [METHOD_1_STEP_1_PT]
-2. [METHOD_1_STEP_2_PT]
-3. [METHOD_1_STEP_3_PT]
-4. [METHOD_1_STEP_4_PT]
-5. [METHOD_1_STEP_5_PT]
-6. [METHOD_1_STEP_6_PT]
-
-### Método 2: [METHOD_2_TITLE_PT]
-
-1. [METHOD_2_STEP_1_PT]
-2. [METHOD_2_STEP_2_PT]
-3. [METHOD_2_STEP_3_PT]
-4. [METHOD_2_STEP_4_PT]
-
-### Tipos de [CUSTOMIZATION_TYPE_PT] Suportados:
-- [SUPPORTED_TYPE_1_PT]
-- [SUPPORTED_TYPE_2_PT]
-- [SUPPORTED_TYPE_3_PT]
-- [SUPPORTED_TYPE_4_PT]
-- [SUPPORTED_TYPE_5_PT]
-
-## 💻 Para Desenvolvedores
-
-Se você deseja clonar o repositório e rodar o projeto localmente:
+## 📦 Instalação
 
 ```bash
-# 1. Clone o repositório
-git clone [GITHUB_REPO_URL].git
+# Usando npm
+npm install [PACKAGE_NAME]
 
-# 2. Navegue até a pasta do projeto
-cd [REPO_NAME]
+# Usando yarn
+yarn add [PACKAGE_NAME]
 
-# 3. Instale as dependências
-npm install
-
-# 4. Rode em modo de desenvolvimento
-npm start
-
-# 5. Para criar os instaladores
-npm run package
+# Usando pnpm
+pnpm add [PACKAGE_NAME]
 ```
 
-## 📚 Perfeito para [TARGET_AUDIENCE_PT]
+## 🛠️ Início Rápido (Quickstart)
 
-- **[USE_CASE_1_PT]**: [USE_CASE_1_DESCRIPTION_PT]
-- **[USE_CASE_2_PT]**: [USE_CASE_2_DESCRIPTION_PT]
-- **[USE_CASE_3_PT]**: [USE_CASE_3_DESCRIPTION_PT]
-- **[USE_CASE_4_PT]**: [USE_CASE_4_DESCRIPTION_PT]
+```javascript
+import { [PROJECT_NAME] } from '[PACKAGE_NAME]';
+
+// Inicialização básica
+const app = new [PROJECT_NAME]({
+  // opções de configuração
+});
+
+await app.start();
+```
+
+## ⚙️ Configurações
+
+| Opção | Tipo | Padrão | Descrição |
+| :--- | :--- | :--- | :--- |
+| `apiKey` | `string` | `undefined` | Chave de autenticação |
+| `timeout` | `number` | `5000` | Tempo limite da requisição em ms |
+| `debug` | `boolean` | `false` | Ativa logs detalhados |
+
+## 💻 Desenvolvimento Local
+
+```bash
+# Clone o repositório
+git clone [GITHUB_REPO_URL].git
+cd [REPO_NAME]
+
+# Instale as dependências
+npm install
+
+# Inicie o modo de desenvolvimento
+npm run dev
+
+# Execute a suíte de testes
+npm test
+```
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
+Contribuições são muito bem-vindas! Consulte o [CONTRIBUTING.md](./CONTRIBUTING.md) para detalhes sobre nosso fluxo de desenvolvimento e código de conduta.
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a Licença [LICENSE_TYPE].
+Este projeto está sob a licença [LICENSE_TYPE]. Consulte o arquivo [LICENSE](./LICENSE) para mais informações.
 
 ---
 
 <p align="center">
-  Feito com ❤️ por <a href="[GITHUB_PROFILE_URL]" target="_blank">[AUTHOR_NAME]</a>
+  Criado por <a href="[GITHUB_PROFILE_URL]">[AUTHOR_NAME]</a>
 </p>
