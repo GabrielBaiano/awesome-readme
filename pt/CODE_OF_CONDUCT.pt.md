@@ -1,5 +1,6 @@
 # Código de Conduta
 [![English](https://img.shields.io/badge/Lang-En-red)](../CODE_OF_CONDUCT.md)
+[![Spanish](https://img.shields.io/badge/Lang-Es-yellow)](../es/CODE_OF_CONDUCT.es.md)
 
 ## Nosso Compromisso
 

@@ -1,5 +1,6 @@
 # 🤝 Contributing to Awesome README Templates
 [![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/CONTRIBUTING.pt.md)
+[![Spanish](https://img.shields.io/badge/Lang-Es-yellow)](./es/CONTRIBUTING.es.md)
 
 Thank you for considering contributing to this project! This guide will help you understand how to contribute effectively and make the most impact.
 
@@ -94,7 +95,7 @@ git push origin feature/your-contribution-name
 
 Use the [Conventional Commits](https://conventionalcommits.org/) standard:
 
-```
+```text
 feat: add new template for APIs
 fix: correct placeholder in Portuguese version
 docs: update installation instructions
@@ -185,9 +186,7 @@ By contributing, you agree that your contributions will be licensed under the [M
 
 ---
 
-**Thank you for contributing! 🎉**
-
-Every contribution, no matter how small, makes a difference for the community.
+Thank you for contributing! 🎉 Every contribution, no matter how small, makes a difference for the community.
 
 ## 💡 Pro Tips for Contributors
 

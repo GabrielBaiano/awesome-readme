@@ -1,5 +1,6 @@
 # 📝 Changelog
 [![Portuguese](https://img.shields.io/badge/Lang-Pt--Br-green)](./pt/CHANGELOG.pt.md)
+[![Spanish](https://img.shields.io/badge/Lang-Es-yellow)](./es/CHANGELOG.es.md)
 
 All notable changes to the Awesome README Templates project will be documented in this file.
 
@@ -7,6 +8,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.5.0] - 2026-09-24
+
+### Added
+- 🌍 **Full Spanish Language Support**: Complete suite of 25 templates in `templates/es-template/` matching 100% parity with English and Portuguese.
+- 💬 **CLI Internationalization (ES)**: Native Spanish CLI prompts, help texts, and automated OS locale detection via `process.env.LANG`.
+- 🌐 **Trilingual Documentation Website**: Added Spanish language switcher button (`ES`), localized guide pages, template explanation cards, breadcrumbs, and search.
+- ⚡ **Automated Metadata Detection**: Auto-detects project name from directory, git author username and email, and current ISO year.
+- 🧹 **Markdown Sanitizer**: Implemented automated cleaning of orphan badges (Buy Me A Coffee, Demo URLs, Twitter) and missing links.
+
+### Changed
+- 🎯 **Template Calibration**: Calibrated Standard, Minimal, and Long templates with practical code blocks, configuration tables, and zero dummy marketing fluff.
+- 🧹 **Documentation Streamlining**: Pruned root documentation bloat (`AUTHORS.md`, `GOVERNANCE.md`, `ROADMAP.md`, `SUPPORT.md`) to focus on essential guides.
+
+### Fixed
+- 🛠️ **CI Super-Linter**: Configured `.markdown-lint.yml` and moved HTML scripts to body end to ensure all GitHub Actions checks pass cleanly.
 
 ## [1.4.4] - 2026-05-15
 

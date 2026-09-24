@@ -13,3 +13,8 @@ MD032: false # Lists blank lines
 MD012: false # Multiple consecutive blank lines
 MD022: false # Blanks around headings
 MD047: false # Trailing newline
+MD009: false # Trailing spaces
+MD025: false # Multiple top level headings (issue templates)
+MD045: false # Images without alt text
+MD051: false # Link fragments (TOC in template files)
+MD060: false # Table column style

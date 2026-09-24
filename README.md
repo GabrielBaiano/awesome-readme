@@ -10,6 +10,14 @@
 </p>
 
 <p align="center">
+  <a href="pt/README.md">🇧🇷 Português</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="es/README.md">🇪🇸 Español</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://awesome-readme-nu.vercel.app/" target="_blank">🌐 Live Dashboard</a>
+</p>
+
+<p align="center">
   <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">
     <img src="https://img.shields.io/npm/v/awesome-readme-templates?style=flat-square" alt="NPM Version">
   </a>
@@ -77,21 +85,21 @@ Installation is simple and straightforward via npm.
 
 1. Run `npx awesome-readme-templates`.
 2. Select **Interactive Selection**.
-3. Choose your preferred language (English or Portuguese).
+3. Choose your preferred language (English, Portuguese, or Spanish).
 4. Fill in your project details (Name, Description, Author) for automatic replacement.
-5. Select the README style (Standard or Minimalist).
+5. Select the README style (Standard, Minimalist, or Complete).
 6. Select the templates you want (Contributing, Changelog, etc.).
 7. Confirm and write files to your project.
 
 ### Method 2: Automated Mode (Flags)
 
-1. Use CLI flags to skip menus.
+1. Use CLI flags to skip menus:
    ```bash
-   awesome-readme --lang=en --all
+   awesome-readme --main-lang es --all
    ```
-2. Or specify templates:
+2. Or specify languages, templates, and license:
    ```bash
-   awesome-readme --lang=pt --readme --contributing
+   awesome-readme --main-lang pt --langs en,es --with-github --license mit
    ```
 
 ### Supported Templates

@@ -1,5 +1,6 @@
 # Contribuindo para Awesome Readme Templates
 [![English](https://img.shields.io/badge/Lang-En-red)](../CONTRIBUTING.md)
+[![Spanish](https://img.shields.io/badge/Lang-Es-yellow)](../es/CONTRIBUTING.es.md)
 
 Primeiro, obrigado por considerar contribuir para o **Awesome Readme Templates**! São pessoas como você que fazem do mundo open source um lugar incrível para aprender, inspirar e criar.
 
@@ -36,7 +37,7 @@ Esta seção guia você através do envio de uma sugestão de melhoria para o **
 ## 🎨 Guia de Estilo
 
 - Commits devem seguir a convenção [Conventional Commits](https://www.conventionalcommits.org/).
-- Commits devem seguir a convenção [Conventional Commits](https://www.conventionalcommits.org/).
+- Mantenha a paridade de templates entre todos os idiomas suportados (EN, PT, ES).
 
 ## 🛠️ Configuração de Desenvolvimento
 

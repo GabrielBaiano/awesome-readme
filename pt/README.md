@@ -10,13 +10,13 @@
 </p>
 
 <p align="center">
-  <a href="../README.md" target="_blank">🇺🇸 English</a>
+  <a href="../README.md">🇺🇸 English</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="../es/README.md">🇪🇸 Español</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://awesome-readme-nu.vercel.app/" target="_blank">🌐 Live Dashboard</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://www.npmjs.com/package/awesome-readme-templates" target="_blank">📚 Pacote NPM</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano/awesome-readme/issues" target="_blank">🐛 Reportar Bug</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/GabrielBaiano" target="_blank">💼 Perfil GitHub</a>
 </p>
 
 <p align="center">
@@ -42,7 +42,7 @@
 
 *   **🧙 CLI Interativa**: Uma interface estilo assistente para guiá-lo através da configuração.
 *   **🌐 Suporte Multilíngue**: Suporte completo para Inglês, Português (Brasil) e Espanhol.
-*   **📂 Organização Inteligente**: No modo bilíngue, arquivos em português são colocados automaticamente em uma pasta `pt/`.
+*   **📂 Organização Inteligente**: No modo multilíngue, arquivos em português e espanhol são organizados automaticamente em pastas `pt/` e `es/`.
 *   **🛡️ Segurança Primeiro**: A CLI verifica arquivos existentes para evitar sobrescritas acidentais.
 *   **📦 Coleção Abrangente**: Inclui README, CONTRIBUTING, CHANGELOG, SECURITY e mais.
 *   **📜 Gerenciador de Licenças**: Escolha entre uma ampla gama de licenças open-source (MIT, Apache, GPL, etc.).
@@ -73,9 +73,10 @@ awesome-readme
 ```
 
 Você será solicitado a:
-1.  **Selecionar Idioma**: Inglês, Português ou Ambos.
-2.  **Selecionar Licença**: Escolha de uma lista curada.
-3.  **Selecionar Extras**: Adicione Guia de Contribuição, Changelog, Roadmap, etc.
+1.  **Selecionar Idioma**: Inglês, Português ou Espanhol (ou múltiplos).
+2.  **Selecionar Estilo de README**: Standard, Minimalist ou Complete.
+3.  **Selecionar Licença**: Escolha de uma lista curada (MIT, Apache, GPL, etc.).
+4.  **Selecionar Extras**: Adicione Guia de Contribuição, Changelog, Segurança, templates do GitHub, etc.
 
 ### Adicionar Templates Específicos
 
@@ -86,15 +87,19 @@ Precisa de apenas um arquivo? Use o modo "Add Specific Templates" no menu para e
 Perfeito para scripts ou usuários avançados.
 
 ```bash
-# Exemplo: Criar um projeto bilíngue com licença MIT e Roadmap
-npx awesome-readme-templates --lang=both --license=mit --with-roadmap
+# Exemplo: Criar um projeto em espanhol com templates do GitHub e licença MIT
+awesome-readme --main-lang es --with-github --license mit
+
+# Exemplo: Instalar todos os templates em modo multilíngue
+awesome-readme --main-lang pt --langs en,es --all
 ```
 
 **Flags Disponíveis:**
-*   `--lang <en|pt|both>`: Define a estratégia de idioma.
+*   `--main-lang <en|pt|es>`: Define o idioma principal na raiz do projeto.
+*   `--langs <en,pt,es>`: Lista de idiomas adicionais separados por vírgula.
 *   `--license <name>`: Seleciona a licença (ex: mit, apache).
 *   `--all`: Instala todos os templates disponíveis.
-*   `--with-<template>`: Instala template específico (ex: `--with-contributing`, `--with-security`).
+*   `--with-<template>`: Instala template ou grupo específico (ex: `--with-contributing`, `--with-github`).
 
 ## 📂 Templates Incluídos
 
